@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  value: string | undefined;
   formGroup!: FormGroup;
   constructor(
     private authService: AuthServiceService,
