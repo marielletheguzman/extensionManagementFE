@@ -1,0 +1,25 @@
+<div
+  style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  "
+>
+  <div style="width: 25rem; padding: 1rem; border: 1px solid black">
+    <h2 style="text-align: center">Login Page</h2>
+    <form [formGroup]="formGroup" (ngSubmit)="loginProcess()">
+      <div style="margin-bottom: 1rem">
+        <label for="username">Username:</label>
+        <input type="text" id="username" formControlName="username" />
+      </div>
+      <div style="margin-bottom: 1rem">
+        <label for="password">Password:</label>
+        <input type="password" id="password" formControlName="password" />
+      </div>
+      <div style="text-align: center">
+        <button type="submit">Login</button>
+      </div>
+    </form>
+  </div>
+</div>
