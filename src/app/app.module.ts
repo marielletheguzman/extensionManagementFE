@@ -20,18 +20,30 @@ import { LoginComponent } from './Admin/login/login.component';
 import { LoginUserComponent } from './User/login-user/login-user.component';
 import { DashboardComponent } from './Admin/dashboard/dashboard.component';
 import { RegistrationUserComponent } from './User/registration-user/registration-user.component';
+import { ListOfProgramsComponent } from './User/list-of-programs/list-of-programs.component';
+import { ViewAssignedProgramsComponent } from './User/view-assigned-programs/view-assigned-programs.component';
+import { ProfileManagementComponent } from './User/profile-management/profile-management.component';
+import { ExtensionPartnersComponent } from './Admin/extension-partners/extension-partners.component';
+import { ManageExtensionComponent } from './Admin/manage-extension/manage-extension.component';
+import { PendinggAccountsComponent } from './Admin/pendingg-accounts/pendingg-accounts.component';
+import { ProgramsComponent } from './Admin/programs/programs.component';
 
 const admin: Routes = [
   // { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'extension-partners', component: ExtensionPartnersComponent },
+  { path: 'manage', component: ManageExtensionComponent },
+  { path: 'pending', component: PendinggAccountsComponent },
+  { path: 'programs', component: ProgramsComponent },
+  // { path: 'manage-accounts', component: ManageAccountsComponent },
 ];
 const user: Routes = [
-  { path: 'registration_user', component: RegistrationUserComponent },
+  { path: 'registration-user', component: RegistrationUserComponent },
   // { path: '', redirectTo: 'login_user', pathMatch: 'full' },
   // { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-  // { path: 'login_user', component: LoginUserComponent },
+  { path: 'login_user', component: LoginUserComponent },
 ];
 @NgModule({
   declarations: [
@@ -41,6 +53,10 @@ const user: Routes = [
     LoginUserComponent,
     DashboardComponent,
     RegistrationUserComponent,
+    ExtensionPartnersComponent,
+    ManageExtensionComponent,
+    PendinggAccountsComponent,
+    ProgramsComponent,
   ],
   imports: [
     BrowserModule,
