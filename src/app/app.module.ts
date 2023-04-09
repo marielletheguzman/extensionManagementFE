@@ -18,16 +18,20 @@ import { MessageService } from 'primeng/api';
 import { HomeComponent } from './Admin/home/home.component';
 import { LoginComponent } from './Admin/login/login.component';
 import { LoginUserComponent } from './User/login-user/login-user.component';
+import { DashboardComponent } from './Admin/dashboard/dashboard.component';
+import { RegistrationUserComponent } from './User/registration-user/registration-user.component';
 
 const admin: Routes = [
   // { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'dashboard', component: DashboardComponent },
 ];
 const user: Routes = [
-  { path: '', redirectTo: 'login_user', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'login_user', component: LoginUserComponent },
+  { path: 'registration_user', component: RegistrationUserComponent },
+  // { path: '', redirectTo: 'login_user', pathMatch: 'full' },
+  // { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  // { path: 'login_user', component: LoginUserComponent },
 ];
 @NgModule({
   declarations: [
@@ -35,13 +39,15 @@ const user: Routes = [
     LoginComponent,
     HomeComponent,
     LoginUserComponent,
+    DashboardComponent,
+    RegistrationUserComponent,
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot(admin),
-    RouterModule.forRoot(user),
+    // RouterModule.forRoot(user),
     ButtonModule,
     BrowserAnimationsModule,
     PasswordModule,
