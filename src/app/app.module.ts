@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms'; // Import the FormsModule
 
 import { AuthGuard } from './auth.guard';
 import { ButtonModule } from 'primeng/button';
@@ -79,6 +80,7 @@ const user: Routes = [
     InputTextModule,
     MessagesModule,
     ToastModule,
+    FormsModule,
   ],
   providers: [MessageService],
   bootstrap: [AppComponent],
