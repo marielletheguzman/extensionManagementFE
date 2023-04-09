@@ -47,7 +47,7 @@ const user: Routes = [
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot(admin),
-    // RouterModule.forRoot(user),
+    RouterModule.forRoot(user),
     ButtonModule,
     BrowserAnimationsModule,
     PasswordModule,

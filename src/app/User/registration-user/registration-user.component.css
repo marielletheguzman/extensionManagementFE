@@ -35,6 +35,9 @@ h1 {
   width: 100%;
   margin-top: 20px;
 }
+.form .input-box .gender {
+  margin-top: 27px;
+}
 .input-box label {
   color: #333;
 }
