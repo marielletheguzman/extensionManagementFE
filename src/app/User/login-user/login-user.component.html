@@ -1,0 +1,38 @@
+<head>
+  <link
+    href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <p-toast></p-toast>
+  <div class="container">
+    <div class="Midpart">
+      <div class="loginpage">
+        <h1>Login</h1>
+        <hr />
+
+        <form [formGroup]="formGroup" (ngSubmit)="loginProcess()">
+          <input
+            type="text"
+            pInputText
+            formControlName="email"
+            placeholder="Email"
+          />
+          <p-password
+            type="password"
+            placeholder="Password"
+            id="password"
+            formControlName="password"
+            [toggleMask]="true"
+            [style]="{ width: '380px', height: '60px' }"
+            [inputStyle]="{ width: '100%' }"
+          ></p-password>
+
+          <a href="#"><input type="submit" /></a>
+          <p><a href="#">Forgot Password ?</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>

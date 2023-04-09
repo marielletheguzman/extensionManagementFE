@@ -17,18 +17,25 @@ import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { HomeComponent } from './Admin/home/home.component';
 import { LoginComponent } from './Admin/login/login.component';
+import { LoginUserComponent } from './User/login-user/login-user.component';
 
 const admin: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  // { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
 ];
 const user: Routes = [
-  { path: '', redirectTo: 'login-user', pathMatch: 'full' },
+  { path: '', redirectTo: 'login_user', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'login_user', component: LoginUserComponent },
 ];
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HomeComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    HomeComponent,
+    LoginUserComponent,
+  ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
