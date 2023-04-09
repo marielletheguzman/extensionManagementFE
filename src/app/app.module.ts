@@ -27,6 +27,9 @@ import { ExtensionPartnersComponent } from './Admin/extension-partners/extension
 import { ManageExtensionComponent } from './Admin/manage-extension/manage-extension.component';
 import { PendinggAccountsComponent } from './Admin/pendingg-accounts/pendingg-accounts.component';
 import { ProgramsComponent } from './Admin/programs/programs.component';
+import { ManageAccountsComponent } from './Admin/manage-accounts/manage-accounts.component';
+import { OngoingPartnersComponent } from './Admin/ongoing-partners/ongoing-partners.component';
+import { ExpiredPartnersComponent } from './Admin/expired-partners/expired-partners.component';
 
 const admin: Routes = [
   // { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -37,13 +40,16 @@ const admin: Routes = [
   { path: 'manage', component: ManageExtensionComponent },
   { path: 'pending', component: PendinggAccountsComponent },
   { path: 'programs', component: ProgramsComponent },
-  // { path: 'manage-accounts', component: ManageAccountsComponent },
+  { path: 'manage-accounts', component: ManageAccountsComponent },
+  { path: 'ongoing', component: OngoingPartnersComponent },
+  { path: 'expired', component: ExpiredPartnersComponent },
 ];
 const user: Routes = [
   { path: 'registration-user', component: RegistrationUserComponent },
   // { path: '', redirectTo: 'login_user', pathMatch: 'full' },
   // { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login_user', component: LoginUserComponent },
+  { path: 'listOfPrograms', component: ListOfProgramsComponent },
 ];
 @NgModule({
   declarations: [
@@ -57,6 +63,9 @@ const user: Routes = [
     ManageExtensionComponent,
     PendinggAccountsComponent,
     ProgramsComponent,
+    ManageAccountsComponent,
+    OngoingPartnersComponent,
+    ExpiredPartnersComponent,
   ],
   imports: [
     BrowserModule,

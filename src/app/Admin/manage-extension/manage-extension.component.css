@@ -1,0 +1,122 @@
+.header1 {
+  text-align: center;
+  font-weight: bolder;
+  font-size: large;
+}
+
+.table-section {
+  height: 650px;
+  overflow: auto;
+}
+
+.search {
+  margin-top: 50px;
+  padding: 12px 20px;
+  color: #ffffff;
+  background-color: #3744fc;
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.search:hover {
+  background-color: rgba(51, 76, 179, 0.788);
+}
+
+.addextension {
+  margin-left: 47%;
+  padding: 12px 20px;
+  color: #ffffff;
+  background-color: #3744fc;
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.addextension:hover {
+  background-color: rgba(51, 76, 179, 0.788);
+}
+
+.searchbar {
+  margin-left: 15%;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border-style: ridge;
+  border-color: white;
+}
+
+table {
+  border-right: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  table-layout: fixed;
+  margin-top: 20px !important;
+  width: 70%;
+  margin: auto;
+  min-width: 1000px;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: rgb(221, 221, 221);
+  font-size: larger;
+  border-top: 1px solid #ddd;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: center;
+  word-break: break-all;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+  background-color: rgb(228, 227, 227);
+  cursor: pointer;
+}
+
+.view {
+  margin: 5px;
+  outline: none;
+  border: none;
+  color: white;
+  background-color: #3744fc;
+  border-radius: 6px;
+  padding: 8px 15px;
+}
+
+.view:hover {
+  cursor: pointer;
+  background-color: rgba(51, 76, 179, 0.788);
+}
+
+.upload {
+  margin-left: 10px;
+  outline: none;
+  border: none;
+  color: white;
+  background-color: green;
+  border-radius: 6px;
+  padding: 8px;
+}
+
+.upload:hover {
+  cursor: pointer;
+  background-color: rgb(102, 146, 102);
+}
+
+@media screen and (max-width: 600px) {
+  th,
+  td {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  th,
+  td {
+    font-size: 12px;
+  }
+}

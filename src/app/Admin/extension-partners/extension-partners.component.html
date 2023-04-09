@@ -1,1 +1,104 @@
-<p>extension-partners works!</p>
+<!-- <p>extension-partners works!</p> -->
+<body>
+  <!-- <div class="whole">
+    <input type="checkbox" id="check" />
+    <label for="check">
+      <i class="fa fa-bars" id="btn"></i>
+      <i class="fa fa-times" id="cancel"></i>
+    </label>
+
+    <div class="sidebar">
+      <header>CICT Office Extension Management System</header>
+
+      <ul>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Pending Accounts</a></li>
+        <li><a href="#">Manage Accounts</a></li>
+        <li><a href="#">Manage Extension</a></li>
+        <li><a href="#">Programs</a></li>
+        <li><a href="#">Extention Partners</a></li>
+        <li><a href="#" class="logout">LOG-OUT</a></li>
+      </ul>
+    </div> -->
+
+  <section>
+    <form>
+      <h2>ADD EXTENSION PARTNER</h2>
+      <div class="formcontainer">
+        <div class="group-container">
+          <div class="form-group">
+            <label for="exampleInputEmail1"
+              >Extension&nbsp;partner&nbsp;name:</label
+            ><br />
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Partner Name"
+            />
+            <br />
+            <label for="exampleInputEmail1">Contact Person:</label><br />
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Contact Person name"
+            /><br /><br />
+            <label>Extension Logo:</label><br />
+            <input type="file" id="myfile" name="myfile" />
+            <br />
+            <label>MOA (file):</label><br />
+            <input type="file" id="myfile" name="myfile" />
+          </div>
+          <br />
+          <div class="form-group">
+            <label for="exampleInputEmail1">Address:</label><br />
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Address"
+            />
+            <br />
+            <label for="exampleInputEmail1">Contact Number:</label><br />
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Contact Number"
+            /><br />
+            <div class="datecontainer">
+              <div>
+                <label class="date">Start Date:</label><br />
+                <input type="date" id="sdate" name="startdate" />
+              </div>
+              <div>
+                <label class="date">End Date:</label> <br /><input
+                  type="date"
+                  id="edate"
+                  name="enddate"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="botton">
+          <button type="submit" class="btn btn-primary" id="bot">Add</button>
+        </div>
+      </div>
+    </form>
+  </section>
+  <!-- </div> -->
+  <script>
+    $(document).ready(function () {
+      $("#sidebarCollapse").on("click", function () {
+        $("#sidebar").toggleClass("active");
+        $(this).toggleClass("active");
+      });
+    });
+  </script>
+</body>

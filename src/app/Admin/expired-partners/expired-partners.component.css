@@ -24,7 +24,8 @@
   background-color: rgba(51, 76, 179, 0.788);
 }
 
-.sort {
+.addextension {
+  margin-left: 47%;
   padding: 12px 20px;
   color: #ffffff;
   background-color: #3744fc;
@@ -34,7 +35,7 @@
   cursor: pointer;
 }
 
-.sort:hover {
+.addextension:hover {
   background-color: rgba(51, 76, 179, 0.788);
 }
 
@@ -44,13 +45,6 @@
   border-radius: 6px;
   border-style: ridge;
   border-color: white;
-}
-
-.sortdropdown {
-  margin-left: 3%;
-  padding: 10px;
-  border-radius: 6px;
-  border-color: rgb(182, 180, 180);
 }
 
 table {
@@ -83,34 +77,19 @@ tbody tr:hover {
   cursor: pointer;
 }
 
-.edit {
+.renew {
   margin: 5px;
   outline: none;
   border: none;
   color: white;
-  background-color: #3744fc;
+  background-color: green;
   border-radius: 6px;
-  padding: 8px 19px;
+  padding: 8px 15px;
 }
 
-.edit:hover {
+.renew:hover {
   cursor: pointer;
-  background-color: rgba(51, 76, 179, 0.788);
-}
-
-.archive {
-  margin-left: 10px;
-  outline: none;
-  border: none;
-  color: white;
-  background-color: #aa1212;
-  border-radius: 6px;
-  padding: 8px;
-}
-
-.archive:hover {
-  cursor: pointer;
-  background-color: #a14040;
+  background-color: rgb(102, 146, 102);
 }
 
 @media screen and (max-width: 600px) {
