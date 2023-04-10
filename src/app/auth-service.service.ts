@@ -15,7 +15,7 @@ export class AuthServiceService {
   login(data: LoginData): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `${this.token}`);
     return this.http.post(
-      `http://localhost/ev1/controllers/admin/admin-login.php`,
+      `http://localhost/extensionManagementRestAPI/controllers/admin/admin-login.php`,
       data,
       { headers }
     );
