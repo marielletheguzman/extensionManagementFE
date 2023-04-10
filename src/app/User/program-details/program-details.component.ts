@@ -20,6 +20,7 @@ export class ProgramDetailsComponent {
 
     this.programService.getProgram(id).subscribe((data: any) => {
       this.program = data;
+      console.log(this.program);
     });
   }
 }

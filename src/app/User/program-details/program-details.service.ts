@@ -15,7 +15,7 @@ export class ProgramDetailsService {
       `${localStorage.getItem('token')}`
     );
     return this.http.get(
-      `http://localhost/ev1/controllers/users/show_specific_program.php?id=${id}`,
+      `http://localhost/extensionManagementRestAPI/controllers/users/show_specific_program.php?id=${id}`,
       {
         headers,
       }

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class ServicesService {
+export class UserAuthService {
   private token: string | null | undefined;
 
   constructor(private http: HttpClient) {
@@ -56,6 +56,6 @@ export class ServicesService {
 }
 
 interface LoginData {
-  username: string;
+  email: string;
   password: string;
 }

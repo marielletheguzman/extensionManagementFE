@@ -1,0 +1,46 @@
+* {
+  color: #404040;
+}
+.program-content {
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color: rgb(255, 255, 255);
+  padding-bottom: 50px;
+  padding-top: 50px;
+  margin-bottom: 50px;
+}
+
+h1 p {
+  display: inline-block;
+}
+p {
+  font-weight: 600;
+}
+
+p {
+  font-size: 15px;
+}
+h5 {
+  font-weight: 500;
+  font-size: 15px;
+}
+h5 p {
+  display: inline;
+}
+
+.details {
+  padding-top: 20px;
+  display: inline;
+  text-align: center;
+}
+.table {
+  margin-top: 5%;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.certificate {
+  height: 350px;
+  width: auto;
+}

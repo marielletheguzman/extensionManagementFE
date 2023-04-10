@@ -28,7 +28,6 @@ import { ViewAssignedProgramsComponent } from './User/view-assigned-programs/vie
 import { ProfileManagementComponent } from './User/profile-management/profile-management.component';
 import { ExtensionPartnersComponent } from './Admin/extension-partners/extension-partners.component';
 import { ManageExtensionComponent } from './Admin/manage-extension/manage-extension.component';
-import { PendinggAccountsComponent } from './Admin/pendingg-accounts/pendingg-accounts.component';
 import { ProgramsComponent } from './Admin/programs/programs.component';
 import { ManageAccountsComponent } from './Admin/manage-accounts/manage-accounts.component';
 import { OngoingPartnersComponent } from './Admin/ongoing-partners/ongoing-partners.component';
@@ -38,15 +37,21 @@ import { ShowListComponent } from './User/show-list/show-list.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { PaginatorModule } from 'primeng/paginator';
 import { ProgramDetailsComponent } from './User/program-details/program-details.component';
+import { PendingAccountComponent } from './User/pending-account/pending-account.component';
+import { UserGuard } from './user.guard';
 
 const admin: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
+  {
+    path: 'pending',
+    component: PendingAccountComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'extension-partners', component: ExtensionPartnersComponent },
   { path: 'manage', component: ManageExtensionComponent },
-  { path: 'pending', component: PendinggAccountsComponent },
   { path: 'programs', component: ProgramsComponent },
   { path: 'manage-accounts', component: ManageAccountsComponent },
   { path: 'ongoing', component: OngoingPartnersComponent },
@@ -57,8 +62,12 @@ const user: Routes = [
   // { path: '', redirectTo: 'login_user', pathMatch: 'full' },
   // { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login_user', component: LoginUserComponent },
-  { path: 'list', component: ShowListComponent, canActivate: [AuthGuard] },
-  { path: 'program-details/:id', component: ProgramDetailsComponent },
+  { path: 'list', component: ShowListComponent, canActivate: [UserGuard] },
+  {
+    path: 'program-details/:id',
+    component: ProgramDetailsComponent,
+    canActivate: [UserGuard],
+  },
 ];
 @NgModule({
   declarations: [
@@ -70,7 +79,6 @@ const user: Routes = [
     RegistrationUserComponent,
     ExtensionPartnersComponent,
     ManageExtensionComponent,
-    PendinggAccountsComponent,
     ProgramsComponent,
     ManageAccountsComponent,
     OngoingPartnersComponent,
@@ -79,6 +87,7 @@ const user: Routes = [
     ShowListComponent,
     LandingPageComponent,
     ProgramDetailsComponent,
+    PendingAccountComponent,
   ],
   imports: [
     BrowserModule,

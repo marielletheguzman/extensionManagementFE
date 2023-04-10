@@ -1,1 +1,20 @@
-<p>program-details works!</p>
+<div style="background-color: rgb(255, 248, 238); height: auto">
+  <app-top-nav></app-top-nav>
+  <br /><br /><br /><br /><br /><br />
+  <div *ngIf="program">
+    <h2>{{ program.programTitle }}</h2>
+    <p><strong>Program Lead:</strong> {{ program.programLead }}</p>
+    <p><strong>Place:</strong> {{ program.place }}</p>
+    <p><strong>Partner:</strong> {{ program.partner }}</p>
+    <p><strong>Start Date:</strong> {{ program.startDate }}</p>
+    <p><strong>End Date:</strong> {{ program.endDate }}</p>
+    <p><strong>Additional Details:</strong> {{ program.additionalDetails }}</p>
+
+    <h3>Program Members:</h3>
+    <ul>
+      <li *ngFor="let member of program.programMembers">
+        {{ member.user }} - {{ member.position }}
+      </li>
+    </ul>
+  </div>
+</div>

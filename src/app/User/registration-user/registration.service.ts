@@ -5,7 +5,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class RegistrationService {
-  private apiUrl = 'http://localhost/ev1/controllers/users/create_account.php';
+  private apiUrl =
+    'http://localhost/extensionManagementRestAPI/controllers/users/create_account.php';
 
   constructor(private http: HttpClient) {}
 

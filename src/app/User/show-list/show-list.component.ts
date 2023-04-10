@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthServiceService } from 'src/app/auth-service.service';
 import { ProgramListService } from './program-list.service';
 import jwt_decode from 'jwt-decode';
+import { UserAuthService } from 'src/app/user-auth.service';
 
 @Component({
   selector: 'app-show-list',
@@ -22,7 +23,7 @@ export class ShowListComponent {
   }[] = [];
 
   constructor(
-    private authService: AuthServiceService,
+    private authService: UserAuthService,
     private router: Router,
     private programService: ProgramListService
   ) {}

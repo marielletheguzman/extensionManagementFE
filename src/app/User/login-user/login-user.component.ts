@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { Message, MessageService } from 'primeng/api';
 import { timer } from 'rxjs';
 import { ServicesService } from '../services.service';
+import { AuthServiceService } from 'src/app/auth-service.service';
+import { UserAuthService } from 'src/app/user-auth.service';
 
 @Component({
   selector: 'app-login-user',
@@ -16,7 +18,7 @@ export class LoginUserComponent implements OnInit {
   messages!: Message[];
 
   constructor(
-    private authService: ServicesService,
+    private authService: UserAuthService,
     private router: Router,
     private messageService: MessageService // Inject MessageService here
   ) {}
