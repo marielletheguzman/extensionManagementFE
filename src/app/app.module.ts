@@ -21,7 +21,9 @@ import { LoginComponent } from './Admin/login/login.component';
 import { LoginUserComponent } from './User/login-user/login-user.component';
 import { DashboardComponent } from './Admin/dashboard/dashboard.component';
 import { RegistrationUserComponent } from './User/registration-user/registration-user.component';
-import { ListOfProgramsComponent } from './User/list-of-programs/list-of-programs.component';
+
+import { TableModule } from 'primeng/table';
+
 import { ViewAssignedProgramsComponent } from './User/view-assigned-programs/view-assigned-programs.component';
 import { ProfileManagementComponent } from './User/profile-management/profile-management.component';
 import { ExtensionPartnersComponent } from './Admin/extension-partners/extension-partners.component';
@@ -31,9 +33,14 @@ import { ProgramsComponent } from './Admin/programs/programs.component';
 import { ManageAccountsComponent } from './Admin/manage-accounts/manage-accounts.component';
 import { OngoingPartnersComponent } from './Admin/ongoing-partners/ongoing-partners.component';
 import { ExpiredPartnersComponent } from './Admin/expired-partners/expired-partners.component';
+import { TopNavComponent } from './User/top-nav/top-nav.component';
+import { ShowListComponent } from './User/show-list/show-list.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { PaginatorModule } from 'primeng/paginator';
+import { ProgramDetailsComponent } from './User/program-details/program-details.component';
 
 const admin: Routes = [
-  // { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', component: LandingPageComponent },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
@@ -50,7 +57,8 @@ const user: Routes = [
   // { path: '', redirectTo: 'login_user', pathMatch: 'full' },
   // { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login_user', component: LoginUserComponent },
-  { path: 'listOfPrograms', component: ListOfProgramsComponent },
+  { path: 'list', component: ShowListComponent, canActivate: [AuthGuard] },
+  { path: 'program-details/:id', component: ProgramDetailsComponent },
 ];
 @NgModule({
   declarations: [
@@ -67,6 +75,10 @@ const user: Routes = [
     ManageAccountsComponent,
     OngoingPartnersComponent,
     ExpiredPartnersComponent,
+    TopNavComponent,
+    ShowListComponent,
+    LandingPageComponent,
+    ProgramDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,6 +93,8 @@ const user: Routes = [
     MessagesModule,
     ToastModule,
     FormsModule,
+    TableModule,
+    PaginatorModule,
   ],
   providers: [MessageService],
   bootstrap: [AppComponent],

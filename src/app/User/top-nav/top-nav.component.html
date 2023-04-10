@@ -1,0 +1,48 @@
+<head>
+  <link
+    href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+  <!-- Color should be changed accordingly -->
+  <header style="background-color: rgb(225, 126, 64)">
+    <a href="#" class="logo"
+      ><i class="ri-home-heart-fill"></i
+      ><img
+        src="https://rmopaps.bulsu-ovprde.com/img/logo/bulsu-logo.png"
+        alt=""
+        class="companyLogo"
+    /></a>
+    <ul class="navigation" id="nav">
+      <li><a href="faculty/programs"> Programs</a></li>
+      <li><a href="faculty/profile">Profile</a></li>
+      <li><a href="faculty/reports">Reports</a></li>
+    </ul>
+    <div class="main">
+      <a href="#" class="logout" (click)="onLogoutClick()"> Logout</a>
+      <div class="bx bx-menu" id="menu-icon"></div>
+    </div>
+  </header>
+
+  <script>
+    let menu = document.querySelector("#menu-icon");
+    let navigation = document.querySelector(".navigation");
+
+    menu.addEventListener("click", function () {
+      if (menu.classList.toggle("bx-x")) {
+        navigation.classList.toggle("open");
+      } else {
+        navigation.classList.toggle("open");
+      }
+    });
+  </script>
+</body>

@@ -8,7 +8,7 @@
   /* ===== Colors ===== */
   --primary-color: rgb(222, 220, 224);
   --panel-color: #fff;
-  --text-color: #000;
+  --text-color: #9f9f9f;
   --black-light-color: #707070;
   --border-color: #e6e5e5;
   --toggle-color: #ddd;
@@ -34,9 +34,9 @@ body.dark {
   --black-light-color: #ccc;
   --border-color: #4d4c4c;
   --toggle-color: #fff;
-  --box1-color: #3a3b3c;
-  --box2-color: #3a3b3c;
-  --box3-color: #3a3b3c;
+  --box1-color: #ffffff;
+  --box2-color: #ffffff;
+  --box3-color: #ffffff;
   --title-icon-color: #ccc;
 }
 /* === Custom Scroll Bar CSS === */
@@ -55,11 +55,20 @@ body.dark {
 ::-webkit-scrollbar-thumb:hover {
   background: #0b3cc1;
 }
-
 body.dark::-webkit-scrollbar-thumb:hover,
 body.dark .activity-data::-webkit-scrollbar-thumb:hover {
   background: #3a3b3c;
 }
+/* .overview {
+  background-color: white;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-top: 5px;
+  margin-top: 10px;
+} */
 
 nav {
   position: fixed;
@@ -202,7 +211,7 @@ body.dark .switch:before {
 
 .dashboard {
   position: relative;
-  left: 250px;
+  left: 100px;
   background-color: var(--panel-color);
   min-height: 100vh;
   width: calc(100% - 250px);
@@ -307,12 +316,13 @@ nav.close ~ .dashboard .top {
   border-radius: 20px;
   width: calc(100% / 4 - 20px);
   padding: 15px 20px;
-  background-color: #707070;
+  background-color: #ffffff;
   transition: var(--tran-05);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .boxes .box i {
   font-size: 35px;
-  color: var(--text-color);
+  color: #7f7f7f;
 }
 .boxes .box .text {
   white-space: nowrap;
@@ -326,10 +336,10 @@ nav.close ~ .dashboard .top {
   color: var(--text-color);
 }
 .boxes .box.box2 {
-  background-color: #6b7280;
+  background-color: #ffffff;
 }
 .boxes .box.box3 {
-  background-color: #6b7280;
+  background-color: #ffffff;
 }
 .dash-content .activity .activity-data {
   display: flex;
