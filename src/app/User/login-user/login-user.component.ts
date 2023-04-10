@@ -50,7 +50,7 @@ export class LoginUserComponent implements OnInit {
             .toPromise()
             .then((done) => {
               this.authService.setToken(result.token);
-              this.router.navigate(['/home']);
+              this.router.navigate(['/list']);
             });
           // this.router.navigate(['/home']);
           console.log('success');
