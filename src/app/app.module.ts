@@ -25,7 +25,6 @@ import { RegistrationUserComponent } from './User/registration-user/registration
 import { TableModule } from 'primeng/table';
 
 import { ViewAssignedProgramsComponent } from './User/view-assigned-programs/view-assigned-programs.component';
-import { ProfileManagementComponent } from './User/profile-management/profile-management.component';
 import { ExtensionPartnersComponent } from './Admin/extension-partners/extension-partners.component';
 import { ManageExtensionComponent } from './Admin/manage-extension/manage-extension.component';
 import { ProgramsComponent } from './Admin/programs/programs.component';
@@ -39,6 +38,7 @@ import { PaginatorModule } from 'primeng/paginator';
 import { ProgramDetailsComponent } from './User/program-details/program-details.component';
 import { PendingAccountComponent } from './User/pending-account/pending-account.component';
 import { UserGuard } from './user.guard';
+import { EditProfileComponent } from './User/edit-profile/edit-profile.component';
 
 const admin: Routes = [
   { path: '', component: LandingPageComponent },
@@ -62,7 +62,7 @@ const user: Routes = [
   // { path: '', redirectTo: 'login_user', pathMatch: 'full' },
   // { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login_user', component: LoginUserComponent },
-  { path: 'edit-profile', component: ProfileManagementComponent },
+  { path: 'edit-profile', component: EditProfileComponent },
   { path: 'list', component: ShowListComponent, canActivate: [UserGuard] },
   {
     path: 'program-details/:id',
@@ -89,6 +89,7 @@ const user: Routes = [
     LandingPageComponent,
     ProgramDetailsComponent,
     PendingAccountComponent,
+    EditProfileComponent,
   ],
   imports: [
     BrowserModule,
