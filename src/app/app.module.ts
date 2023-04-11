@@ -62,6 +62,7 @@ const user: Routes = [
   // { path: '', redirectTo: 'login_user', pathMatch: 'full' },
   // { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login_user', component: LoginUserComponent },
+  { path: 'edit-profile', component: ProfileManagementComponent },
   { path: 'list', component: ShowListComponent, canActivate: [UserGuard] },
   {
     path: 'program-details/:id',
