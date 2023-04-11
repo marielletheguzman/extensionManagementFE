@@ -11,6 +11,12 @@ export class DashboardComponent {
   let sidebar = document.querySelector(".sidebar");
   sidebar?.classList.toggle("active");
   }
+
+myLogout() {
+  // let btn = document.querySelector("#btn");
+  let sidebar = document.querySelector(".sidebar");
+  sidebar?.classList.toggle("active");
+  }
 }
 // export class SidenavComponent {
 //   sidenavOpened = false;
