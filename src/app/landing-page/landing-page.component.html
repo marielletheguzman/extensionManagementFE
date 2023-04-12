@@ -3,10 +3,12 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
 />
 
-<nav style="background-color: rgb(250, 150, 57)">
+<nav style="background-color: {{ systemProfile.ThemeColor }}">
   <div class="logo">
     <img
-      src="https://rmopaps.bulsu-ovprde.com/img/logo/bulsu-logo.png"
+      src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
+        systemProfile.Logo
+      }}"
       alt=""
       class="companyLogo"
     />
@@ -15,7 +17,7 @@
   <label for="click" class="menu-btn">
     <i class="fas fa-bars"></i>
   </label>
-  <ul style="background-color: rgb(250, 150, 57)">
+  <ul style="background-color:{{ systemProfile.ThemeColor }}">
     <li><a routerLink="/login_user" class="sign-text">Login</a></li>
     <li><a href="/signup" class="sign-text">Sign Up</a></li>
   </ul>
@@ -44,11 +46,15 @@
 
 <div
   class="content-container"
-  style="display:inline-block; background-color: {{ hexToRgbA(hex, alpha) }}"
+  style="display: inline-block; background-color: {{
+    hexToRgbA(systemProfile.ThemeColor, alpha)
+  }}"
 >
   <div class="companyImage">
     <img
-      src="{{ company.companyImage }}"
+      src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
+        systemProfile.MainImg
+      }}"
       alt=""
       style="
         max-width: 100%;
@@ -61,9 +67,10 @@
     />
   </div>
   <div class="companyContent">
-    <h2>{{ company.companyTitle }}</h2>
+    <!-- change the url for this -->
+    <h2>{{ systemProfile.WebsiteName }}</h2>
     <br />
-    <p>{{ company.companyDescription }}</p>
+    <p>{{ systemProfile.Description }}</p>
   </div>
 </div>
 

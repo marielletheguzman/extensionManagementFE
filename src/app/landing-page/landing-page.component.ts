@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { homepage } from './homepage-data';
+import { LandingService } from './landing.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-landing-page',
@@ -7,18 +9,28 @@ import { homepage } from './homepage-data';
   styleUrls: ['./landing-page.component.css'],
 })
 export class LandingPageComponent {
-  company: homepage = {
-    upperNavColor: '#1e0550',
-    companyLogo: 'https://bulsu.edu.ph/resources/colleges-logo/CICT.png',
-    companyName: 'College of Information Communication & Technology',
-    companyTitle: 'Extension Office Management System',
-    companyDescription:
-      'Sed sed sem diam. Aliquam velit odio, faucibus vel eleifend nec, blandit ac elit. Donec in est ullamcorper, finibus mi sit amet, molestie nulla. Sed velit purus, imperdiet et ultricies vel, placerat vitae nulla. Etiam nisl ipsum, laoreet nec quam in, molestie consequat sem. Proin vulputate vitae massa vel facilisis. Aliquam erat volutpat. Sed eleifend tempus d',
-    companyImage:
-      'https://www.bulakenyo.ph/wp-content/uploads/2021/08/parallax-bg2.jpg',
+  systemProfile = {
+    Logo: '',
+    WebsiteName: '',
+    ThemeColor: '',
+    Description: '',
+    MainImg: '',
   };
-  alpha = 0.05;
-  hex = this.company.upperNavColor;
+
+  constructor(
+    private landingService: LandingService,
+    private http: HttpClient
+  ) {}
+
+  alpha = 0.04;
+  hex = this.systemProfile.ThemeColor;
+
+  ngOnInit() {
+    this.landingService.getSystemProfile().subscribe((data: any) => {
+      this.systemProfile = data;
+      console.log(this.systemProfile);
+    });
+  }
 
   hexToRgbA(hex: string, alpha: number) {
     var r = parseInt(hex.slice(1, 3), 16),
