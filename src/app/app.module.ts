@@ -19,10 +19,10 @@ import { MessageService } from 'primeng/api';
 import { HomeComponent } from './Admin/home/home.component';
 import { LoginComponent } from './Admin/login/login.component';
 import { LoginUserComponent } from './User/login-user/login-user.component';
-import { DashboardComponent } from './Admin/dashboard/dashboard.component';
 import { RegistrationUserComponent } from './User/registration-user/registration-user.component';
 
 import { TableModule } from 'primeng/table';
+import { ChartModule } from 'primeng/chart';
 
 import { ViewAssignedProgramsComponent } from './User/view-assigned-programs/view-assigned-programs.component';
 import { ExtensionPartnersComponent } from './Admin/extension-partners/extension-partners.component';
@@ -36,9 +36,32 @@ import { ShowListComponent } from './User/show-list/show-list.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { PaginatorModule } from 'primeng/paginator';
 import { ProgramDetailsComponent } from './User/program-details/program-details.component';
-import { PendingAccountComponent } from './User/pending-account/pending-account.component';
+import { PendingAccountComponent } from './Admin/pending-account/pending-account.component';
 import { UserGuard } from './user.guard';
 import { EditProfileComponent } from './User/edit-profile/edit-profile.component';
+import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard.component';
+import { SideNavComponent } from './Admin/side-nav/side-nav.component';
+
+const admins: Routes = [
+  {
+    path: 'admin',
+    component: SideNavComponent,
+    children: [
+      {
+        path: 'dashboard',
+        component: AdminDashboardComponent,
+      },
+      {
+        path: 'manage',
+        component: ExtensionPartnersComponent,
+      },
+      {
+        path: 'pending',
+        component: PendingAccountComponent,
+      },
+    ],
+  },
+];
 
 const admin: Routes = [
   { path: '', component: LandingPageComponent },
@@ -49,21 +72,23 @@ const admin: Routes = [
     component: PendingAccountComponent,
     canActivate: [AuthGuard],
   },
-  { path: 'dashboard', component: DashboardComponent },
+  // { path: 'dashboard', component: AdminDashboardComponent },
+  { path: 'side', component: SideNavComponent },
   { path: 'extension-partners', component: ExtensionPartnersComponent },
-  { path: 'manage', component: ManageExtensionComponent },
+  // { path: 'manage', component: ManageExtensionComponent },
   { path: 'programs', component: ProgramsComponent },
   { path: 'manage-accounts', component: ManageAccountsComponent },
   { path: 'ongoing', component: OngoingPartnersComponent },
   { path: 'expired', component: ExpiredPartnersComponent },
 ];
 const user: Routes = [
-  { path: 'registration-user', component: RegistrationUserComponent },
+  { path: 'registration', component: RegistrationUserComponent },
   // { path: '', redirectTo: 'login_user', pathMatch: 'full' },
   // { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login_user', component: LoginUserComponent },
   { path: 'edit-profile', component: EditProfileComponent },
-  { path: 'list', component: ShowListComponent, canActivate: [UserGuard] },
+  // canActivate: [UserGuard]
+  { path: 'list', component: ShowListComponent },
   {
     path: 'program-details/:id',
     component: ProgramDetailsComponent,
@@ -76,7 +101,6 @@ const user: Routes = [
     LoginComponent,
     HomeComponent,
     LoginUserComponent,
-    DashboardComponent,
     RegistrationUserComponent,
     ExtensionPartnersComponent,
     ManageExtensionComponent,
@@ -90,12 +114,15 @@ const user: Routes = [
     ProgramDetailsComponent,
     PendingAccountComponent,
     EditProfileComponent,
+    AdminDashboardComponent,
+    SideNavComponent,
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot(admin),
+    RouterModule.forRoot(admins),
     RouterModule.forRoot(user),
     ButtonModule,
     BrowserAnimationsModule,
@@ -106,6 +133,7 @@ const user: Routes = [
     FormsModule,
     TableModule,
     PaginatorModule,
+    ChartModule,
   ],
   providers: [MessageService],
   bootstrap: [AppComponent],

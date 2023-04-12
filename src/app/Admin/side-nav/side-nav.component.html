@@ -1,98 +1,120 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Responsive Sidebar Menu</title>
-  <link rel="stylesheet" href="dashboard.component.css">
   <!--Boxicons CDN link -->
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link
+    href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+    rel="stylesheet"
+  />
 </head>
 <body>
-  <div class="sidebar">
+  <div class="sidebar" style="background-color: {{ systemProfile.ThemeColor }}">
     <div class="logo_content">
       <div class="logo">
-        <i class='bx bx-buildings' ></i>
-        <div class="logo_name">CICT Extension Office System</div>
+        <img
+          src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
+            systemProfile.Logo
+          }}"
+          alt=""
+          style="height: 50px; width: 50px"
+        />
+        <div class="logo_name" style="font-size: 15px">
+          {{ systemProfile.WebsiteName }}
+        </div>
       </div>
       <!-- <button (click)="myFunction()" class="ngBtn"><i class='bx bx-menu' id="btn" ></i></button> -->
-      <i class='bx bx-menu' id="btn" (click)="toggleNav()"></i>
+      <i class="bx bx-menu" id="btn" (click)="toggleNav()"></i>
     </div>
     <ul class="nav_list">
       <li>
         <a href="#">
-          <i class='bx bx-grid-alt' ></i>
+          <i class="bx bx-grid-alt"></i>
           <span class="links_name">Dashboard</span>
         </a>
         <span class="tooltip">Dashboard</span>
       </li>
       <li>
         <a href="#">
-          <i class='bx bx-user-check' ></i>
+          <i class="bx bx-user-check"></i>
           <span class="links_name">Pending Accounts</span>
         </a>
         <span class="tooltip">Pending Accounts</span>
       </li>
       <li>
         <a href="#">
-          <i class='bx bx-user' ></i>
+          <i class="bx bx-user"></i>
           <span class="links_name">Manage Accounts</span>
         </a>
         <span class="tooltip">Manage Accounts</span>
       </li>
       <li>
         <a href="#">
-          <i class='bx bx-extension' ></i>
+          <i class="bx bx-extension"></i>
           <span class="links_name">Manage Extension</span>
         </a>
         <span class="tooltip">Manage Extension</span>
       </li>
       <li>
         <a href="#">
-          <i class='bx bx-list-ul' ></i>
+          <i class="bx bx-list-ul"></i>
           <span class="links_name">Programs</span>
         </a>
         <span class="tooltip">Programs</span>
       </li>
       <li>
         <a href="#">
-          <i class='bx bx-link-external' ></i>
+          <i class="bx bx-link-external"></i>
           <span class="links_name">Extension Partners</span>
         </a>
         <span class="tooltip">Extension Partners</span>
       </li>
       <li>
         <a href="#">
-          <i class='bx bx-lock-open' ></i>
+          <i class="bx bx-lock-open"></i>
           <span class="links_name">Reset Password</span>
         </a>
         <span class="tooltip">Reset Password</span>
       </li>
       <li>
         <a href="#">
-          <i class='bx bx-cog' ></i>
+          <i class="bx bx-cog"></i>
           <span class="links_name">Settings</span>
         </a>
         <span class="tooltip">Settings</span>
       </li>
-      </ul>
-      <div class="profile_content">
-        <div class="profile">
-          <div class="profile_details">
-            <!-- <img src="/icon/admin_profile.png" alt=""> -->
-            <!-- <i class='bx bx-user-circle'></i> -->
-            <img src="https://img.icons8.com/ios/50/000000/admin-settings-male.png"/>            
-            <div class="user_admin">
-              <div class="name">Admin</div>
-            </div>
+    </ul>
+    <div class="profile_content">
+      <div class="profile">
+        <div class="profile_details">
+          <!-- <img src="/icon/admin_profile.png" alt=""> -->
+          <!-- <i class='bx bx-user-circle'></i> -->
+          <img
+            src="https://img.icons8.com/ios/50/000000/admin-settings-male.png"
+          />
+          <div class="user_admin">
+            <div class="name">Admin</div>
           </div>
-          <i class='bx bx-log-out' id="log_out" (click)="myLogout()" ></i>
         </div>
+
+        <!-- Darker color here -->
+        <i
+          class="bx bx-log-out logout"
+          id="log_out"
+          (click)="myLogout()"
+          style="background-color: {{
+            hexToRgbA(systemProfile.ThemeColor, alpha)
+          }}"
+        ></i>
       </div>
+    </div>
   </div>
-  <div class="home_content">
-    <div class="text">Home Content Here! </div>
+  <div
+    class="home_content"
+    style="background-color: {{ hexToRgbA(systemProfile.ThemeColor, alpha) }}"
+  >
+    <router-outlet></router-outlet>
   </div>
 
   <!-- <script>
@@ -104,6 +126,4 @@
     }
 
   </script> -->
-  
 </body>
-</html>

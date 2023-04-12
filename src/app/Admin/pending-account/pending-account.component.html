@@ -1,0 +1,77 @@
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+/>
+<div class="card">
+  <h1>Assigned Programs</h1>
+  <br />
+  <input
+    pInputText
+    type="text"
+    (input)="myTab.filterGlobal($any($event.target).value, 'contains')"
+    placeholder="Search"
+    class="searchField"
+  />
+  <br /><br />
+  <p-table
+    #myTab
+    [value]="pendingAccounts"
+    [tableStyle]="{ 'min-width': '60rem' }"
+    [paginator]="true"
+    [rows]="5"
+    [globalFilterFields]="[
+      'programTitle',
+      'partner',
+      'programLead',
+      'place',
+      'startDate',
+      'endDate'
+    ]"
+    styleClass="p-datatable-gridlines"
+    [resizableColumns]="true"
+    [autoLayout]="true"
+    class="tbl"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="id" style="width: 16%">
+          Program Title <p-sortIcon field="code"></p-sortIcon>
+        </th>
+        <th pSortableColumn="programLead" style="width: 16%">
+          Program Lead<p-sortIcon field="name"></p-sortIcon>
+        </th>
+        <th pSortableColumn="place" style="width: 16%">
+          Place <p-sortIcon field="category"></p-sortIcon>
+        </th>
+
+        <th pSortableColumn="extensionPartner" style="width: 16%">
+          Extension Partner <p-sortIcon field="price"></p-sortIcon>
+        </th>
+        <th pSortableColumn="startDate" style="width: 16%">
+          Start Date <p-sortIcon field="price"></p-sortIcon>
+        </th>
+        <th pSortableColumn="endDate" style="width: 16%">
+          End Date <p-sortIcon field="price"></p-sortIcon>
+        </th>
+        <th pSortableColumn="viewDetails" style="width: 16%">
+          View Details <p-sortIcon field="price"></p-sortIcon>
+        </th>
+      </tr>
+    </ng-template>
+    <th *ngFor="let obj of pendingAccounts"></th>
+    <ng-template pTemplate="body" let-program>
+      <tr>
+        <td>{{ program.programTitle }}</td>
+        <td>{{ program.programLead }}</td>
+        <td>{{ program.place }}</td>
+        <td>{{ program.partner }}</td>
+        <td>{{ program.startDate }}</td>
+        <td>{{ program.endDate }}</td>
+        <td>
+          <!-- (click)="onView(program.id)" -->
+          <p-button label="View"></p-button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

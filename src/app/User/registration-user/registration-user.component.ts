@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { RegistrationService } from './registration.service';
+import { timer } from 'rxjs';
+import { Router } from '@angular/router';
+import { Message, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-registration-user',
@@ -15,8 +18,15 @@ export class RegistrationUserComponent {
     password: new FormControl(''),
     profilePicture: new FormControl(undefined),
   });
+  messages!: Message[];
 
-  constructor(private registrationService: RegistrationService) {}
+  constructor(
+    private registrationService: RegistrationService,
+    private router: Router,
+    private messageService: MessageService
+  ) {}
+
+  ngOnInit() {}
 
   onSubmit() {
     const formData = new FormData();
@@ -44,10 +54,23 @@ export class RegistrationUserComponent {
 
     this.registrationService.register(formData).subscribe(
       (response) => {
-        console.log('Registration successful');
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Registered in Successfully',
+        });
+        timer(1000)
+          .toPromise()
+          .then((done) => {
+            this.router.navigate(['']);
+          });
       },
       (error) => {
-        console.log('Registration failed');
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: error.error.message,
+        });
       }
     );
   }

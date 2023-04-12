@@ -15,7 +15,7 @@ export class PendingAccountService {
       `${localStorage.getItem('token')}`
     );
     return this.http.get(
-      `http://localhost/extensionManagementRestAPI/controllers/admin/approve_account.php`,
+      `http://localhost/extensionManagementRestAPI/controllers/admin/show_pending_list.php`,
       {
         headers,
       }
