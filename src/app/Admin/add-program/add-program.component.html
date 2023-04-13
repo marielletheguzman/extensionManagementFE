@@ -1,0 +1,33 @@
+<div class="card-box">
+  <h2>Add Extension Program</h2>
+
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <h5>Program Title:</h5>
+    <input type="text" pInputText formControlName="programTitle" />
+    <h5>Program Lead:</h5>
+    <input type="text" pInputText formControlName="programLead" />
+    <h5>Place:</h5>
+    <input type="text" pInputText formControlName="place" />
+    <h5>Start Date</h5>
+    <p-calendar [showIcon]="true" formControlName="startDate"></p-calendar>
+    <h5>End Date</h5>
+    <p-calendar [showIcon]="true" formControlName="endDate"></p-calendar>
+    <h5>Additional Details:</h5>
+    <textarea
+      rows="5"
+      cols="30"
+      pInputTextarea
+      formControlName="additionalDetails"
+    ></textarea>
+    <h5>Extension Partner</h5>
+    <br />
+    <p-dropdown
+      [options]="partnerss.partners"
+      optionLabel="partnerName"
+      formControlName="partner"
+    ></p-dropdown>
+
+    <br /><br />
+    <p-button label="Next" type="submit"></p-button>
+  </form>
+</div>

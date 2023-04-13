@@ -27,6 +27,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { DialogModule } from 'primeng/dialog';
 import { ConfirmationService } from 'primeng/api';
 import { ImageModule } from 'primeng/image';
+import { CalendarModule } from 'primeng/calendar';
 
 import { ViewAssignedProgramsComponent } from './User/view-assigned-programs/view-assigned-programs.component';
 import { ExtensionPartnersComponent } from './Admin/extension-partners/extension-partners.component';
@@ -45,6 +46,9 @@ import { UserGuard } from './user.guard';
 import { EditProfileComponent } from './User/edit-profile/edit-profile.component';
 import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard.component';
 import { SideNavComponent } from './Admin/side-nav/side-nav.component';
+import { EditUserAccountComponent } from './Admin/edit-user-account/edit-user-account.component';
+import { AddExtensionPartnerComponent } from './Admin/add-extension-partner/add-extension-partner.component';
+import { AddProgramComponent } from './Admin/add-program/add-program.component';
 
 const admins: Routes = [
   {
@@ -55,6 +59,9 @@ const admins: Routes = [
       { path: 'manage', component: ExtensionPartnersComponent },
       { path: 'pending', component: PendingAccountComponent },
       { path: 'manage_users', component: ManageAccountsComponent },
+      { path: 'edit_user', component: EditUserAccountComponent },
+      { path: 'add_extension', component: AddExtensionPartnerComponent },
+      { path: 'add', component: AddProgramComponent },
     ],
   },
 ];
@@ -112,6 +119,9 @@ const user: Routes = [
     EditProfileComponent,
     AdminDashboardComponent,
     SideNavComponent,
+    EditUserAccountComponent,
+    AddExtensionPartnerComponent,
+    AddProgramComponent,
   ],
   imports: [
     BrowserModule,
@@ -133,6 +143,7 @@ const user: Routes = [
     ConfirmDialogModule,
     DialogModule,
     ImageModule,
+    CalendarModule,
   ],
   providers: [MessageService, ConfirmationService],
   bootstrap: [AppComponent],

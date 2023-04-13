@@ -165,4 +165,7 @@ export class ManageAccountsComponent {
       },
     });
   }
+  onUser(id: Number) {
+    this.router.navigate(['/edit_user', id]);
+  }
 }
