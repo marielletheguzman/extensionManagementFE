@@ -62,7 +62,7 @@ export class ManageAccountsComponent {
         // Make an HTTP request to the backend API
         this.http
           .put(
-            'http://localhost/extensionManagementRestAPI/controllers/admin/approve_account.php?id=',
+            'http://localhost/extensionManagementRestAPI/controllers/admin/archive_account.php',
             { id: this.selectedAccountId },
             { headers }
           )

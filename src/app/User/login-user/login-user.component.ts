@@ -59,7 +59,11 @@ export class LoginUserComponent implements OnInit {
         }
       });
     } else {
-      console.log('Invalid Credentials');
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Failed',
+        detail: 'Failed to Login',
+      });
     }
   }
 }

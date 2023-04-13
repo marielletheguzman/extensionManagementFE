@@ -89,17 +89,19 @@
           <!-- <td>{{ pending.startDate }}</td>
         <td>{{ pending.endDate }}</td> -->
           <td>
-            <!-- (click)="onView(program.id)" -->
-            <!-- <p-button
-              (click)="confirm(pending.id)"
-              label="Approve"
+            <p-button
+              label="View Profile"
+              styleClass="p-button-primary"
               [ngStyle]="{ 'margin-right': '8px' }"
             ></p-button>
+            <!-- (click)="reject(pending.id)" -->
+            <!-- (click)="onView(program.id)" -->
             <p-button
-              label="Decline"
               styleClass="p-button-danger"
-              (click)="reject(pending.id)"
-            ></p-button> -->
+              (click)="archive(active.id)"
+              label="Archive"
+              [ngStyle]="{ 'margin-right': '8px' }"
+            ></p-button>
 
             <!-- </td> -->
           </td>
