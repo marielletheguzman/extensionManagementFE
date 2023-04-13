@@ -83,4 +83,13 @@ export class RegistrationUserComponent {
       });
     }
   }
+  loading: boolean = false;
+
+  load() {
+    this.loading = true;
+
+    setTimeout(() => {
+      this.loading = false;
+    }, 2000);
+  }
 }

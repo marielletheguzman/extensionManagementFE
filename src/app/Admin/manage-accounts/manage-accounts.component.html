@@ -1,65 +1,110 @@
-<!-- <p>manage-accounts works!</p> -->
-<body>
-  <div class="header1">
-    <h1>Manage Accounts</h1>
-  </div>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+/><p-toast></p-toast><p-confirmDialog></p-confirmDialog>
 
-  <div>
-    <input class="searchbar" placeholder="Search Name" />
-    <button class="search">Search</button>
-    <select class="sortdropdown">
-      <option value="position">Sort by:</option>
-      <option value="college">Department Head Allied Course</option>
-      <option value="others">Department Head BLIS</option>
-      <option value="others">Department Head BSIT</option>
-      <option value="others">College Dean</option>
-      <option value="others">College Secretary</option>
-    </select>
-    <button class="sort">Apply</button>
+<div style="width: 80%; margin-left: 10%">
+  <div class="card">
+    <h1>Pending Accounts</h1>
+    <h1>
+      {{ activeAccounts.counts }}
+    </h1>
+    <br />
+    <input
+      pInputText
+      type="text"
+      (input)="myTab.filterGlobal($any($event.target).value, 'contains')"
+      placeholder="Search"
+      class="searchField"
+    />
+    <br /><br />
+
+    <p-table
+      #myTab
+      [value]="activeAccounts.pending"
+      [tableStyle]="{ 'min-width': '60rem' }"
+      [paginator]="true"
+      [rows]="5"
+      [globalFilterFields]="['fullName', 'email', 'position']"
+      styleClass="p-datatable-gridlines"
+      [resizableColumns]="true"
+      [autoLayout]="true"
+      class="tbl"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="id" style="width: 6%"></th>
+          <th
+            pSortableColumn="programLead"
+            style="width: 16%"
+            [ngStyle]="{ 'text-align': 'center' }"
+          >
+            Fullname<p-sortIcon field="name"></p-sortIcon>
+          </th>
+          <th
+            pSortableColumn="place"
+            style="width: 16%"
+            [ngStyle]="{ 'text-align': 'center' }"
+          >
+            Email <p-sortIcon field="category"></p-sortIcon>
+          </th>
+
+          <th
+            pSortableColumn="extensionPartner"
+            style="width: 16%"
+            [ngStyle]="{ 'text-align': 'center' }"
+          >
+            Position <p-sortIcon field="price"></p-sortIcon>
+          </th>
+          <th
+            pSortableColumn="startDate"
+            style="width: 5%"
+            [ngStyle]="{ 'text-align': 'center' }"
+          >
+            Action
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-active>
+        <tr>
+          <td>
+            <img
+              src="http://localhost/extensionManagementRestAPI/assets/profile/{{
+                active.profilePicture
+              }}"
+              alt=""
+              style="
+                height: 80px;
+                width: 80px;
+                border-radius: 100%;
+                object-fit: cover;
+                margin-left: 20%;
+              "
+            />
+          </td>
+          <td>{{ active.fullName }}</td>
+          <td>{{ active.email }}</td>
+          <td>{{ active.position }}</td>
+          <!-- <td>{{ pending.profilePicture }}</td> -->
+          <!-- <td>{{ pending.startDate }}</td>
+        <td>{{ pending.endDate }}</td> -->
+          <td>
+            <!-- (click)="onView(program.id)" -->
+            <!-- <p-button
+              (click)="confirm(pending.id)"
+              label="Approve"
+              [ngStyle]="{ 'margin-right': '8px' }"
+            ></p-button>
+            <p-button
+              label="Decline"
+              styleClass="p-button-danger"
+              (click)="reject(pending.id)"
+            ></p-button> -->
+
+            <!-- </td> -->
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
   </div>
-  <div class="table-section">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Position</th>
-          <th>Email</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>
-            <button class="edit">Edit</button>
-            <button class="archive">Archive</button>
-          </td>
-        </tr>
-        <tr>
-          <th>2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-          <td>
-            <button class="edit">Edit</button>
-            <button class="archive">Archive</button>
-          </td>
-        </tr>
-        <tr>
-          <th>3</th>
-          <td>Larry the Bird</td>
-          <td>Backward</td>
-          <td>@twitter</td>
-          <td>
-            <button class="edit">Edit</button>
-            <button class="archive">Archive</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</body>
+</div>

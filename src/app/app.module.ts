@@ -23,6 +23,10 @@ import { RegistrationUserComponent } from './User/registration-user/registration
 
 import { TableModule } from 'primeng/table';
 import { ChartModule } from 'primeng/chart';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { DialogModule } from 'primeng/dialog';
+import { ConfirmationService } from 'primeng/api';
+import { ImageModule } from 'primeng/image';
 
 import { ViewAssignedProgramsComponent } from './User/view-assigned-programs/view-assigned-programs.component';
 import { ExtensionPartnersComponent } from './Admin/extension-partners/extension-partners.component';
@@ -47,18 +51,10 @@ const admins: Routes = [
     path: 'admin',
     component: SideNavComponent,
     children: [
-      {
-        path: 'dashboard',
-        component: AdminDashboardComponent,
-      },
-      {
-        path: 'manage',
-        component: ExtensionPartnersComponent,
-      },
-      {
-        path: 'pending',
-        component: PendingAccountComponent,
-      },
+      { path: 'dashboard', component: AdminDashboardComponent },
+      { path: 'manage', component: ExtensionPartnersComponent },
+      { path: 'pending', component: PendingAccountComponent },
+      { path: 'manage_users', component: ManageAccountsComponent },
     ],
   },
 ];
@@ -134,8 +130,11 @@ const user: Routes = [
     TableModule,
     PaginatorModule,
     ChartModule,
+    ConfirmDialogModule,
+    DialogModule,
+    ImageModule,
   ],
-  providers: [MessageService],
+  providers: [MessageService, ConfirmationService],
   bootstrap: [AppComponent],
   exports: [RouterModule],
 })

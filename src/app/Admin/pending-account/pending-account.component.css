@@ -6,7 +6,20 @@
   padding-left: 2%;
   padding-right: 2%;
   padding-bottom: 50px;
-  padding-top: 100px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   border-radius: 20px;
+  margin-bottom: 100px;
+}
+.button {
+  width: 100px;
+}
+.rounded-image {
+  border-radius: 100%;
+}
+::ng-deep .p-image .p-image-wrapper {
+  border-radius: 50%;
+}
+
+.custom-image .p-image-wrapper {
+  border-radius: 50%;
 }

@@ -5,16 +5,17 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class PendingAccountService {
-  private getApiUrl = `http://localhost/extensionManagementRestAPI/controllers/admin/show_pending_list.php`;
+export class ManageServicesService {
+  private getAccountsApiUrl =
+    'http://localhost/extensionManagementRestAPI/controllers/admin/show_manage_account.php';
   constructor(private http: HttpClient) {}
 
-  getPendingAccounts(): Observable<any> {
+  getActiveAccount(): Observable<any> {
     const headers = new HttpHeaders().set(
       'Authorization',
       `${localStorage.getItem('token')}`
     );
-    return this.http.get(this.getApiUrl, {
+    return this.http.get(this.getAccountsApiUrl, {
       headers,
     });
   }
