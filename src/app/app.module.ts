@@ -30,7 +30,6 @@ import { ImageModule } from 'primeng/image';
 import { CalendarModule } from 'primeng/calendar';
 
 import { ViewAssignedProgramsComponent } from './User/view-assigned-programs/view-assigned-programs.component';
-import { ExtensionPartnersComponent } from './Admin/extension-partners/extension-partners.component';
 import { ManageExtensionComponent } from './Admin/manage-extension/manage-extension.component';
 import { ProgramsComponent } from './Admin/programs/programs.component';
 import { ManageAccountsComponent } from './Admin/manage-accounts/manage-accounts.component';
@@ -47,6 +46,8 @@ import { EditProfileComponent } from './User/edit-profile/edit-profile.component
 import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard.component';
 import { SideNavComponent } from './Admin/side-nav/side-nav.component';
 import { AddProgramComponent } from './Admin/add-program/add-program.component';
+import { ViewSpecificPartnerComponent } from './Admin/view-specific-partner/view-specific-partner.component';
+import { AddPartnerComponent } from './Admin/add-partner/add-partner.component';
 
 const admins: Routes = [
   {
@@ -54,11 +55,13 @@ const admins: Routes = [
     component: SideNavComponent,
     children: [
       { path: 'dashboard', component: AdminDashboardComponent },
-      { path: 'add_partner', component: ExtensionPartnersComponent },
       { path: 'pending', component: PendingAccountComponent },
       { path: 'manage_users', component: ManageAccountsComponent },
       { path: 'add_program', component: AddProgramComponent },
       { path: 'ongoing_partners', component: OngoingPartnersComponent },
+      { path: 'expired_partners', component: ExpiredPartnersComponent },
+      { path: 'view_partner', component: ViewSpecificPartnerComponent },
+      { path: 'add_partner', component: AddPartnerComponent },
     ],
   },
 ];
@@ -74,7 +77,6 @@ const admin: Routes = [
   },
   // { path: 'dashboard', component: AdminDashboardComponent },
   { path: 'side', component: SideNavComponent },
-  { path: 'extension-partners', component: ExtensionPartnersComponent },
   // { path: 'manage', component: ManageExtensionComponent },
   { path: 'programs', component: ProgramsComponent },
   { path: 'manage-accounts', component: ManageAccountsComponent },
@@ -102,7 +104,6 @@ const user: Routes = [
     HomeComponent,
     LoginUserComponent,
     RegistrationUserComponent,
-    ExtensionPartnersComponent,
     ManageExtensionComponent,
     ProgramsComponent,
     ManageAccountsComponent,
@@ -117,6 +118,8 @@ const user: Routes = [
     AdminDashboardComponent,
     SideNavComponent,
     AddProgramComponent,
+    ViewSpecificPartnerComponent,
+    AddPartnerComponent,
   ],
   imports: [
     BrowserModule,

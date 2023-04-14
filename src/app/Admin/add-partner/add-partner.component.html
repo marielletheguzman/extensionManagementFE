@@ -1,0 +1,47 @@
+<form (submit)="onSubmit()">
+  <label>partnerName:</label>
+  <input type="text" name="partnerName" [(ngModel)]="partnerName" />
+
+  <label>partnerAddress:</label>
+  <input type="email" name="partnerAddress" [(ngModel)]="partnerAddress" />
+
+  <label>partnerContactPerson:</label>
+  <input
+    type="email"
+    name="partnerContactPerson"
+    [(ngModel)]="partnerContactPerson"
+  />
+
+  <label>partnerContactNumber:</label>
+  <input
+    type="email"
+    name="partnerContactNumber"
+    [(ngModel)]="partnerContactNumber"
+  />
+
+  <label>partnerStartDate:</label>
+  <input type="date" name="partnerStartDate" [(ngModel)]="partnerStartDate" />
+
+  <label>partnerEndDate:</label>
+  <input type="date" name="partnerEndDate" [(ngModel)]="partnerEndDate" />
+
+  <label>partnerLogo:</label>
+  <input
+    type="file"
+    name="image"
+    name="partnerLogo"
+    id="partnerLogo"
+    (change)="onLogoSelected($event)"
+  />
+
+  <label>partnerMoaFile:</label>
+  <input
+    type="file"
+    name="image"
+    name="partnerMoaFile"
+    id="partnerMoaFile"
+    (change)="onMoaFileSelected($event)"
+  />
+
+  <button type="submit">Submit</button>
+</form>

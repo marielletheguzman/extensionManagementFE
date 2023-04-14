@@ -1,61 +1,133 @@
-<!-- <p>expired-partners works!</p> -->
-<body>
-  <div class="header1">
-    <h1>EXPIRED</h1>
-  </div>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+/><p-toast></p-toast><p-confirmDialog></p-confirmDialog>
 
-  <div>
-    <input class="searchbar" placeholder="Search Name" />
-    <button class="search">Search</button>
+<div style="width: 100%">
+  <div class="card">
+    <h1>Expired Extension Partners</h1>
+    <h1>
+      {{ onGoingPartners.count }}
+    </h1>
+    <br />
+    <input
+      pInputText
+      type="text"
+      (input)="myTab.filterGlobal($any($event.target).value, 'contains')"
+      placeholder="Search"
+      class="searchField"
+    />
+    <button>Add Extension Partner</button>
+    <br /><br />
+
+    <p-table
+      #myTab
+      [value]="onGoingPartners.partners"
+      [tableStyle]="{ 'min-width': '60rem' }"
+      [paginator]="true"
+      [rows]="5"
+      [globalFilterFields]="[
+        'partnerName',
+        'partnerAddress',
+        'partnerContactPerson',
+        'partnerContactNumber',
+        'partnerStartDate',
+        'partnerEndDate'
+      ]"
+      styleClass="p-datatable-gridlines"
+      [resizableColumns]="true"
+      [autoLayout]="true"
+      class="tbl"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="id" style="width: 6%"></th>
+          <th
+            pSortableColumn="partnerName"
+            style="width: 16%"
+            [ngStyle]="{ 'text-align': 'center' }"
+          >
+            Extension Name<p-sortIcon field="name"></p-sortIcon>
+          </th>
+          <th
+            pSortableColumn="partnerAddress"
+            style="width: 16%"
+            [ngStyle]="{ 'text-align': 'center' }"
+          >
+            Extension Address <p-sortIcon field="category"></p-sortIcon>
+          </th>
+          <th
+            pSortableColumn="partnerContactPerson"
+            style="width: 16%"
+            [ngStyle]="{ 'text-align': 'center' }"
+          >
+            Contact Person <p-sortIcon field="category"></p-sortIcon>
+          </th>
+          <th
+            pSortableColumn="partnerContactNumber"
+            style="width: 16%"
+            [ngStyle]="{ 'text-align': 'center' }"
+          >
+            Contact Number <p-sortIcon field="category"></p-sortIcon>
+          </th>
+
+          <th
+            pSortableColumn="partnerStartDate"
+            style="width: 16%"
+            [ngStyle]="{ 'text-align': 'center' }"
+          >
+            Start Date <p-sortIcon field="price"></p-sortIcon>
+          </th>
+          <th
+            pSortableColumn="partnerEndDate"
+            style="width: 5%"
+            [ngStyle]="{ 'text-align': 'center' }"
+          >
+            End Date
+          </th>
+          <th style="width: 5%" [ngStyle]="{ 'text-align': 'center' }">
+            Action
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-partners>
+        <tr>
+          <td>
+            <img
+              src="http://localhost/extensionManagementRestAPI/assets/extensionProfile/{{
+                partners.partnerLogo
+              }}"
+              alt=""
+              style="
+                height: 80px;
+                width: 80px;
+                border-radius: 100%;
+                object-fit: cover;
+                margin-left: 20%;
+              "
+            />
+          </td>
+          <td>{{ partners.partnerName }}</td>
+          <td>{{ partners.partnerAddress }}</td>
+          <td>{{ partners.partnerContactPerson }}</td>
+          <td>{{ partners.partnerContactNumber }}</td>
+          <td>{{ partners.partnerStartDate }}</td>
+          <td>{{ partners.partnerEndDate }}</td>
+          <!-- <td>{{ pending.profilePicture }}</td> -->
+          <!-- <td>{{ pending.startDate }}</td>
+        <td>{{ pending.endDate }}</td> -->
+          <td>
+            <p-button
+              label="Renew"
+              styleClass="p-button-primary"
+              [ngStyle]="{ 'margin-right': '8px' }"
+            ></p-button>
+            <!-- (click)="archive(active.id)" -->
+
+            <!-- </td> -->
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
   </div>
-  <div class="table-section">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Partner Name</th>
-          <th>Address</th>
-          <th>Contact Person</th>
-          <th>Contact No.</th>
-          <th>Start Date</th>
-          <th>End Date</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Department of Health</td>
-          <td>213 Malolos, Bulacan</td>
-          <td>John Doe</td>
-          <td>09364728374</td>
-          <td>03/27/23</td>
-          <td>04/01/23</td>
-          <td>
-            <button class="renew">Renew</button>
-          </td>
-        </tr>
-        <tr>
-          <td>Department of Health</td>
-          <td>213 Malolos, Bulacan</td>
-          <td>John Doe</td>
-          <td>09364728374</td>
-          <td>03/27/23</td>
-          <td>04/01/23</td>
-          <td>
-            <button class="renew">Renew</button>
-          </td>
-        </tr>
-        <tr>
-          <td>Department of Health</td>
-          <td>213 Malolos, Bulacan</td>
-          <td>John Doe</td>
-          <td>09364728374</td>
-          <td>03/27/23</td>
-          <td>04/01/23</td>
-          <td>
-            <button class="renew">Renew</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</body>
+</div>

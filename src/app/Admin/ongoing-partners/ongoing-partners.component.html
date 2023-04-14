@@ -17,6 +17,7 @@
       placeholder="Search"
       class="searchField"
     />
+    <button>Add Extension Partner</button>
     <br /><br />
 
     <p-table
@@ -118,10 +119,10 @@
           <td>
             <p-button
               label="View"
+              (click)="onView()"
               styleClass="p-button-primary"
               [ngStyle]="{ 'margin-right': '8px' }"
             ></p-button>
-            <!-- (click)="onView(program.id)" -->
             <!-- (click)="archive(active.id)" -->
 
             <!-- </td> -->

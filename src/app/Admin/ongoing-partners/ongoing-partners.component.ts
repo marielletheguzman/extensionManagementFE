@@ -48,6 +48,10 @@ export class OngoingPartnersComponent {
       console.log(this.onGoingPartners);
     });
   }
+  onView() {
+    this.router.navigate(['admin/view_partner']);
+  }
+
   // onView(accountId: Number) {
   //   const headers = new HttpHeaders().set('Authorization', `${this.token}`);
   //   this.selectedAccountId = accountId;
