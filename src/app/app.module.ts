@@ -46,8 +46,6 @@ import { UserGuard } from './user.guard';
 import { EditProfileComponent } from './User/edit-profile/edit-profile.component';
 import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard.component';
 import { SideNavComponent } from './Admin/side-nav/side-nav.component';
-import { EditUserAccountComponent } from './Admin/edit-user-account/edit-user-account.component';
-import { AddExtensionPartnerComponent } from './Admin/add-extension-partner/add-extension-partner.component';
 import { AddProgramComponent } from './Admin/add-program/add-program.component';
 
 const admins: Routes = [
@@ -56,12 +54,11 @@ const admins: Routes = [
     component: SideNavComponent,
     children: [
       { path: 'dashboard', component: AdminDashboardComponent },
-      { path: 'manage', component: ExtensionPartnersComponent },
+      { path: 'add_partner', component: ExtensionPartnersComponent },
       { path: 'pending', component: PendingAccountComponent },
       { path: 'manage_users', component: ManageAccountsComponent },
-      { path: 'edit_user', component: EditUserAccountComponent },
-      { path: 'add_extension', component: AddExtensionPartnerComponent },
-      { path: 'add', component: AddProgramComponent },
+      { path: 'add_program', component: AddProgramComponent },
+      { path: 'ongoing_partners', component: OngoingPartnersComponent },
     ],
   },
 ];
@@ -119,8 +116,6 @@ const user: Routes = [
     EditProfileComponent,
     AdminDashboardComponent,
     SideNavComponent,
-    EditUserAccountComponent,
-    AddExtensionPartnerComponent,
     AddProgramComponent,
   ],
   imports: [

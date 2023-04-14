@@ -27,7 +27,11 @@ export class AddProgramComponent {
   };
   date: Date | undefined;
   myForm!: FormGroup;
-  constructor(private http: HttpClient, private fb: FormBuilder) {}
+  constructor(
+    private http: HttpClient,
+    private fb: FormBuilder,
+    private message: MessageService
+  ) {}
 
   ngOnInit(): void {
     this.http
@@ -78,7 +82,11 @@ export class AddProgramComponent {
           console.log('added successfully!');
         },
         (err) => {
-          console.error(err);
+          this.message.add({
+            severity: 'warn',
+            summary: 'Warn',
+            detail: 'Message Content',
+          });
         }
       );
   }
