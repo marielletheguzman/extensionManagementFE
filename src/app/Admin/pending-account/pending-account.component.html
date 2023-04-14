@@ -5,11 +5,6 @@
 
 <div style="width: 80%; margin-left: 10%">
   <div class="card">
-    <h1>Pending Accounts</h1>
-    <h1>
-      {{ pendingAccounts.counts }}
-    </h1>
-    <br />
     <input
       pInputText
       type="text"
@@ -17,7 +12,15 @@
       placeholder="Search"
       class="searchField"
     />
-    <br /><br />
+
+    <h1>
+      Pending Accounts: &nbsp;
+      <span>
+        {{ pendingAccounts.counts }}
+      </span>
+    </h1>
+    <br />
+    <br />
 
     <p-table
       #myTab

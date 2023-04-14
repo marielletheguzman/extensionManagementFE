@@ -1,18 +1,33 @@
-<div class="card-box">
+<!-- <div class="card-box">
   <h2>Add Extension Program</h2>
 
   <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-    <h5>Program Title:</h5>
-    <input type="text" pInputText formControlName="programTitle" />
-    <h5>Program Lead:</h5>
-    <input type="text" pInputText formControlName="programLead" />
-    <h5>Place:</h5>
-    <input type="text" pInputText formControlName="place" />
+    <div class="input-box">
+      <label>Program Title</label>
+      <input type="text" required />
+    </div>
+
+    <div class="input-box">
+      <label>Place</label>
+      <input type="text" required />
+    </div>
+
+    <div class="column">
+      <div class="input-box">
+        <label>Program Leader</label>
+        <input type="text" required />
+      </div>
+      <div class="input-box">
+        <label>Start Date</label>
     <h5>Start Date</h5>
     <p-calendar [showIcon]="true" formControlName="startDate"></p-calendar>
+    </div>
+    <div class="input-box">
     <h5>End Date</h5>
     <p-calendar [showIcon]="true" formControlName="endDate"></p-calendar>
-    <h5>Additional Details:</h5>
+  </div>
+  <div class="input-box">
+<label>Additional Details:</label>
     <textarea
       rows="5"
       cols="30"
@@ -30,4 +45,64 @@
     <br /><br />
     <p-button label="Next" type="submit"></p-button>
   </form>
-</div>
+</div> -->
+<body>
+  <section class="container">
+    <header>Add Extension Program</header>
+    <br />
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="form">
+      <div class="input-box">
+        <label>Program Title</label>
+        <input type="text" required />
+      </div>
+
+      <div class="input-box">
+        <label>Place</label>
+        <input type="text" required />
+      </div>
+
+      <div class="column">
+        <div class="input-box">
+          <label>Program Leader</label>
+          <input type="text" required />
+        </div>
+        <div class="input-box">
+          <label>Partner</label>
+          <div class="select-box">
+            <!-- <select>
+              <option hidden>Select Partner</option>
+              <option>Department of Communications and Tenchnolgy</option>
+              <option>Accenture Philippines</option>
+              <option>Department of Health</option>
+              <option>Department of Immigration</option>
+            </select> -->
+            <p-dropdown
+              [options]="partnerss.partners"
+              optionLabel="partnerName"
+              formControlName="partner"
+            ></p-dropdown>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="input-box">
+          <label>Start Date</label>
+
+          <input type="date" formControlName="startDate" />
+        </div>
+
+        <div class="input-box">
+          <label>End Date</label>
+          <input type="date" formControlName="endDate" />
+        </div>
+      </div>
+      <div class="input-box">
+        <label>Additional Details:</label>
+        <textarea class="field" name="w3review" rows="10" cols="86" required>
+        </textarea>
+      </div>
+
+      <button>Submit</button>
+    </form>
+  </section>
+</body>
