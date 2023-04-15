@@ -1,1 +1,66 @@
-<p>view-specific-partner works!</p>
+<head>
+  <link
+    href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+    rel="stylesheet"
+  />
+
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>View MOA</title>
+</head>
+<body>
+  <section class="container">
+    <form action="#" class="form">
+      <div class="input-box">
+        <label>Partner name:</label><br />
+        <input type="text" disabled value="{{ partner.data.partnerName }}" />
+      </div>
+      <div class="input-box">
+        <label>Address</label><br />
+        <input type="text" disabled value="{{ partner.data.partnerAddress }}" />
+      </div>
+      <div class="input-box">
+        <label>Contact Person</label><br />
+        <input
+          type="text"
+          disabled
+          value="{{ partner.data.partnerContactPerson }}"
+        />
+      </div>
+      <div class="group">
+        <div class="input-box">
+          <label>Start Date: &nbsp; </label><br />
+          <input
+            type="date"
+            disabled
+            value="{{ partner.data.partnerStartDate }}"
+          />
+        </div>
+        <div class="input-box">
+          <label>End Date: &nbsp; </label><br />
+          <input
+            type="date"
+            disabled
+            value="{{ partner.data.partnerEndDate }}"
+          />
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button>Print MOA</button>
+        <button>Download MOA</button>
+      </div>
+    </form>
+  </section>
+  <iframe
+    [src]="
+      getSafeUrl(
+        'http://localhost/extensionManagementRestAPI/assets/extensionFiles/' +
+          partner.data.partnerMoaFile
+      )
+    "
+    width="500px"
+    height="500px"
+  ></iframe>
+</body>

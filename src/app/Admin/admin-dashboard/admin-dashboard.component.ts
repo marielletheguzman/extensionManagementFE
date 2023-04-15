@@ -3,6 +3,8 @@ import { AdminDashboardService } from './admin-dashboard.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { LandingService } from 'src/app/landing-page/landing.service';
+import { ExpiredPartnersServicesService } from '../expired-partners/expired-partners-services.service';
+import { OngoingPartnersServicesService } from '../ongoing-partners/ongoing-partners-services.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -29,11 +31,19 @@ export class AdminDashboardComponent {
       },
     ],
   };
+  expiredDetails = {
+    count: 0,
+  };
+  ongoingDetails = {
+    count: 0,
+  };
 
   constructor(
     //to get the background color in the database
     private landingService: LandingService,
     private authService: AdminDashboardService,
+    private expiredService: ExpiredPartnersServicesService,
+    private ongoingService: OngoingPartnersServicesService,
     private router: Router,
     private http: HttpClient
   ) {}
@@ -48,25 +58,50 @@ export class AdminDashboardComponent {
   data: any;
 
   options: any;
+  options2: any;
+  data2: any;
+
   ngOnInit(): void {
     const token = localStorage.getItem('token');
-
     this.landingService.getSystemProfile().subscribe((data: any) => {
       this.systemProfile = data;
     });
+
+    this.expiredService.getOngoingPartners().subscribe((expiredData: any) => {
+      this.expiredDetails = expiredData;
+      this.ongoingService.getOngoingPartners().subscribe((ongoingData: any) => {
+        this.ongoingDetails = ongoingData;
+        this.data2 = {
+          labels: ['On Going Extension Partners', 'Expired Extension Partners'],
+          datasets: [
+            {
+              data: [this.ongoingDetails.count, this.expiredDetails.count],
+              backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+              hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+            },
+          ],
+        };
+        this.options2 = {
+          responsive: false,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              labels: {
+                usePointStyle: true,
+              },
+            },
+          },
+        };
+      });
+    });
+
     this.authService.getDashboardDetails().subscribe((data: any) => {
       this.dashboardDetails = data;
-
       const documentStyle = getComputedStyle(document.documentElement);
       const textColor = documentStyle.getPropertyValue('--text-color');
       console.log(this.dashboardDetails.numbersOfFaculty);
       this.data = {
-        labels: [
-          'Faculty',
-          'Pending Accounts',
-          'Extension Partners',
-          'Active Programs',
-        ],
+        labels: ['Faculty', 'Pending Accounts', ' Partners', 'Active Programs'],
         datasets: [
           {
             data: [

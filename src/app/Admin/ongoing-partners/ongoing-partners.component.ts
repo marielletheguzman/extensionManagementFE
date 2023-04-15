@@ -48,65 +48,7 @@ export class OngoingPartnersComponent {
       console.log(this.onGoingPartners);
     });
   }
-  onView() {
-    this.router.navigate(['admin/view_partner']);
+  onView(id: string) {
+    this.router.navigate(['admin/view_partner', id]);
   }
-
-  // onView(accountId: Number) {
-  //   const headers = new HttpHeaders().set('Authorization', `${this.token}`);
-  //   this.selectedAccountId = accountId;
-  //   this.selectedAccountId = accountId;
-  //   this.confirmationService.confirm({
-  //     message: `Are you sure that you want to continue?`,
-  //     header: 'Achive Account',
-  //     accept: () => {
-  //       // Make an HTTP request to the backend API
-  //       this.http
-  //         .put(
-  //           'http://localhost/extensionManagementRestAPI/controllers/admin/archive_account.php',
-  //           { id: this.selectedAccountId },
-  //           { headers }
-  //         )
-  //         .subscribe(
-  //           (response) => {
-  //             this.messageService.add({
-  //               severity: 'success',
-  //               summary: 'Successfully Approved',
-  //               detail: 'Account Approved',
-  //             });
-  //             timer(750)
-  //               .toPromise()
-  //               .then((done) => {
-  //                 window.location.reload();
-  //               });
-  //           },
-  //           (error) => {
-  //             this.messageService.add({
-  //               severity: 'error',
-  //               summary: 'Error',
-  //               detail: error.message,
-  //             });
-  //           }
-  //         );
-  //     },
-  //     reject: (type: any) => {
-  //       switch (type) {
-  //         case ConfirmEventType.REJECT:
-  //           this.messageService.add({
-  //             severity: 'warn',
-  //             summary: 'Cancelled',
-  //             detail: 'You have cancelled archiving account',
-  //           });
-  //           break;
-  //         case ConfirmEventType.CANCEL:
-  //           this.messageService.add({
-  //             severity: 'warn',
-  //             summary: 'Cancelled',
-  //             detail: 'You have cancelled archiving account',
-  //           });
-  //           break;
-  //       }
-  //     },
-  //   });
-  // }
 }

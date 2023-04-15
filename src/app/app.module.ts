@@ -48,6 +48,7 @@ import { SideNavComponent } from './Admin/side-nav/side-nav.component';
 import { AddProgramComponent } from './Admin/add-program/add-program.component';
 import { ViewSpecificPartnerComponent } from './Admin/view-specific-partner/view-specific-partner.component';
 import { AddPartnerComponent } from './Admin/add-partner/add-partner.component';
+import { ViewSpecificPartnerPipe } from './Admin/view-specific-partner/view-specific-partner.pipe';
 
 const admins: Routes = [
   {
@@ -60,7 +61,7 @@ const admins: Routes = [
       { path: 'add_program', component: AddProgramComponent },
       { path: 'ongoing_partners', component: OngoingPartnersComponent },
       { path: 'expired_partners', component: ExpiredPartnersComponent },
-      { path: 'view_partner', component: ViewSpecificPartnerComponent },
+      { path: 'view_partner/:id', component: ViewSpecificPartnerComponent },
       { path: 'add_partner', component: AddPartnerComponent },
     ],
   },
@@ -120,6 +121,7 @@ const user: Routes = [
     AddProgramComponent,
     ViewSpecificPartnerComponent,
     AddPartnerComponent,
+    ViewSpecificPartnerPipe,
   ],
   imports: [
     BrowserModule,
