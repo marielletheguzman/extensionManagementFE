@@ -28,6 +28,7 @@ import { DialogModule } from 'primeng/dialog';
 import { ConfirmationService } from 'primeng/api';
 import { ImageModule } from 'primeng/image';
 import { CalendarModule } from 'primeng/calendar';
+import { ColorPickerModule } from 'primeng/colorpicker';
 
 import { ViewAssignedProgramsComponent } from './User/view-assigned-programs/view-assigned-programs.component';
 import { ManageExtensionComponent } from './Admin/manage-extension/manage-extension.component';
@@ -49,6 +50,9 @@ import { AddProgramComponent } from './Admin/add-program/add-program.component';
 import { ViewSpecificPartnerComponent } from './Admin/view-specific-partner/view-specific-partner.component';
 import { AddPartnerComponent } from './Admin/add-partner/add-partner.component';
 import { ViewSpecificPartnerPipe } from './Admin/view-specific-partner/view-specific-partner.pipe';
+import { RenewPartnerComponent } from './Admin/renew-partner/renew-partner.component';
+import { RenewComponent } from './Admin/renew/renew.component';
+// import { EditWebsiteComponent } from './Admin/edit-website/edit-website.component';
 
 const admins: Routes = [
   {
@@ -63,6 +67,8 @@ const admins: Routes = [
       { path: 'expired_partners', component: ExpiredPartnersComponent },
       { path: 'view_partner/:id', component: ViewSpecificPartnerComponent },
       { path: 'add_partner', component: AddPartnerComponent },
+      { path: 'renew_partner/:id', component: RenewPartnerComponent },
+      // { path: 'edit_website', component: EditWebsiteComponent },
     ],
   },
 ];
@@ -122,6 +128,9 @@ const user: Routes = [
     ViewSpecificPartnerComponent,
     AddPartnerComponent,
     ViewSpecificPartnerPipe,
+    RenewPartnerComponent,
+    RenewComponent,
+    // EditWebsiteComponent,
   ],
   imports: [
     BrowserModule,
@@ -144,6 +153,7 @@ const user: Routes = [
     DialogModule,
     ImageModule,
     CalendarModule,
+    ColorPickerModule,
   ],
   providers: [MessageService, ConfirmationService],
   bootstrap: [AppComponent],

@@ -1,0 +1,25 @@
+<form [formGroup]="renew" (ngSubmit)="onSubmit()">
+  <label>Start date</label>
+  <input
+    type="date"
+    formControlName="partnerStartDate"
+    placeholder="YYYY-MM-DD"
+  />
+
+  <label>End date</label>
+  <input
+    type="date"
+    formControlName="partnerEndDate"
+    placeholder="YYYY-MM-DD"
+  />
+
+  <label for="partnerMoaFile">MOA File</label>
+  <input
+    type="file"
+    id="myFile"
+    name="partnerMoaFile"
+    (change)="onFileSelected($event)"
+    required
+  />
+  <button type="submit">Submit</button>
+</form>
