@@ -19,6 +19,10 @@
       <div class="form">
         <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
           <br /><br />
+          <!-- move to center -->
+          <p-button routerLink="/edit-img">Change Profile Picture</p-button>
+          <p-button routerLink="/edit-password">Change Password</p-button>
+
           <div class="labels">
             <label>Full Name:</label><br />
             <input

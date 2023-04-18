@@ -56,6 +56,8 @@ import { RenewComponent } from './Admin/renew/renew.component';
 import { EditSystemComponent } from './Admin/edit-system/edit-system.component';
 import { EditSystemLogoComponent } from './Admin/edit-system-logo/edit-system-logo.component';
 import { EditSystemImgComponent } from './Admin/edit-system-img/edit-system-img.component';
+import { EditUserImgComponent } from './User/edit-user-img/edit-user-img.component';
+import { EditUserPasswordComponent } from './User/edit-user-password/edit-user-password.component';
 // import { EditWebsiteComponent } from './Admin/edit-website/edit-website.component';
 
 const admins: Routes = [
@@ -105,6 +107,8 @@ const user: Routes = [
   { path: 'edit-profile', component: EditProfileComponent },
   // canActivate: [UserGuard]
   { path: 'list', component: ShowListComponent },
+  { path: 'edit-img', component: EditUserImgComponent },
+  { path: 'edit-password', component: EditUserPasswordComponent },
   {
     path: 'program-details/:id',
     component: ProgramDetailsComponent,
@@ -140,6 +144,8 @@ const user: Routes = [
     EditSystemComponent,
     EditSystemLogoComponent,
     EditSystemImgComponent,
+    EditUserImgComponent,
+    EditUserPasswordComponent,
     // EditWebsiteComponent,
   ],
   imports: [
