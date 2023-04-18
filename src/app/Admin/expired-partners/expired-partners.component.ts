@@ -51,4 +51,7 @@ export class ExpiredPartnersComponent {
   onView() {
     this.router.navigate(['admin/view_partner']);
   }
+  renew(id: number) {
+    this.router.navigate([`admin/renew_partner/${id}`]);
+  }
 }

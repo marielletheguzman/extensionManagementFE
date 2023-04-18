@@ -52,6 +52,8 @@ import { AddPartnerComponent } from './Admin/add-partner/add-partner.component';
 import { ViewSpecificPartnerPipe } from './Admin/view-specific-partner/view-specific-partner.pipe';
 import { RenewPartnerComponent } from './Admin/renew-partner/renew-partner.component';
 import { RenewComponent } from './Admin/renew/renew.component';
+import { EditSystemComponent } from './Admin/edit-system/edit-system.component';
+import { EditSystemLogoComponent } from './Admin/edit-system-logo/edit-system-logo.component';
 // import { EditWebsiteComponent } from './Admin/edit-website/edit-website.component';
 
 const admins: Routes = [
@@ -68,6 +70,8 @@ const admins: Routes = [
       { path: 'view_partner/:id', component: ViewSpecificPartnerComponent },
       { path: 'add_partner', component: AddPartnerComponent },
       { path: 'renew_partner/:id', component: RenewPartnerComponent },
+      { path: 'edit', component: EditSystemComponent },
+      { path: 'edit-logo', component: EditSystemLogoComponent },
       // { path: 'edit_website', component: EditWebsiteComponent },
     ],
   },
@@ -130,6 +134,8 @@ const user: Routes = [
     ViewSpecificPartnerPipe,
     RenewPartnerComponent,
     RenewComponent,
+    EditSystemComponent,
+    EditSystemLogoComponent,
     // EditWebsiteComponent,
   ],
   imports: [

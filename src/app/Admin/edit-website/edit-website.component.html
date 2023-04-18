@@ -1,4 +1,4 @@
-<!-- <link
+<link
   href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
   rel="stylesheet"
 />
@@ -16,24 +16,18 @@
     <form action="#" class="form">
       <div class="input-box">
         <label>Website name</label>
-        <input type="text" required [(ngModel)]="WebsiteName" />
+        <!-- <input type="text" required [(ngModel)]="WebsiteName" /> -->
       </div>
 
       <div class="column">
         <div class="input-box">
           <label>Choose a theme color: </label>
-          <p-colorPicker [(ngModel)]="ThemeColor"></p-colorPicker>
+          <!-- <p-colorPicker [(ngModel)]="ThemeColor"></p-colorPicker> -->
         </div>
         <div class="input-box">
           <label>Upload Main Picture</label>
-          <input
-            type="file"
-            id="myFile"
-            name="Logo"
-            id="Logo"
-            required
-            (change)="onLogoSelected($event)"
-          />
+          <input type="file" id="myFile" name="Logo" id="Logo" required />
+          <!-- (change)="onLogoSelected($event)" -->
         </div>
       </div>
       <div class="input-box">
@@ -49,16 +43,11 @@
 
       <div class="input-box">
         <label>Main Image: </label>
-        <input
-          type="file"
-          class="myFile"
-          name="MainImg"
-          id="MainImg"
-          (change)="onMainImgSelected($event)"
-        />
+        <input type="file" class="myFile" name="MainImg" id="MainImg" />
       </div>
+      <!-- (change)="onMainImgSelected($event)" -->
 
       <button>Submit</button>
     </form>
   </section>
-</body> -->
+</body>

@@ -14,8 +14,8 @@ export class RenewPartnerServicesService {
     const headers = new HttpHeaders({
       Authorization: `${localStorage.getItem('token')}`,
     });
-    return this.http.put(
-      `http://localhost/extensionManagementRestAPI/controllers/admin/update_renew_expired.php?id=${id}`,
+    return this.http.post(
+      `http://localhost/extensionManagementRestAPI/controllers/admin/update_renew_exp.php?id=${id}`,
       data,
       { headers }
     );

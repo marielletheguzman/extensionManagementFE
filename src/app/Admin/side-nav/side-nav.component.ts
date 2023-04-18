@@ -32,7 +32,7 @@ export class SideNavComponent {
     });
   }
 
-  alpha = 0.04;
+  alpha = 0.1;
   alphaDarker = 0.9;
   hex = this.systemProfile.ThemeColor;
   hexToRgbA(hex: string, alpha: number) {

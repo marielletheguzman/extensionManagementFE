@@ -54,18 +54,18 @@
     <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="form">
       <div class="input-box">
         <label>Program Title</label>
-        <input type="text" required />
+        <input type="text" required formControlName="programTitle" />
       </div>
 
       <div class="input-box">
         <label>Place</label>
-        <input type="text" required />
+        <input type="text" required formControlName="place" />
       </div>
 
       <div class="column">
         <div class="input-box">
           <label>Program Leader</label>
-          <input type="text" required />
+          <input type="text" required formControlName="programLead" />
         </div>
         <div class="input-box">
           <label>Partner</label>
@@ -99,7 +99,14 @@
       </div>
       <div class="input-box">
         <label>Additional Details:</label>
-        <textarea class="field" name="w3review" rows="10" cols="86" required>
+        <textarea
+          class="field"
+          name="w3review"
+          rows="10"
+          cols="86"
+          required
+          formControlName="additionalDetails"
+        >
         </textarea>
       </div>
 

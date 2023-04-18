@@ -1,0 +1,49 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <label>Logo:</label><br />
+  <br />
+  <img
+    src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
+      systemProfile.Logo
+    }}"
+    style="height: 10em"
+    alt=""
+  />
+  <!-- router link here -->
+  <button routerLink="/admin/edit-logo">Edit System Logo</button>
+  <br /><br />
+  <label>WebsiteName:</label><br />
+  <input
+    type="text"
+    pInputText
+    class="form-control"
+    formControlName="WebsiteName"
+  />
+  <br />
+  <label>ThemeColor:</label><br />
+  <p-colorPicker
+    formControlName="ThemeColor"
+    value="ThemeColor"
+  ></p-colorPicker>
+  <br />
+  <label>Description:</label><br />
+  <input
+    type="text"
+    pInputText
+    class="form-control"
+    formControlName="Description"
+  />
+
+  <br />
+  <label>MainImg:</label><br />
+
+  <img
+    src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
+      systemProfile.MainImg
+    }}"
+    style="height: 10em"
+    alt=""
+  />
+  <!-- router link here -->
+  <button>Edit Landing Page Image</button>
+  <button type="submit">Submit</button>
+</form>
