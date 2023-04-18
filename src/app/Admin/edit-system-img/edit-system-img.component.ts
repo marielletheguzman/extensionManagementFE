@@ -1,17 +1,18 @@
 import { Component } from '@angular/core';
-import { EditSystemService } from '../edit-system/edit-system.service';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { EditSystemService } from '../edit-system/edit-system.service';
 import { EditWebsiteServicesService } from '../edit-website/edit-website-services.service';
 
 @Component({
-  selector: 'app-edit-system-logo',
-  templateUrl: './edit-system-logo.component.html',
-  styleUrls: ['./edit-system-logo.component.css'],
+  selector: 'app-edit-system-img',
+  templateUrl: './edit-system-img.component.html',
+  styleUrls: ['./edit-system-img.component.css'],
 })
-export class EditSystemLogoComponent {
+export class EditSystemImgComponent {
   profileForm!: FormGroup;
-  logo = new FormGroup({
-    Logo: new FormControl(''),
+
+  img = new FormGroup({
+    MainImg: new FormControl(''),
   });
   systemProfile = {
     Logo: '',
@@ -33,12 +34,12 @@ export class EditSystemLogoComponent {
   }
   onSubmit() {
     const formData = new FormData();
-    if (this.logo.value.Logo) {
-      formData.append('Logo', this.logo.value.Logo);
-      console.log('Logo:', this.logo.value.Logo);
+    if (this.img.value.MainImg) {
+      formData.append('MainImg', this.img.value.MainImg);
+      console.log('MainImg:', this.img.value.MainImg);
       console.log('formData:', formData);
     }
-    this.editWeb.submitLogo(formData).subscribe(
+    this.editWeb.submitImg(formData).subscribe(
       (response) => {
         console.log(response);
       },
@@ -51,8 +52,8 @@ export class EditSystemLogoComponent {
   onImageSelected(event: any) {
     const file = event.target.files[0];
     if (file) {
-      this.logo.patchValue({
-        Logo: file,
+      this.img.patchValue({
+        MainImg: file,
       });
     }
   }

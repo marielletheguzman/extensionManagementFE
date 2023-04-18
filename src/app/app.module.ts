@@ -29,6 +29,7 @@ import { ConfirmationService } from 'primeng/api';
 import { ImageModule } from 'primeng/image';
 import { CalendarModule } from 'primeng/calendar';
 import { ColorPickerModule } from 'primeng/colorpicker';
+import { CarouselModule } from 'primeng/carousel';
 
 import { ViewAssignedProgramsComponent } from './User/view-assigned-programs/view-assigned-programs.component';
 import { ManageExtensionComponent } from './Admin/manage-extension/manage-extension.component';
@@ -54,6 +55,7 @@ import { RenewPartnerComponent } from './Admin/renew-partner/renew-partner.compo
 import { RenewComponent } from './Admin/renew/renew.component';
 import { EditSystemComponent } from './Admin/edit-system/edit-system.component';
 import { EditSystemLogoComponent } from './Admin/edit-system-logo/edit-system-logo.component';
+import { EditSystemImgComponent } from './Admin/edit-system-img/edit-system-img.component';
 // import { EditWebsiteComponent } from './Admin/edit-website/edit-website.component';
 
 const admins: Routes = [
@@ -72,6 +74,7 @@ const admins: Routes = [
       { path: 'renew_partner/:id', component: RenewPartnerComponent },
       { path: 'edit', component: EditSystemComponent },
       { path: 'edit-logo', component: EditSystemLogoComponent },
+      { path: 'edit-img', component: EditSystemImgComponent },
       // { path: 'edit_website', component: EditWebsiteComponent },
     ],
   },
@@ -136,6 +139,7 @@ const user: Routes = [
     RenewComponent,
     EditSystemComponent,
     EditSystemLogoComponent,
+    EditSystemImgComponent,
     // EditWebsiteComponent,
   ],
   imports: [
@@ -159,6 +163,7 @@ const user: Routes = [
     DialogModule,
     ImageModule,
     CalendarModule,
+    CarouselModule,
     ColorPickerModule,
   ],
   providers: [MessageService, ConfirmationService],

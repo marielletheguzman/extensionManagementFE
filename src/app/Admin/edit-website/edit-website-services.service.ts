@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, ObservedValueOf } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -24,5 +24,28 @@ export class EditWebsiteServicesService {
     }>(this.adminApiUrl, {
       headers,
     });
+  }
+  submitLogo(data: any): Observable<any> {
+    const headers = new HttpHeaders().set(
+      'Authorization',
+      `${localStorage.getItem('token')}`
+    );
+    return this.http.post(
+      `http://localhost/extensionManagementRestAPI/controllers/admin/edit-admin-logo.php`,
+      data,
+      { headers }
+    );
+  }
+
+  submitImg(data: any): Observable<any> {
+    const headers = new HttpHeaders().set(
+      'Authorization',
+      `${localStorage.getItem('token')}`
+    );
+    return this.http.post(
+      `http://localhost/extensionManagementRestAPI/controllers/admin/edit-admin-main-img.php`,
+      data,
+      { headers }
+    );
   }
 }
