@@ -24,7 +24,7 @@ export class AdminEditProfileComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
     private editUser: AdminEditProfileService,
-    private router: Router, // Add this line
+    private router: Router,
     private messageService: MessageService
   ) {}
 

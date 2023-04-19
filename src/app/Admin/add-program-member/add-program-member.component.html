@@ -1,0 +1,11 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Select Program Member:</label>
+    <p-dropdown
+      [options]="users.pending"
+      optionLabel="fullName"
+      formControlName="name"
+    ></p-dropdown>
+  </div>
+  <button type="submit">Submit</button>
+</form>
