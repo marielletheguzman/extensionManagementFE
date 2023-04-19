@@ -58,6 +58,8 @@ import { EditSystemLogoComponent } from './Admin/edit-system-logo/edit-system-lo
 import { EditSystemImgComponent } from './Admin/edit-system-img/edit-system-img.component';
 import { EditUserImgComponent } from './User/edit-user-img/edit-user-img.component';
 import { EditUserPasswordComponent } from './User/edit-user-password/edit-user-password.component';
+import { AdminEditProfileComponent } from './Admin/admin-edit-profile/admin-edit-profile.component';
+import { ListProgramMembersComponent } from './Admin/list-program-members/list-program-members.component';
 // import { EditWebsiteComponent } from './Admin/edit-website/edit-website.component';
 
 const admins: Routes = [
@@ -68,6 +70,7 @@ const admins: Routes = [
       { path: 'dashboard', component: AdminDashboardComponent },
       { path: 'pending', component: PendingAccountComponent },
       { path: 'manage_users', component: ManageAccountsComponent },
+      { path: 'edit_user/:id', component: AdminEditProfileComponent },
       { path: 'add_program', component: AddProgramComponent },
       { path: 'ongoing_partners', component: OngoingPartnersComponent },
       { path: 'expired_partners', component: ExpiredPartnersComponent },
@@ -146,6 +149,8 @@ const user: Routes = [
     EditSystemImgComponent,
     EditUserImgComponent,
     EditUserPasswordComponent,
+    AdminEditProfileComponent,
+    ListProgramMembersComponent,
     // EditWebsiteComponent,
   ],
   imports: [

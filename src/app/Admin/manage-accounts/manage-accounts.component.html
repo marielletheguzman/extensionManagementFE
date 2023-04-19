@@ -90,9 +90,10 @@
         <td>{{ pending.endDate }}</td> -->
           <td>
             <p-button
-              label="View Profile"
+              label="Edit Profile"
               styleClass="p-button-primary"
               [ngStyle]="{ 'margin-right': '8px' }"
+              (click)="edit(active.id)"
             ></p-button>
             <!-- (click)="reject(pending.id)" -->
             <!-- (click)="onView(program.id)" -->
