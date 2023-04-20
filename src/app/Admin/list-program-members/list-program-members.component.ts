@@ -16,6 +16,16 @@ export class ListProgramMembersComponent {
         userId: 0,
         name: '',
         position: '',
+        involvement: '',
+      },
+    ],
+  };
+  usersp = {
+    participants: [
+      {
+        program_id: '',
+        participant: '',
+        entity: '',
       },
     ],
   };
@@ -34,6 +44,17 @@ export class ListProgramMembersComponent {
         if (data && data['partners']) {
           this.users.partners = data.partners;
           console.log(data.partners);
+        }
+      });
+
+    this.http
+      .get<any>(
+        'http://localhost/extensionManagementRestAPI/controllers/admin/show_latest_participant.php'
+      )
+      .subscribe((data) => {
+        if (data && data['participants']) {
+          this.usersp.participants = data.participants;
+          console.log(data.participants);
         }
       });
   }

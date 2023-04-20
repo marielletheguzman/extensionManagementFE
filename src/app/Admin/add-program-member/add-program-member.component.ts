@@ -45,6 +45,7 @@ export class AddProgramMemberComponent implements OnInit {
 
     this.myForm = this.fb.group({
       name: ['', Validators.required],
+      involvement: ['', Validators.required],
     });
   }
   onSubmit(): void {
@@ -52,13 +53,14 @@ export class AddProgramMemberComponent implements OnInit {
     const userId = selectedUser.id;
     const position = selectedUser.position;
     const name = selectedUser.fullName;
+    const involvement = this.myForm.controls['involvement'].value;
     const headers = new HttpHeaders().set(
       'Authorization',
       `${localStorage.getItem('token')}`
     );
     const url =
       'http://localhost/extensionManagementRestAPI/controllers/admin/create_program_mems.php';
-    const body = { user_id: userId, position, name };
+    const body = { user_id: userId, position, name, involvement };
     this.http.post(url, body, { headers }).subscribe(
       (response) => {
         console.log(response);

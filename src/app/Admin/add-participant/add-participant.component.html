@@ -1,1 +1,6 @@
-<p>add-participant works!</p>
+<h1>Participants:</h1>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <input type="text" formControlName="participant" placeholder="Participant" />
+  <input type="text" formControlName="entity" placeholder="Entity" />
+  <button type="submit">Submit</button>
+</form>
