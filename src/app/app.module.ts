@@ -61,6 +61,8 @@ import { EditUserPasswordComponent } from './User/edit-user-password/edit-user-p
 import { AdminEditProfileComponent } from './Admin/admin-edit-profile/admin-edit-profile.component';
 import { ListProgramMembersComponent } from './Admin/list-program-members/list-program-members.component';
 import { AddProgramMemberComponent } from './Admin/add-program-member/add-program-member.component';
+import { AddParticipantComponent } from './Admin/add-participant/add-participant.component';
+import { AddFlowComponent } from './Admin/add-flow/add-flow.component';
 // import { EditWebsiteComponent } from './Admin/edit-website/edit-website.component';
 
 const admins: Routes = [
@@ -82,6 +84,9 @@ const admins: Routes = [
       { path: 'edit-logo', component: EditSystemLogoComponent },
       { path: 'edit-img', component: EditSystemImgComponent },
       { path: 'add-member', component: AddProgramMemberComponent },
+      { path: 'list-member', component: ListProgramMembersComponent },
+      { path: 'add-participant', component: AddParticipantComponent },
+      { path: 'add-flow', component: AddFlowComponent },
       // { path: 'edit_website', component: EditWebsiteComponent },
     ],
   },
@@ -154,6 +159,8 @@ const user: Routes = [
     AdminEditProfileComponent,
     ListProgramMembersComponent,
     AddProgramMemberComponent,
+    AddParticipantComponent,
+    AddFlowComponent,
     // EditWebsiteComponent,
   ],
   imports: [

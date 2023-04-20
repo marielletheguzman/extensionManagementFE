@@ -141,7 +141,7 @@ header {
     right: -100%;
     width: 270px;
     height: 45vh;
-    background: #f9fafb;
+    background: #000000;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1) inset;
     display: flex;
     flex-direction: column;
@@ -161,7 +161,7 @@ header {
     transform: translateY(5px);
   }
   .navigation a.active {
-    color: #030712;
+    color: #ffffff;
   }
   .navigation.open {
     right: 2%;

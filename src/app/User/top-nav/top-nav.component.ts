@@ -29,6 +29,16 @@ export class TopNavComponent {
       this.systemProfile = data;
       console.log(this.systemProfile);
     });
+    let menu = document.querySelector('#menu-icon');
+    let navigation = document.querySelector('.navigation');
+
+    menu!.addEventListener('click', function () {
+      if (menu!.classList.toggle('bx-x')) {
+        navigation!.classList.toggle('open');
+      } else {
+        navigation!.classList.toggle('open');
+      }
+    });
   }
   onLogoutClick() {
     this.authService.logout();

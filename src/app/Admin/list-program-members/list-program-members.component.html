@@ -1,1 +1,23 @@
-<p>list-program-members works!</p>
+<h1>Program Members:</h1>
+<form>
+  <button routerLink="/admin/add-member">Add Member</button>
+  <table>
+    <thead>
+      <tr>
+        <th>Program Members:</th>
+        <th>Position:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let member of users.partners">
+        <td>{{ member.name }}</td>
+        <td>{{ member.position }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <h1>Program Participants:</h1>
+  <button routerLink="/admin/add-participant">Add Participant</button>
+
+  <h1>Program Flow:</h1>
+  <button routerLink="/admin/add-flow">Add Program Flow</button>
+</form>
