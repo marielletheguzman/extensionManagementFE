@@ -22,9 +22,9 @@ export class ViewAdminSpecificProgramComponent {
       partner: '',
       startDate: '',
       endDate: '',
-      certificate: '',
-      attendance: '',
-      invitation: '',
+      certificate: 'certificate.jpg',
+      attendance: 'attendance.jpg',
+      invitation: 'invitation.jpg',
     },
     events: [
       {
