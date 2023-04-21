@@ -1,39 +1,65 @@
 <h1>Program Members:</h1>
-<form>
-  <button routerLink="/admin/add-member">Add Member</button>
-  <table>
-    <thead>
-      <tr>
-        <th>Program Members:</th>
-        <th>Position:</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let member of users.partners">
-        <td>{{ member.name }}</td>
-        <td>{{ member.position }}</td>
-        <td>{{ member.involvement }}</td>
-      </tr>
-    </tbody>
-  </table>
-  <br />
-  <h1>Program Participants:</h1>
-  <button routerLink="/admin/add-participant">Add Participant</button>
-  <table>
-    <thead>
-      <tr>
-        <th>Program Participant:</th>
-        <th>Entity:</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let member of usersp.participants">
-        <td>{{ member.participant }}</td>
-        <td>{{ member.entity }}</td>
-      </tr>
-    </tbody>
-  </table>
+<button pButton routerLink="/admin/add-member" label="Add Member"></button>
+<p-table [value]="users.partners">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Program Members:</th>
+      <th>Position:</th>
+      <th>Involvement:</th>
+      <th>Action:</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-member>
+    <tr>
+      <td>{{ member.name }}</td>
+      <td>{{ member.position }}</td>
+      <td>{{ member.involvement }}</td>
+      <td><button (click)="removeMember(member.id)">Remove</button></td>
+    </tr>
+  </ng-template>
+</p-table>
+<br />
+<h1>Program Participants:</h1>
+<button
+  pButton
+  routerLink="/admin/add-participant"
+  label="Add Participant"
+></button>
+<p-table [value]="usersp.participants">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Program Participant:</th>
+      <th>Entity:</th>
+      <th>Action:</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-member>
+    <tr>
+      <td>{{ member.participant }}</td>
+      <td>{{ member.entity }}</td>
+      <td><button (click)="removeParticipant(member.id)">Remove</button></td>
+    </tr>
+  </ng-template>
+</p-table>
+<br />
+<h1>Program Flow:</h1>
 
-  <h1>Program Flow:</h1>
-  <button routerLink="/admin/add-flow">Add Program Flow</button>
-</form>
+<button pButton routerLink="/admin/add-flow" label="Add Program Flow"></button>
+<p-table [value]="userFlow.flow">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Program Flow:</th>
+      <th>Event Type:</th>
+      <th>Action:</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-member>
+    <tr>
+      <td>{{ member.eventName }}</td>
+      <td>{{ member.eventType }}</td>
+      <td><button (click)="removeFlow(member.id)">Remove</button></td>
+    </tr>
+  </ng-template>
+</p-table>
+<br /><br />
+<button routerLink="/admin/list-programs">OK</button>

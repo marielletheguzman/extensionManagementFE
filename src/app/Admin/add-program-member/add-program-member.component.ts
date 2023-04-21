@@ -2,9 +2,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
-import { Observable } from 'rxjs';
+import { Observable, timer } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AddProgramMemberService } from './add-program-member.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-program-member',
@@ -25,7 +26,8 @@ export class AddProgramMemberComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private fb: FormBuilder,
-    private message: MessageService
+    private message: MessageService,
+    private router: Router
   ) {}
   ngOnInit(): void {
     const headers = new HttpHeaders().set(
@@ -61,7 +63,7 @@ export class AddProgramMemberComponent implements OnInit {
     const url =
       'http://localhost/extensionManagementRestAPI/controllers/admin/create_program_mems.php';
     const body = { user_id: userId, position, name, involvement };
-    this.http.post(url, body, { headers }).subscribe(
+    this.http.post(url, body).subscribe(
       (response) => {
         console.log(response);
         this.message.add({
@@ -77,6 +79,11 @@ export class AddProgramMemberComponent implements OnInit {
           summary: 'Error',
           detail: 'Failed to add user to program',
         });
+        timer(50)
+          .toPromise()
+          .then((done) => {
+            this.router.navigate(['/admin/list-member']);
+          });
       }
     );
   }

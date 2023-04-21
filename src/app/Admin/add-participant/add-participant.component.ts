@@ -1,7 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-add-participant',
@@ -22,7 +24,8 @@ export class AddParticipantComponent {
   constructor(
     private http: HttpClient,
     private fb: FormBuilder,
-    private message: MessageService
+    private message: MessageService,
+    private router: Router
   ) {}
   ngOnInit() {
     this.myForm = this.fb.group({
@@ -59,5 +62,10 @@ export class AddParticipantComponent {
         });
       }
     );
+    timer(50)
+      .toPromise()
+      .then((done) => {
+        this.router.navigate(['/admin/list-member']);
+      });
   }
 }

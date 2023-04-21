@@ -63,6 +63,7 @@ import { ListProgramMembersComponent } from './Admin/list-program-members/list-p
 import { AddProgramMemberComponent } from './Admin/add-program-member/add-program-member.component';
 import { AddParticipantComponent } from './Admin/add-participant/add-participant.component';
 import { AddFlowComponent } from './Admin/add-flow/add-flow.component';
+import { ListOfProgramsComponent } from './Admin/list-of-programs/list-of-programs.component';
 // import { EditWebsiteComponent } from './Admin/edit-website/edit-website.component';
 
 const admins: Routes = [
@@ -74,7 +75,12 @@ const admins: Routes = [
       { path: 'pending', component: PendingAccountComponent },
       { path: 'manage_users', component: ManageAccountsComponent },
       { path: 'edit_user/:id', component: AdminEditProfileComponent },
+      { path: 'list-programs', component: ListOfProgramsComponent },
       { path: 'add_program', component: AddProgramComponent },
+      { path: 'list-member', component: ListProgramMembersComponent },
+      { path: 'add-member', component: AddProgramMemberComponent },
+      { path: 'add-participant', component: AddParticipantComponent },
+      { path: 'add-flow', component: AddFlowComponent },
       { path: 'ongoing_partners', component: OngoingPartnersComponent },
       { path: 'expired_partners', component: ExpiredPartnersComponent },
       { path: 'view_partner/:id', component: ViewSpecificPartnerComponent },
@@ -83,10 +89,6 @@ const admins: Routes = [
       { path: 'edit', component: EditSystemComponent },
       { path: 'edit-logo', component: EditSystemLogoComponent },
       { path: 'edit-img', component: EditSystemImgComponent },
-      { path: 'add-member', component: AddProgramMemberComponent },
-      { path: 'list-member', component: ListProgramMembersComponent },
-      { path: 'add-participant', component: AddParticipantComponent },
-      { path: 'add-flow', component: AddFlowComponent },
       // { path: 'edit_website', component: EditWebsiteComponent },
     ],
   },
@@ -161,6 +163,7 @@ const user: Routes = [
     AddProgramMemberComponent,
     AddParticipantComponent,
     AddFlowComponent,
+    ListOfProgramsComponent,
     // EditWebsiteComponent,
   ],
   imports: [

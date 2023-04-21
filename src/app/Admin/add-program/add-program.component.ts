@@ -30,7 +30,8 @@ export class AddProgramComponent {
   constructor(
     private http: HttpClient,
     private fb: FormBuilder,
-    private message: MessageService
+    private router: Router,
+    private messageService: MessageService
   ) {}
 
   ngOnInit(): void {
@@ -79,10 +80,15 @@ export class AddProgramComponent {
       )
       .subscribe(
         (res) => {
-          console.log('added successfully!');
+          timer(50)
+            .toPromise()
+            .then((done) => {
+              this.router.navigate(['/admin/list-member']);
+            });
+          // this.router.navigate(['/home']);
         },
         (err) => {
-          this.message.add({
+          this.messageService.add({
             severity: 'warn',
             summary: 'Warn',
             detail: 'Message Content',

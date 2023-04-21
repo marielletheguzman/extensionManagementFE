@@ -1,20 +1,69 @@
 <div style="background-color: rgb(255, 248, 238); height: auto">
   <app-top-nav></app-top-nav>
-  <br /><br /><br /><br /><br /><br />
-  <div *ngIf="program">
-    <h2>{{ program.programTitle }}</h2>
-    <p><strong>Program Lead:</strong> {{ program.programLead }}</p>
-    <p><strong>Place:</strong> {{ program.place }}</p>
-    <p><strong>Partner:</strong> {{ program.partner }}</p>
-    <p><strong>Start Date:</strong> {{ program.startDate }}</p>
-    <p><strong>End Date:</strong> {{ program.endDate }}</p>
-    <p><strong>Additional Details:</strong> {{ program.additionalDetails }}</p>
+  <br /><br /><br /><br /><br /><br /><br />
 
-    <h3>Program Members:</h3>
-    <ul>
-      <li *ngFor="let member of program.programMembers">
-        {{ member.user }} - {{ member.position }}
-      </li>
-    </ul>
-  </div>
+  <br /><br /><br />
+
+  <ul>
+    <h1>Program Title: {{ program.data.programTitle }}</h1>
+    <h2>Start Date: {{ program.data.startDate }}</h2>
+    <h2>End Date: {{ program.data.endDate }}</h2>
+    <h2>Extension Partner: {{ program.data.partner }}</h2>
+    <h2>Program Lead: {{ program.data.programLead }}</h2>
+    <h2>Place: {{ program.data.place }}</h2>
+    <br />
+    <p-table [value]="program.programMembers">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Program Members:</th>
+          <th>Position:</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-member>
+        <tr>
+          <td>{{ member.user }}</td>
+          <td>{{ member.position }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+
+    <br /><br />
+    <p-table [value]="program.programparticipant">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Participants:</th>
+          <th>entity:</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-member>
+        <tr>
+          <td>{{ member.participant }}</td>
+          <td>{{ member.entity }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+
+    <br /><br />
+    <h1>Program Flow:</h1>
+    <p-table [value]="program.events">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Event Name:</th>
+          <th>Event :</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-member>
+        <tr>
+          <td>{{ member.eventName }}</td>
+          <td>{{ member.eventType }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <br />
+    <h2>Additional Details:</h2>
+    <p>{{ program.data.additionalDetails }}</p>
+  </ul>
+
+  <!-- additional files here -->
+  <h1>{{ program.relatedFiles[0].certificate }}</h1>
 </div>

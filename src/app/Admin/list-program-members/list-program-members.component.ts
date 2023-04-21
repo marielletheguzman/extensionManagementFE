@@ -13,6 +13,7 @@ export class ListProgramMembersComponent {
   users = {
     partners: [
       {
+        id: 0,
         userId: 0,
         name: '',
         position: '',
@@ -23,9 +24,20 @@ export class ListProgramMembersComponent {
   usersp = {
     participants: [
       {
+        id: 0,
         program_id: '',
         participant: '',
         entity: '',
+      },
+    ],
+  };
+  userFlow = {
+    flow: [
+      {
+        id: 0,
+        selectedId: 0,
+        eventName: '',
+        eventType: '',
       },
     ],
   };
@@ -43,7 +55,7 @@ export class ListProgramMembersComponent {
       .subscribe((data) => {
         if (data && data['partners']) {
           this.users.partners = data.partners;
-          console.log(data.partners);
+          // console.log(data.partners);
         }
       });
 
@@ -54,8 +66,75 @@ export class ListProgramMembersComponent {
       .subscribe((data) => {
         if (data && data['participants']) {
           this.usersp.participants = data.participants;
-          console.log(data.participants);
+          // console.log(data.participants);
         }
       });
+    this.http
+      .get<any>(
+        'http://localhost/extensionManagementRestAPI/controllers/admin/show_latest_flow.php'
+      )
+      .subscribe((data) => {
+        if (data && data['flow']) {
+          this.userFlow.flow = data.flow;
+          console.log(data.flow);
+        }
+      });
+  }
+
+  removeMember(id: number) {
+    this.http
+      .post(
+        'http://localhost/extensionManagementRestAPI/controllers/admin/delete_specific_program_members.php?id=' +
+          id,
+        {}
+      )
+      .subscribe(
+        (res) => {
+          console.log('Member deleted:', res);
+          // Remove the member from the local array
+          this.users.partners = this.users.partners.filter((m) => m.id !== id);
+        },
+        (err) => {
+          console.error('Error deleting member:', err);
+        }
+      );
+  }
+  removeParticipant(id: number) {
+    this.http
+      .post(
+        'http://localhost/extensionManagementRestAPI/controllers/admin/delete_specific_prog_part.php?id=' +
+          id,
+        {}
+      )
+      .subscribe(
+        (res) => {
+          console.log('Member deleted:', res);
+          // Remove the member from the local array
+          this.usersp.participants = this.usersp.participants.filter(
+            (m) => m.id !== id
+          );
+        },
+        (err) => {
+          console.error('Error deleting member:', err);
+        }
+      );
+  }
+  removeFlow(id: number) {
+    this.http
+      .post(
+        'http://localhost/extensionManagementRestAPI/controllers/admin/delete_specific_program_flow.php?id=' +
+          id,
+        {}
+      )
+      .subscribe(
+        (res) => {
+          console.log('Member deleted:', res);
+          // Remove the member from the local array
+          this.userFlow.flow = this.userFlow.flow.filter((m) => m.id !== id);
+        },
+        (err) => {
+          console.error('Error deleting member:', err);
+        }
+      );
   }
 }

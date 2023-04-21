@@ -1,1 +1,11 @@
-<p>add-flow works!</p>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="eventName">Event Name:</label>
+    <input type="text" placeholder="Event Name" formControlName="eventName" />
+  </div>
+  <div>
+    <label for="eventType">Event Type:</label>
+    <input type="text" placeholder="Event Type" formControlName="eventType" />
+  </div>
+  <button type="submit">Submit</button>
+</form>
