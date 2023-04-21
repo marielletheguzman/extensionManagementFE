@@ -1,47 +1,86 @@
-<form (submit)="onSubmit()">
-  <label>partnerName:</label>
-  <input type="text" name="partnerName" [(ngModel)]="partnerName" />
+<p-toast></p-toast>
+<body>
+  <section class="container">
+    <header>Add Extension Partner</header>
+    <br />
+    <form (submit)="onSubmit()" class="form">
+      <div class="column">
+        <div class="input-box">
+          <label>Extension Partner Name</label>
+          <input type="text" name="partnerName" [(ngModel)]="partnerName" />
+        </div>
+        <div class="input-box">
+          <label>Extension Partner Address</label>
+          <input
+            type="email"
+            name="partnerAddress"
+            [(ngModel)]="partnerAddress"
+          />
+        </div>
+      </div>
+      <div class="column">
+        <div class="input-box">
+          <label>Contact Person</label>
+          <input
+            type="email"
+            name="partnerContactPerson"
+            [(ngModel)]="partnerContactPerson"
+          />
+        </div>
+        <div class="input-box">
+          <label>Contact Number</label>
+          <input
+            type="email"
+            name="partnerContactNumber"
+            [(ngModel)]="partnerContactNumber"
+          />
+        </div>
+      </div>
+      <div class="column">
+        <div class="input-box">
+          <label>Start Date</label>
+          <input
+            type="date"
+            name="partnerStartDate"
+            [(ngModel)]="partnerStartDate"
+          />
+        </div>
+        <div class="input-box">
+          <label>End Date</label>
+          <input
+            type="date"
+            name="partnerEndDate"
+            [(ngModel)]="partnerEndDate"
+          />
+        </div>
+      </div>
 
-  <label>partnerAddress:</label>
-  <input type="email" name="partnerAddress" [(ngModel)]="partnerAddress" />
+      <div class="column">
+        <div class="input-box1">
+          <label>Extension Partner Logo</label><br /><br />
+          <input
+            type="file"
+            class="upload-box"
+            name="image"
+            name="partnerLogo"
+            id="partnerLogo"
+            (change)="onLogoSelected($event)"
+          />
+        </div>
+        <div class="input-box1">
+          <label>Upload MOA</label><br /><br />
+          <input
+            type="file"
+            class="upload-box"
+            name="image"
+            name="partnerMoaFile"
+            id="partnerMoaFile"
+            (change)="onMoaFileSelected($event)"
+          />
+        </div>
+      </div>
 
-  <label>partnerContactPerson:</label>
-  <input
-    type="email"
-    name="partnerContactPerson"
-    [(ngModel)]="partnerContactPerson"
-  />
-
-  <label>partnerContactNumber:</label>
-  <input
-    type="email"
-    name="partnerContactNumber"
-    [(ngModel)]="partnerContactNumber"
-  />
-
-  <label>partnerStartDate:</label>
-  <input type="date" name="partnerStartDate" [(ngModel)]="partnerStartDate" />
-
-  <label>partnerEndDate:</label>
-  <input type="date" name="partnerEndDate" [(ngModel)]="partnerEndDate" />
-
-  <label>partnerLogo:</label>
-  <input
-    type="file"
-    name="image"
-    name="partnerLogo"
-    id="partnerLogo"
-    (change)="onLogoSelected($event)"
-  />
-
-  <label>partnerMoaFile:</label>
-  <input
-    type="file"
-    name="image"
-    name="partnerMoaFile"
-    id="partnerMoaFile"
-    (change)="onMoaFileSelected($event)"
-  />
-
-  <button type="submit">Submit</button>
-</form>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+</body>

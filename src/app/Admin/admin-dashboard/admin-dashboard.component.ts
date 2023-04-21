@@ -101,7 +101,7 @@ export class AdminDashboardComponent {
       const textColor = documentStyle.getPropertyValue('--text-color');
       console.log(this.dashboardDetails.numbersOfFaculty);
       this.data = {
-        labels: ['Faculty', 'Pending Accounts', ' Partners', 'Active Programs'],
+        labels: ['Faculty', 'Pending ', ' Partners', 'Active Programs'],
         datasets: [
           {
             data: [

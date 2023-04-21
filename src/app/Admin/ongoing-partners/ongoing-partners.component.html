@@ -1,15 +1,15 @@
 <link
+  href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+  rel="stylesheet"
+/>
+<link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
 /><p-toast></p-toast><p-confirmDialog></p-confirmDialog>
 
 <div style="width: 100%; margin-left: 0.5%">
   <div class="card">
-    <h1>Ongoing Extension Partners</h1>
-    <h1>
-      {{ onGoingPartners.count }}
-    </h1>
-    <br />
+    <br /><br />
     <input
       pInputText
       type="text"
@@ -17,7 +17,18 @@
       placeholder="Search"
       class="searchField"
     />
-    <button>Add Extension Partner</button>
+    <h1>
+      Ongoing Extension Partners: &nbsp;
+      <span> {{ onGoingPartners.count }} </span>
+    </h1>
+    <br />
+
+    <button type="button" class="button">
+      <span class="button_text">Add Extension Partner</span>
+      <span class="button_icon"> <i class="bx bx-plus"></i></span>
+    </button>
+
+    <br /><br />
     <br /><br />
 
     <p-table

@@ -1,15 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 
 @Component({
-  selector: 'app-list-of-programs',
-  templateUrl: './list-of-programs.component.html',
-  styleUrls: ['./list-of-programs.component.css'],
+  selector: 'app-finished-list-of-programs',
+  templateUrl: './finished-list-of-programs.component.html',
+  styleUrls: ['./finished-list-of-programs.component.css'],
 })
-export class ListOfProgramsComponent {
+export class FinishedListOfProgramsComponent {
   myForm!: FormGroup;
   users = {
     programs: [
@@ -29,7 +28,6 @@ export class ListOfProgramsComponent {
     ],
   };
   constructor(
-    private router: Router,
     private http: HttpClient,
     private fb: FormBuilder,
     private message: MessageService
@@ -38,7 +36,7 @@ export class ListOfProgramsComponent {
   ngOnInit() {
     this.http
       .get<any>(
-        'http://localhost/extensionManagementRestAPI/controllers/admin/show_all_programs.php'
+        'http://localhost/extensionManagementRestAPI/controllers/admin/show_all_finished_programs.php'
       )
       .subscribe((data) => {
         if (data && data['programs']) {
@@ -46,11 +44,5 @@ export class ListOfProgramsComponent {
           console.log(data);
         }
       });
-  }
-  onView(id: string) {
-    this.router.navigate(['admin/view-programs/', id]);
-  }
-  onUpload(id: string) {
-    this.router.navigate(['admin/upload-file/', id]);
   }
 }

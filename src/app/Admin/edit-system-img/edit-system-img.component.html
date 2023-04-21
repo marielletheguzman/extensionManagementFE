@@ -1,16 +1,28 @@
-<form (ngSubmit)="onSubmit()">
-  <img
-    src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
-      systemProfile.MainImg
-    }}"
-    style="height: 10em"
-    alt=""
-  />
-  <input
-    type="file"
-    id="myfile"
-    name="myfile"
-    (change)="onImageSelected($event)"
-  />
-  <button type="submit">Submit</button>
-</form>
+<link
+  href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+  rel="stylesheet"
+/>
+<body>
+  <section class="container">
+    <header>Edit System Landing Page</header>
+    <form (ngSubmit)="onSubmit()" class="form">
+      <img
+        src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
+          systemProfile.MainImg
+        }}"
+        style="height: 10em"
+        alt=""
+        class="profilePicture"
+      /><br /><br />
+      <input
+        type="file"
+        class="upload-box"
+        id="myfile"
+        name="myfile"
+        (change)="onImageSelected($event)"
+      />
+
+      <button type="submit" class="main-btn">Submit</button>
+    </form>
+  </section>
+</body>

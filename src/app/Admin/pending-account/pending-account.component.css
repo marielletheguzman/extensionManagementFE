@@ -13,7 +13,7 @@
 .button {
   width: 100px;
 }
-.rounded-image {
+/* .rounded-image {
   border-radius: 100%;
 }
 ::ng-deep .p-image .p-image-wrapper {
@@ -22,4 +22,11 @@
 
 .custom-image .p-image-wrapper {
   border-radius: 50%;
+} */
+h1 {
+  display: flex;
+  align-items: center;
+}
+.searchField {
+  float: right;
 }

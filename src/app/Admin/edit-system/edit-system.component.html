@@ -1,49 +1,68 @@
-<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-  <label>Logo:</label><br />
-  <br />
-  <img
-    src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
-      systemProfile.Logo
-    }}"
-    style="height: 10em"
-    alt=""
-  />
-  <!-- router link here -->
-  <button routerLink="/admin/edit-logo">Edit System Logo</button>
-  <br /><br />
-  <label>WebsiteName:</label><br />
-  <input
-    type="text"
-    pInputText
-    class="form-control"
-    formControlName="WebsiteName"
-  />
-  <br />
-  <label>ThemeColor:</label><br />
-  <p-colorPicker
-    formControlName="ThemeColor"
-    value="ThemeColor"
-  ></p-colorPicker>
-  <br />
-  <label>Description:</label><br />
-  <input
-    type="text"
-    pInputText
-    class="form-control"
-    formControlName="Description"
-  />
+<link
+  href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+  rel="stylesheet"
+/>
+<body>
+  <section class="container">
+    <header>Edit System Profile</header>
+    <br />
+    <form action="#" class="form">
+      <div class="input-box">
+        <label>Logo:</label>
+        <button routerLink="/admin/edit-logo" type="”button”" class="buttonp">
+          <span class="button_text">Edit Image</span>
+          <span class="button_icon"> <i class="bx bx-plus"></i></span></button
+        ><br />
+        <img
+          src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
+            systemProfile.Logo
+          }}"
+          style="height: 10em"
+          alt=""
+        />
+      </div>
+      <div class="input-box">
+        <label>Website Name:</label>
+        <input
+          type="text"
+          pInputText
+          class="form-control"
+          formControlName="WebsiteName"
+          required
+        />
+      </div>
 
-  <br />
-  <label>MainImg:</label><br />
+      <div class="input-box">
+        <label>Description:</label>
+        <textarea class="field" name="w3review" rows="10" cols="86" required>
+        </textarea>
+      </div>
 
-  <img
-    src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
-      systemProfile.MainImg
-    }}"
-    style="height: 10em"
-    alt=""
-  />
-  <!-- router link here -->
-  <button routerLink="/admin/edit-img">Edit Landing Page Image</button>
-  <button type="submit">Submit</button>
-</form>
+      <div class="column">
+        <div class="input-box">
+          <label>Landing Page Image:</label>
+          <button routerLink="/admin/edit-img" class="buttonp">
+            <span class="button_text">Edit Image</span>
+            <span class="button_icon"> <i class="bx bx-plus"></i></span></button
+          ><br />
+          <img
+            src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
+              systemProfile.MainImg
+            }}"
+            style="height: 10em"
+            alt=""
+          />
+        </div>
+        <div class="input-box">
+          <label>Theme Color:&nbsp; </label>
+          <p-colorPicker
+            formControlName="ThemeColor"
+            value="ThemeColor"
+          ></p-colorPicker>
+        </div>
+      </div>
+
+      <button class="main-btn">Submit</button>
+    </form>
+  </section>
+</body>

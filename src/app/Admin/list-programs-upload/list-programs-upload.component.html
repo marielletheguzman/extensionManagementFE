@@ -1,0 +1,36 @@
+<form class="form" [formGroup]="upload" (ngSubmit)="onSubmit()">
+  <div class="input-box">
+    <label for="partnerMoaFile">Upload Certificate</label>
+    <input
+      type="file"
+      id="myFile"
+      class="upload-box"
+      name="certificate"
+      (change)="certificateUpload($event)"
+      required
+    />
+  </div>
+  <div class="input-box">
+    <label for="partnerMoaFile">Upload Attendance</label>
+    <input
+      type="file"
+      id="myFile"
+      class="upload-box"
+      name="attendance"
+      (change)="attendanceUpload($event)"
+      required
+    />
+  </div>
+  <div class="input-box">
+    <label for="partnerMoaFile">Upload Invitation</label>
+    <input
+      type="file"
+      id="myFile"
+      class="upload-box"
+      name="invitation"
+      required
+      (change)="invitationUpload($event)"
+    />
+  </div>
+  <button type="submit">Submit</button>
+</form>

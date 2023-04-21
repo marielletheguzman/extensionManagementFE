@@ -1,0 +1,101 @@
+<h1>{{ users.data.programTitle }}</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Event Name</th>
+      <th>Event Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let event of users.events">
+      <td>{{ event.eventName }}</td>
+      <td>{{ event.eventType }}</td>
+    </tr>
+  </tbody>
+</table>
+<br /><br />
+<table>
+  <thead>
+    <tr>
+      <th>Program Members</th>
+      <th>Position</th>
+      <th>Involvement</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let programMember of users.programMembers">
+      <td>{{ programMember.user }}</td>
+      <td>{{ programMember.position }}</td>
+      <td>{{ programMember.involvement }}</td>
+    </tr>
+  </tbody>
+</table>
+<br /><br />
+<table>
+  <thead>
+    <tr>
+      <th>Program Participants</th>
+      <th>Entity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let participant of users.programparticipant">
+      <td>{{ participant.participant }}</td>
+      <td>{{ participant.entity }}</td>
+    </tr>
+  </tbody>
+</table>
+<br /><br /><br />
+<table>
+  <thead>
+    <tr>
+      <th>Program Flow</th>
+      <th>Program Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let flow of users.programflow">
+      <td>{{ flow.eventName }}</td>
+      <td>{{ flow.eventType }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<br />
+<h3>Additional Details:</h3>
+<p>{{ users.data.additionalDetails }}</p>
+<p>{{ users.data.certificate }}</p>
+
+<h1>certificate</h1>
+<iframe
+  [src]="
+    getSafeUrl(
+      'http://localhost/extensionManagementRestAPI/assets/relatedFiles/' +
+        users.data.certificate
+    )
+  "
+  width="500px"
+  height="700px"
+></iframe>
+<h1>attendance</h1>
+<iframe
+  [src]="
+    getSafeUrl(
+      'http://localhost/extensionManagementRestAPI/assets/relatedFiles/' +
+        users.data.attendance
+    )
+  "
+  width="500px"
+  height="700px"
+></iframe>
+<h1>invitation</h1>
+<iframe
+  [src]="
+    getSafeUrl(
+      'http://localhost/extensionManagementRestAPI/assets/relatedFiles/' +
+        users.data.invitation
+    )
+  "
+  width="500px"
+  height="700px"
+></iframe>

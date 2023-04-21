@@ -1,25 +1,39 @@
-<form [formGroup]="renew" (ngSubmit)="onSubmit()">
-  <label>Start date</label>
-  <input
-    type="date"
-    formControlName="partnerStartDate"
-    placeholder="YYYY-MM-DD"
-  />
+<body>
+  <section class="container">
+    <header>Renew Extension Partner</header>
+    <br />
+    <form [formGroup]="renew" (ngSubmit)="onSubmit()" class="form">
+      <div class="column">
+        <div class="input-box">
+          <label>Start Date</label>
+          <input
+            type="date"
+            formControlName="partnerStartDate"
+            placeholder="YYYY-MM-DD"
+          />
+        </div>
+        <div class="input-box">
+          <label>End Date</label>
+          <input
+            type="date"
+            formControlName="partnerEndDate"
+            placeholder="YYYY-MM-DD"
+          />
+        </div>
+        <div class="input-box">
+          <label for="partnerMoaFile">Upload MOA</label>
+          <input
+            type="file"
+            id="myFile"
+            class="upload-box"
+            name="partnerMoaFile"
+            (change)="onFileSelected($event)"
+            required
+          />
+        </div>
+      </div>
 
-  <label>End date</label>
-  <input
-    type="date"
-    formControlName="partnerEndDate"
-    placeholder="YYYY-MM-DD"
-  />
-
-  <label for="partnerMoaFile">MOA File</label>
-  <input
-    type="file"
-    id="myFile"
-    name="partnerMoaFile"
-    (change)="onFileSelected($event)"
-    required
-  />
-  <button type="submit">Submit</button>
-</form>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+</body>

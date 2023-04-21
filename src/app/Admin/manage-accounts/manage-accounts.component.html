@@ -5,10 +5,6 @@
 
 <div style="width: 80%; margin-left: 10%">
   <div class="card">
-    <h1>Active Accounts</h1>
-    <h1>
-      {{ activeAccounts.counts }}
-    </h1>
     <br />
     <input
       pInputText
@@ -17,6 +13,13 @@
       placeholder="Search"
       class="searchField"
     />
+    <h1>
+      Active Accounts: &nbsp;
+      <span>
+        {{ activeAccounts.counts }}
+      </span>
+    </h1>
+
     <br /><br />
 
     <p-table
@@ -25,6 +28,7 @@
       [tableStyle]="{ 'min-width': '60rem' }"
       [paginator]="true"
       [rows]="5"
+      [rowsPerPageOptions]="[5, 10, 15, 20]"
       [globalFilterFields]="['fullName', 'email', 'position']"
       styleClass="p-datatable-gridlines"
       [resizableColumns]="true"

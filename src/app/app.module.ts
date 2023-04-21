@@ -64,6 +64,9 @@ import { AddProgramMemberComponent } from './Admin/add-program-member/add-progra
 import { AddParticipantComponent } from './Admin/add-participant/add-participant.component';
 import { AddFlowComponent } from './Admin/add-flow/add-flow.component';
 import { ListOfProgramsComponent } from './Admin/list-of-programs/list-of-programs.component';
+import { FinishedListOfProgramsComponent } from './Admin/finished-list-of-programs/finished-list-of-programs.component';
+import { ViewAdminSpecificProgramComponent } from './Admin/view-admin-specific-program/view-admin-specific-program.component';
+import { ListProgramsUploadComponent } from './Admin/list-programs-upload/list-programs-upload.component';
 // import { EditWebsiteComponent } from './Admin/edit-website/edit-website.component';
 
 const admins: Routes = [
@@ -74,8 +77,14 @@ const admins: Routes = [
       { path: 'dashboard', component: AdminDashboardComponent },
       { path: 'pending', component: PendingAccountComponent },
       { path: 'manage_users', component: ManageAccountsComponent },
-      { path: 'edit_user/:id', component: AdminEditProfileComponent },
+      { path: 'edit_user/:id', component: AdminEditProfileComponent }, //@mich
       { path: 'list-programs', component: ListOfProgramsComponent },
+      { path: 'upload-file/:id', component: ListProgramsUploadComponent },
+      {
+        path: 'view-programs/:id',
+        component: ViewAdminSpecificProgramComponent,
+      },
+      { path: 'finished-programs', component: FinishedListOfProgramsComponent },
       { path: 'add_program', component: AddProgramComponent },
       { path: 'list-member', component: ListProgramMembersComponent },
       { path: 'add-member', component: AddProgramMemberComponent },
@@ -164,6 +173,9 @@ const user: Routes = [
     AddParticipantComponent,
     AddFlowComponent,
     ListOfProgramsComponent,
+    FinishedListOfProgramsComponent,
+    ViewAdminSpecificProgramComponent,
+    ListProgramsUploadComponent,
     // EditWebsiteComponent,
   ],
   imports: [

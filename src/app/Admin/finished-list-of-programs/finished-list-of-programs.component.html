@@ -1,4 +1,4 @@
-<button routerLink="/admin/add_program">Add Program</button>
+<h1>Finished Programs</h1>
 <p-table [value]="users.programs">
   <ng-template pTemplate="header">
     <tr>
@@ -21,10 +21,7 @@
       <td>{{ program.startDate }}</td>
       <td>{{ program.endDate }}</td>
       <td>{{ program.partner }}</td>
-      <td>
-        <p-button (click)="onView(program.id)">View</p-button>
-        <p-button (click)="onUpload(program.id)">Upload Files</p-button>
-      </td>
+      <td><p-button>View</p-button></td>
     </tr>
   </ng-template>
 </p-table>
