@@ -68,9 +68,12 @@ import { FinishedListOfProgramsComponent } from './Admin/finished-list-of-progra
 import { ViewAdminSpecificProgramComponent } from './Admin/view-admin-specific-program/view-admin-specific-program.component';
 import { ListProgramsUploadComponent } from './Admin/list-programs-upload/list-programs-upload.component';
 import { TerminalReportComponent } from './Admin/terminal-report/terminal-report.component';
+import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 // import { EditWebsiteComponent } from './Admin/edit-website/edit-website.component';
 
 const admins: Routes = [
+  { path: '', component: LandingPageComponent },
+  { path: 'login', component: LoginComponent },
   {
     path: 'admin',
     component: SideNavComponent,
@@ -85,62 +88,156 @@ const admins: Routes = [
         component: PendingAccountComponent,
         canActivate: [AuthGuard],
       },
-      { path: 'manage_users', component: ManageAccountsComponent },
-      { path: 'edit_user/:id', component: AdminEditProfileComponent }, //@mich
-      { path: 'list-programs', component: ListOfProgramsComponent }, //added
-      { path: 'upload-file/:id', component: ListProgramsUploadComponent }, //added
+      {
+        path: 'manage_users',
+        component: ManageAccountsComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'edit_user/:id',
+        component: AdminEditProfileComponent,
+        canActivate: [AuthGuard],
+      }, //@mich
+      {
+        path: 'list-programs',
+        component: ListOfProgramsComponent,
+        canActivate: [AuthGuard],
+      }, //added
+      {
+        path: 'upload-file/:id',
+        component: ListProgramsUploadComponent,
+        canActivate: [AuthGuard],
+      }, //added
       {
         path: 'view-programs/:id', // to do
         component: ViewAdminSpecificProgramComponent,
+        canActivate: [AuthGuard],
       },
-      { path: 'finished-programs', component: FinishedListOfProgramsComponent },
-      { path: 'add_program', component: AddProgramComponent },
-      { path: 'list-member', component: ListProgramMembersComponent },
-      { path: 'add-member', component: AddProgramMemberComponent },
-      { path: 'add-participant', component: AddParticipantComponent },
-      { path: 'add-flow', component: AddFlowComponent },
-      { path: 'ongoing_partners', component: OngoingPartnersComponent },
-      { path: 'expired_partners', component: ExpiredPartnersComponent },
-      { path: 'view_partner/:id', component: ViewSpecificPartnerComponent },
-      { path: 'add_partner', component: AddPartnerComponent },
-      { path: 'renew_partner/:id', component: RenewPartnerComponent },
-      { path: 'edit', component: EditSystemComponent },
-      { path: 'edit-logo', component: EditSystemLogoComponent },
-      { path: 'edit-img', component: EditSystemImgComponent },
-      { path: 'edit-img', component: EditSystemImgComponent },
-      { path: 'terminal-report', component: TerminalReportComponent },
+      {
+        path: 'finished-programs',
+        component: FinishedListOfProgramsComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'add_program',
+        component: AddProgramComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'list-member',
+        component: ListProgramMembersComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'add-member',
+        component: AddProgramMemberComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'add-participant',
+        component: AddParticipantComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'add-flow',
+        component: AddFlowComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'ongoing_partners',
+        component: OngoingPartnersComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'expired_partners',
+        component: ExpiredPartnersComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'view_partner/:id',
+        component: ViewSpecificPartnerComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'add_partner',
+        component: AddPartnerComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'renew_partner/:id',
+        component: RenewPartnerComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'edit',
+        component: EditSystemComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'edit-logo',
+        component: EditSystemLogoComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'edit-img',
+        component: EditSystemImgComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'edit-img',
+        component: EditSystemImgComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'terminal-report',
+        component: TerminalReportComponent,
+        canActivate: [AuthGuard],
+      },
       // { path: 'edit_website', component: EditWebsiteComponent },
     ],
   },
 ];
 
-const admin: Routes = [
-  { path: '', component: LandingPageComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  {
-    path: 'pending',
-    component: PendingAccountComponent,
-    canActivate: [AuthGuard],
-  },
-  // { path: 'dashboard', component: AdminDashboardComponent },
-  { path: 'side', component: SideNavComponent },
-  // { path: 'manage', component: ManageExtensionComponent },
-  { path: 'programs', component: ProgramsComponent },
-  { path: 'manage-accounts', component: ManageAccountsComponent },
-  { path: 'ongoing', component: OngoingPartnersComponent },
-  { path: 'expired', component: ExpiredPartnersComponent },
-];
+// const admin: Routes = [
+//   { path: '', component: LandingPageComponent },
+//   { path: 'home', component: HomeComponent },
+//   { path: 'login', component: LoginComponent },
+//   {
+//     path: 'pending',
+//     component: PendingAccountComponent,
+//     canActivate: [AuthGuard],
+//   },
+//   // { path: 'dashboard', component: AdminDashboardComponent },
+//   { path: 'side', component: SideNavComponent },
+//   // { path: 'manage', component: ManageExtensionComponent },
+//   { path: 'programs', component: ProgramsComponent },
+//   { path: 'manage-accounts', component: ManageAccountsComponent },
+//   { path: 'ongoing', component: OngoingPartnersComponent },
+//   { path: 'expired', component: ExpiredPartnersComponent },
+// ];
 const user: Routes = [
+  { path: '', component: LandingPageComponent },
   { path: 'registration', component: RegistrationUserComponent }, //@mich button
   // { path: '', redirectTo: 'login_user', pathMatch: 'full' },
   // { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login_user', component: LoginUserComponent }, // remove gray bg
-  { path: 'edit-profile', component: EditProfileComponent },
+  {
+    path: 'edit-profile',
+    component: EditProfileComponent,
+    canActivate: [UserGuard],
+  },
   // canActivate: [UserGuard]
-  { path: 'list', component: ShowListComponent }, //fix bg
-  { path: 'edit-img', component: EditUserImgComponent },
-  { path: 'edit-password', component: EditUserPasswordComponent },
+  { path: 'list', component: ShowListComponent, canActivate: [UserGuard] }, //fix bg
+  {
+    path: 'edit-img',
+    component: EditUserImgComponent,
+    canActivate: [UserGuard],
+  },
+  {
+    path: 'edit-password',
+    component: EditUserPasswordComponent,
+    canActivate: [UserGuard],
+  },
   {
     path: 'program-details/:id',
     component: ProgramDetailsComponent,
@@ -194,7 +291,7 @@ const user: Routes = [
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(admin),
+    // RouterModule.forRoot(admin),
     RouterModule.forRoot(admins),
     RouterModule.forRoot(user),
     ButtonModule,
@@ -213,6 +310,13 @@ const user: Routes = [
     CalendarModule,
     CarouselModule,
     ColorPickerModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem('token');
+        },
+      },
+    }),
   ],
   providers: [MessageService, ConfirmationService],
   bootstrap: [AppComponent],

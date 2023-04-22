@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
 })
 export class AuthServiceService {
   private token: string | null | undefined;
-
   constructor(private http: HttpClient) {
     this.token = localStorage.getItem('token');
     console.log(this.token);
