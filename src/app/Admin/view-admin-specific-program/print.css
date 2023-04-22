@@ -1,0 +1,12 @@
+body {
+  background-image: url("../../../assets/placeholder_templates/placeholderImg.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+@media print {
+  body {
+    background-image: url("../../../assets/placeholder_templates/placeholderImg.jpg") !important;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+}

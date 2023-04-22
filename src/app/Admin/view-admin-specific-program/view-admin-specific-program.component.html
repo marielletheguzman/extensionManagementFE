@@ -1,110 +1,144 @@
-<h1>Name of Activity:</h1>
-<h1>{{ users.data.programTitle }}</h1>
-<h1>Start Date: {{ users.data.startDate }}</h1>
-<h1>End Date: {{ users.data.endDate }}</h1>
-<h1>Place: {{ users.data.place }}</h1>
-<h1>Program Lead: {{ users.data.programLead }}</h1>
-<!-- Benificiary -->
-<h1>Partner: {{ users.data.partner }}</h1>
-
-<h3>Additional Details:</h3>
-<p>{{ users.data.additionalDetails }}</p>
-<table>
-  <thead>
-    <tr>
-      <th>Event Name</th>
-      <th>Event Type</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let event of users.events">
-      <td>{{ event.eventName }}</td>
-      <td>{{ event.eventType }}</td>
-    </tr>
-  </tbody>
-</table>
-<br /><br />
-<table>
-  <thead>
-    <tr>
-      <th>Program Members</th>
-      <th>Position</th>
-      <th>Involvement</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let programMember of users.programMembers">
-      <td>{{ programMember.user }}</td>
-      <td>{{ programMember.position }}</td>
-      <td>{{ programMember.involvement }}</td>
-    </tr>
-  </tbody>
-</table>
-<br /><br />
-<table>
-  <thead>
-    <tr>
-      <th>Program Participants</th>
-      <th>Entity</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let participant of users.programparticipant">
-      <td>{{ participant.participant }}</td>
-      <td>{{ participant.entity }}</td>
-    </tr>
-  </tbody>
-</table>
-<br /><br /><br />
-<table>
-  <thead>
-    <tr>
-      <th>Program Flow</th>
-      <th>Program Type</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let flow of users.programflow">
-      <td>{{ flow.eventName }}</td>
-      <td>{{ flow.eventType }}</td>
-    </tr>
-  </tbody>
-</table>
-
-<br />
-
-<p>{{ users.data.certificate }}</p>
-
-<h1>certificate</h1>
-<iframe
-  [src]="
-    getSafeUrl(
-      'http://localhost/extensionManagementRestAPI/assets/relatedFiles/' +
-        users.data.certificate
-    )
-  "
-  width="500px"
-  height="700px"
-></iframe>
-<h1>attendance</h1>
-<iframe
-  [src]="
-    getSafeUrl(
-      'http://localhost/extensionManagementRestAPI/assets/relatedFiles/' +
-        users.data.attendance
-    )
-  "
-  width="500px"
-  height="700px"
-></iframe>
-<h1>invitation</h1>
-<iframe
-  [src]="
-    getSafeUrl(
-      'http://localhost/extensionManagementRestAPI/assets/relatedFiles/' +
-        users.data.invitation
-    )
-  "
-  width="500px"
-  height="700px"
-></iframe>
+<div class="whole">
+  <div style="display: flex; justify-content: center">
+    <div
+      [ngStyle]="{
+        backgroundImage: 'url(assets/placeholder_templates/placeholderImg.jpg)',
+        'background-size': '100% 100%',
+        'background-repeat': 'no-repeat'
+      }"
+      class="container"
+      #myContainer
+    >
+      <img
+        src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
+          systemProfile.Logo
+        }}"
+        alt=""
+        style="width: 150px"
+      />
+      <div class="content">
+        <h1 class="progtitle">
+          Program Title:
+          <span style="font-weight: normal">{{ users.data.programTitle }}</span>
+        </h1>
+        <br />
+        <h3>
+          Start Date:
+          <span style="font-weight: normal">{{ users.data.startDate }}</span>
+        </h3>
+        <h3>
+          End Date:
+          <span style="font-weight: normal">{{ users.data.endDate }}</span>
+        </h3>
+        <h3>
+          Program Lead:
+          <span style="font-weight: normal">{{ users.data.programLead }}</span>
+        </h3>
+        <h3>
+          Place: <span style="font-weight: normal">{{ users.data.place }}</span>
+        </h3>
+        <!-- Benificiary -->
+        <h3>
+          Extension Partner:
+          <span style="font-weight: normal">{{ users.data.partner }}</span>
+        </h3>
+        <br />
+        <h2>Additional Details:</h2>
+        <p>{{ users.data.additionalDetails }}</p>
+        <br /><br />
+        <table>
+          <thead>
+            <tr>
+              <th>Program Members</th>
+              <th>Position</th>
+              <th>Involvement</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let programMember of users.programMembers">
+              <td>{{ programMember.user }}</td>
+              <td>{{ programMember.position }}</td>
+              <td>{{ programMember.involvement }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <br /><br />
+        <table>
+          <thead>
+            <tr>
+              <th>Program Participants</th>
+              <th>Entity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let participant of users.programparticipant">
+              <td>{{ participant.participant }}</td>
+              <td>{{ participant.entity }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <br /><br /><br />
+        <table>
+          <thead>
+            <tr>
+              <th>Program Flow</th>
+              <th>Program Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let flow of users.programflow">
+              <td>{{ flow.eventName }}</td>
+              <td>{{ flow.eventType }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <br />
+  <br /><p-button class="print" (click)="print()">Print</p-button>
+</div>
+<br /><br /><br /><br /><br />
+<div class="card">
+  <div class="row">
+    <div style="margin-right: 10px">
+      <h3>Certificate:</h3>
+      <iframe
+        [src]="
+          getSafeUrl(
+            'http://localhost/extensionManagementRestAPI/assets/relatedFiles/' +
+              users.data.certificate
+          )
+        "
+        width="500px"
+        height="800px"
+      ></iframe>
+    </div>
+    <div style="margin-right: 10px">
+      <h3>Attendance:</h3>
+      <iframe
+        [src]="
+          getSafeUrl(
+            'http://localhost/extensionManagementRestAPI/assets/relatedFiles/' +
+              users.data.attendance
+          )
+        "
+        width="500px"
+        height="800px"
+      ></iframe>
+    </div>
+    <div style="margin-right: 10px">
+      <h3>Invitation:</h3>
+      <iframe
+        [src]="
+          getSafeUrl(
+            'http://localhost/extensionManagementRestAPI/assets/relatedFiles/' +
+              users.data.invitation
+          )
+        "
+        width="500px"
+        height="800px"
+      ></iframe>
+    </div>
+  </div>
+</div>

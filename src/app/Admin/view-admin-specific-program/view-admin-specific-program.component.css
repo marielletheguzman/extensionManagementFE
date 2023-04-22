@@ -9,3 +9,69 @@ td {
   text-align: left;
   border: 1px solid black;
 }
+
+h1 {
+  font-size: large;
+}
+
+h2 {
+  font-size: large;
+}
+
+h3 {
+  font-size: large;
+  padding-bottom: 10px;
+}
+
+.progtitle {
+  padding-top: 5%;
+  font-size: 20px;
+}
+.print {
+  cursor: pointer;
+  margin-left: 45%;
+  text-align: center;
+}
+.container {
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  max-width: 900px;
+  padding: 50px;
+  background: #fff;
+
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  align-self: center;
+  margin: 10px;
+}
+.card {
+  padding-left: 20px;
+}
+.whole {
+  position: relative;
+  max-width: 800px;
+  max-width: 900px;
+  padding: 20px;
+  width: 100%;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  margin-left: 25%;
+}
+
+.row {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.content {
+  margin-bottom: 300px;
+}
+body {
+  background-image: url("../../../assets/placeholder_templates/placeholderImg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}

@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { EditSystemService } from './edit-system.service';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { MessageService } from 'primeng/api';
+import { timer } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-system',
@@ -27,6 +30,8 @@ export class EditSystemComponent {
   MainImg = this.systemProfile.MainImg;
   constructor(
     private editService: EditSystemService,
+    private router: Router,
+    private messageService: MessageService, // Inject MessageService here
     private formBuilder: FormBuilder
   ) {}
   ngOnInit() {
@@ -65,7 +70,17 @@ export class EditSystemComponent {
     }
     this.editService.submit(formData).subscribe(
       (response) => {
-        console.log(response);
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Updated Successfully',
+        });
+        timer(1000)
+          .toPromise()
+          .then((done) => {
+            window.location.reload();
+          });
+        console.log('submit');
       },
       (error) => {
         console.log(error);
