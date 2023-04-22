@@ -72,9 +72,7 @@ nav {
   border-right: 1px solid var(--border-color);
   transition: var(--tran-05);
 }
-.doughnut {
-  display: flex;
-}
+
 nav.close {
   width: 73px;
 }

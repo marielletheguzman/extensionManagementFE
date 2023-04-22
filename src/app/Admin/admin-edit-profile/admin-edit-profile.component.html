@@ -1,7 +1,8 @@
 <p-toast></p-toast>
-<div class="editBox">
-  <h1>Edit Profile</h1>
-  <div class="form-group">
+
+<section class="container">
+  <header>Edit Profile</header>
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="form">
     <img
       src="http://localhost/extensionManagementRestAPI/assets/profile/{{
         profileDetails.profilePicture
@@ -9,48 +10,43 @@
       alt=""
       class="profilePicture"
     />
-    <div class="form">
-      <!-- (ngSubmit)="onSubmit()" -->
-      <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-        <br /><br />
-        <!-- move to center -->
+    <br /><br />
 
-        <div class="labels">
-          <label>Full Name:</label><br />
-          <input
-            type="text"
-            pInputText
-            class="form-control"
-            formControlName="fullName"
-          />
-
-          <div class="form-group">
-            <br />
-            <label>Email:</label><br />
-            <input
-              type="email"
-              pInputText
-              class="form-control"
-              formControlName="email"
-            />
-          </div>
-
-          <div class="form-group">
-            <br />
-            <label>Position:</label><br />
-            <input
-              type="text"
-              class="form-control"
-              pInputText
-              formControlName="position"
-            />
-          </div>
-          <br />
-          <p-button type="submit" class="p-button-succes"
-            >Save Changes</p-button
-          >
-        </div>
-      </form>
+    <br /><br />
+    <div class="input-box">
+      <label>Full Name:</label><br />
+      <input
+        type="text"
+        pInputText
+        class="form-control"
+        formControlName="fullName"
+      />
     </div>
-  </div>
-</div>
+
+    <div class="input-box">
+      <br />
+      <label>Email:</label><br />
+      <input
+        type="email"
+        pInputText
+        class="form-control"
+        formControlName="email"
+      />
+    </div>
+
+    <div class="input-box">
+      <br />
+      <label>Position:</label><br />
+      <input
+        type="text"
+        class="form-control"
+        pInputText
+        formControlName="position"
+      />
+    </div>
+    <br /><br /><br />
+    <div class="gap-btn">
+      <p-button type="submit" class="p-button-succes">Save Changes</p-button>
+    </div>
+  </form>
+</section>

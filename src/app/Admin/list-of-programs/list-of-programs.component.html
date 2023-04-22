@@ -1,30 +1,39 @@
-<button routerLink="/admin/add_program">Add Program</button>
-<p-table [value]="users.programs">
-  <ng-template pTemplate="header">
-    <tr>
-      <th>ID</th>
-      <th>Title</th>
-      <th>Program Lead</th>
-      <th>Place</th>
-      <th>Start Date</th>
-      <th>End Date</th>
-      <th>Partner</th>
-      <th>Action</th>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-program>
-    <tr>
-      <td>{{ program.id }}</td>
-      <td>{{ program.programTitle }}</td>
-      <td>{{ program.programLead }}</td>
-      <td>{{ program.place }}</td>
-      <td>{{ program.startDate }}</td>
-      <td>{{ program.endDate }}</td>
-      <td>{{ program.partner }}</td>
-      <td>
-        <p-button (click)="onView(program.id)">View</p-button>
-        <p-button (click)="onUpload(program.id)">Upload Files</p-button>
-      </td>
-    </tr>
-  </ng-template>
-</p-table>
+<body>
+  <section class="container">
+    <h1>List of Programs</h1>
+    <button routerLink="/admin/add_program" class="add-btn">
+      <span class="button_text">Add Program</span>
+      <span class="button_icon"> <i class="bx bx-plus"></i></span></button
+    ><br />
+    <br /><br />
+    <p-table [value]="users.programs">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Program Lead</th>
+          <th>Place</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Partner</th>
+          <th>Action</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-program>
+        <tr>
+          <td>{{ program.id }}</td>
+          <td>{{ program.programTitle }}</td>
+          <td>{{ program.programLead }}</td>
+          <td>{{ program.place }}</td>
+          <td>{{ program.startDate }}</td>
+          <td>{{ program.endDate }}</td>
+          <td>{{ program.partner }}</td>
+          <td>
+            <p-button (click)="onView(program.id)">View</p-button>&nbsp; &nbsp;
+            <p-button (click)="onUpload(program.id)">Upload Files</p-button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </section>
+</body>

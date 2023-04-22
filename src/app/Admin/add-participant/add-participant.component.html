@@ -1,6 +1,28 @@
-<h1>Participants:</h1>
-<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-  <input type="text" formControlName="participant" placeholder="Participant" />
-  <input type="text" formControlName="entity" placeholder="Entity" />
-  <button type="submit">Submit</button>
-</form>
+<div class="container" style="text-align: center">
+  <h1>Add Participants</h1>
+  <br /><br />
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="participant">Add Participant:</label>
+      <input
+        type="text"
+        id="parti"
+        formControlName="participant"
+        placeholder="Participant"
+      />
+    </div>
+    <br /><br />
+
+    <div>
+      <label for="entity">Add Entity:</label>
+      <input
+        type="text"
+        id="enti"
+        formControlName="entity"
+        placeholder="Entity"
+      />
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>

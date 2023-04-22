@@ -67,6 +67,7 @@ import { ListOfProgramsComponent } from './Admin/list-of-programs/list-of-progra
 import { FinishedListOfProgramsComponent } from './Admin/finished-list-of-programs/finished-list-of-programs.component';
 import { ViewAdminSpecificProgramComponent } from './Admin/view-admin-specific-program/view-admin-specific-program.component';
 import { ListProgramsUploadComponent } from './Admin/list-programs-upload/list-programs-upload.component';
+import { TerminalReportComponent } from './Admin/terminal-report/terminal-report.component';
 // import { EditWebsiteComponent } from './Admin/edit-website/edit-website.component';
 
 const admins: Routes = [
@@ -78,10 +79,10 @@ const admins: Routes = [
       { path: 'pending', component: PendingAccountComponent },
       { path: 'manage_users', component: ManageAccountsComponent },
       { path: 'edit_user/:id', component: AdminEditProfileComponent }, //@mich
-      { path: 'list-programs', component: ListOfProgramsComponent },
-      { path: 'upload-file/:id', component: ListProgramsUploadComponent },
+      { path: 'list-programs', component: ListOfProgramsComponent }, //added
+      { path: 'upload-file/:id', component: ListProgramsUploadComponent }, //added
       {
-        path: 'view-programs/:id',
+        path: 'view-programs/:id', // to do
         component: ViewAdminSpecificProgramComponent,
       },
       { path: 'finished-programs', component: FinishedListOfProgramsComponent },
@@ -98,6 +99,8 @@ const admins: Routes = [
       { path: 'edit', component: EditSystemComponent },
       { path: 'edit-logo', component: EditSystemLogoComponent },
       { path: 'edit-img', component: EditSystemImgComponent },
+      { path: 'edit-img', component: EditSystemImgComponent },
+      { path: 'terminal-report', component: TerminalReportComponent },
       // { path: 'edit_website', component: EditWebsiteComponent },
     ],
   },

@@ -1,11 +1,33 @@
-<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="eventName">Event Name:</label>
-    <input type="text" placeholder="Event Name" formControlName="eventName" />
-  </div>
-  <div>
-    <label for="eventType">Event Type:</label>
-    <input type="text" placeholder="Event Type" formControlName="eventType" />
-  </div>
-  <button type="submit">Submit</button>
-</form>
+<div class="container" style="text-align: center">
+  <h1>Add Program Flow</h1>
+  <br /><br />
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label class="ename" for="eventName">Event Name:</label>
+
+      <div>
+        <input
+          type="text"
+          id="enamebox"
+          placeholder="Name"
+          formControlName="eventName"
+        />
+      </div>
+      <br /><br />
+
+      <div>
+        <label for="eventType">Event Type:</label>
+
+        <div>
+          <input
+            type="text"
+            id="etypebox"
+            placeholder="Type"
+            formControlName="eventType"
+          />
+        </div>
+      </div>
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+</div>

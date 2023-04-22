@@ -1,36 +1,49 @@
 <form class="form" [formGroup]="upload" (ngSubmit)="onSubmit()">
-  <div class="input-box">
-    <label for="partnerMoaFile">Upload Certificate</label>
-    <input
-      type="file"
-      id="myFile"
-      class="upload-box"
-      name="certificate"
-      (change)="certificateUpload($event)"
-      required
-    />
-  </div>
-  <div class="input-box">
-    <label for="partnerMoaFile">Upload Attendance</label>
-    <input
-      type="file"
-      id="myFile"
-      class="upload-box"
-      name="attendance"
-      (change)="attendanceUpload($event)"
-      required
-    />
-  </div>
-  <div class="input-box">
-    <label for="partnerMoaFile">Upload Invitation</label>
-    <input
-      type="file"
-      id="myFile"
-      class="upload-box"
-      name="invitation"
-      required
-      (change)="invitationUpload($event)"
-    />
-  </div>
-  <button type="submit">Submit</button>
+  <section class="container">
+    <div class="input-box">
+      <label for="partnerMoaFile"
+        ><strong>Upload Certificate</strong
+        ><span class="opacity">(Image, PDF)</span>
+      </label>
+      <input
+        type="file"
+        id="myFile"
+        class="upload-box"
+        name="certificate"
+        (change)="certificateUpload($event)"
+        required
+      />
+    </div>
+    <div class="input-box">
+      <label for="partnerMoaFile"
+        ><strong>Upload Attendance</strong
+        ><span class="opacity">(Docs, Sheets, PDF)</span></label
+      >
+      <input
+        type="file"
+        id="myFile"
+        class="upload-box"
+        name="attendance"
+        (change)="attendanceUpload($event)"
+        required
+      />
+    </div>
+    <div class="input-box">
+      <label for="partnerMoaFile"
+        ><strong>Upload Invitation</strong
+        ><span class="opacity">(Image, PDF)</span></label
+      >
+      <input
+        type="file"
+        id="myFile"
+        class="upload-box"
+        name="invitation"
+        required
+        (change)="invitationUpload($event)"
+      />
+    </div>
+    <div class="buttons">
+      <button type="submit">Upload</button>
+    </div>
+  </section>
 </form>

@@ -44,7 +44,7 @@ export class ListProgramMembersComponent {
   constructor(
     private http: HttpClient,
     private fb: FormBuilder,
-    private message: MessageService
+    private messageService: MessageService
   ) {}
 
   ngOnInit() {
@@ -90,7 +90,11 @@ export class ListProgramMembersComponent {
       )
       .subscribe(
         (res) => {
-          console.log('Member deleted:', res);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Deleted',
+            detail: 'Successfully Removed',
+          });
           // Remove the member from the local array
           this.users.partners = this.users.partners.filter((m) => m.id !== id);
         },
@@ -108,7 +112,11 @@ export class ListProgramMembersComponent {
       )
       .subscribe(
         (res) => {
-          console.log('Member deleted:', res);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Deleted',
+            detail: 'Successfully Removed',
+          });
           // Remove the member from the local array
           this.usersp.participants = this.usersp.participants.filter(
             (m) => m.id !== id
@@ -128,7 +136,11 @@ export class ListProgramMembersComponent {
       )
       .subscribe(
         (res) => {
-          console.log('Member deleted:', res);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Deleted',
+            detail: 'Successfully Removed',
+          });
           // Remove the member from the local array
           this.userFlow.flow = this.userFlow.flow.filter((m) => m.id !== id);
         },

@@ -1,65 +1,109 @@
-<h1>Program Members:</h1>
-<button pButton routerLink="/admin/add-member" label="Add Member"></button>
-<p-table [value]="users.partners">
-  <ng-template pTemplate="header">
-    <tr>
-      <th>Program Members:</th>
-      <th>Position:</th>
-      <th>Involvement:</th>
-      <th>Action:</th>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-member>
-    <tr>
-      <td>{{ member.name }}</td>
-      <td>{{ member.position }}</td>
-      <td>{{ member.involvement }}</td>
-      <td><button (click)="removeMember(member.id)">Remove</button></td>
-    </tr>
-  </ng-template>
-</p-table>
-<br />
-<h1>Program Participants:</h1>
-<button
-  pButton
-  routerLink="/admin/add-participant"
-  label="Add Participant"
-></button>
-<p-table [value]="usersp.participants">
-  <ng-template pTemplate="header">
-    <tr>
-      <th>Program Participant:</th>
-      <th>Entity:</th>
-      <th>Action:</th>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-member>
-    <tr>
-      <td>{{ member.participant }}</td>
-      <td>{{ member.entity }}</td>
-      <td><button (click)="removeParticipant(member.id)">Remove</button></td>
-    </tr>
-  </ng-template>
-</p-table>
-<br />
-<h1>Program Flow:</h1>
+<p-toast></p-toast>
+<link
+  href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+  rel="stylesheet"
+/>
+<body>
+  <section class="container">
+    <h1>Program Members:</h1>
+    <button pButton routerLink="/admin/add-member" class="add-btn">
+      <span class="button_text">Add Members</span>
+      <br />
+      <span class="button_icon"> <i class="bx bx-plus"></i></span></button
+    ><br /><br /><br />
+    <p-table [value]="users.partners" styleClass="p-datatable-gridlines">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Program Members:</th>
+          <th>Position:</th>
+          <th>Involvement:</th>
+          <th style="width: 200px">Action:</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-member>
+        <tr>
+          <td>{{ member.name }}</td>
+          <td>{{ member.position }}</td>
+          <td>{{ member.involvement }}</td>
+          <td>
+            <p-button
+              (click)="removeMember(member.id)"
+              styleClass="p-button-danger"
+            >
+              Remove
+            </p-button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <br /><br /><br />
+    <br /><br /><br />
+    <h1>Program Participants:</h1>
+    <button pButton routerLink="/admin/add-participant" class="add-btn">
+      <span class="button_text">Add Participants</span>
+      <span class="button_icon"> <i class="bx bx-plus"></i></span></button
+    ><br /><br /><br />
+    <p-table [value]="usersp.participants" styleClass="p-datatable-gridlines">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Program Participant:</th>
+          <th>Entity:</th>
+          <th style="width: 200px">Action:</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-member>
+        <tr>
+          <td>{{ member.participant }}</td>
+          <td>{{ member.entity }}</td>
+          <td>
+            <p-button
+              (click)="removeParticipant(member.id)"
+              styleClass="p-button-danger"
+            >
+              Remove
+            </p-button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <br /><br /><br />
+    <br /><br /><br />
+    <h1>Program Flow:</h1>
 
-<button pButton routerLink="/admin/add-flow" label="Add Program Flow"></button>
-<p-table [value]="userFlow.flow">
-  <ng-template pTemplate="header">
-    <tr>
-      <th>Program Flow:</th>
-      <th>Event Type:</th>
-      <th>Action:</th>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-member>
-    <tr>
-      <td>{{ member.eventName }}</td>
-      <td>{{ member.eventType }}</td>
-      <td><button (click)="removeFlow(member.id)">Remove</button></td>
-    </tr>
-  </ng-template>
-</p-table>
-<br /><br />
-<button routerLink="/admin/list-programs">OK</button>
+    <button pButton routerLink="/admin/add-flow" class="add-btn">
+      <span class="button_text">Add Program Flow</span>
+      <span class="button_icon"> <i class="bx bx-plus"></i></span></button
+    ><br /><br /><br />
+    <p-table [value]="userFlow.flow" styleClass="p-datatable-gridlines">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Program Flow:</th>
+          <th>Event Type:</th>
+          <th style="width: 200px">Action:</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-member>
+        <tr>
+          <td>{{ member.eventName }}</td>
+          <td>{{ member.eventType }}</td>
+          <td>
+            <p-button
+              (click)="removeFlow(member.id)"
+              styleClass="p-button-danger"
+            >
+              Remove
+            </p-button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <br /><br />
+    <button
+      routerLink="/admin/list-programs"
+      class="save-btn"
+      style="border-radius: 8px"
+    >
+      Save
+    </button>
+  </section>
+</body>

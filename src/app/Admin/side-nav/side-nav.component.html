@@ -9,7 +9,11 @@
     rel="stylesheet"
   />
 </head>
-<body>
+<body
+  style="background-color: {{
+    hexToRgbA(systemProfile.ThemeColor, alpha)
+  }}; height:100%"
+>
   <div class="sidebar" style="background-color: {{ systemProfile.ThemeColor }}">
     <div class="logo_content">
       <div class="logo">
@@ -36,49 +40,50 @@
         <span class="tooltip">Dashboard</span>
       </li>
       <li>
-        <a href="#">
+        <a [routerLink]="['pending']">
           <i class="bx bx-user-check"></i>
           <span class="links_name">Pending Accounts</span>
         </a>
         <span class="tooltip">Pending Accounts</span>
       </li>
       <li>
-        <a href="#">
+        <a [routerLink]="['manage_users']">
           <i class="bx bx-user"></i>
           <span class="links_name">Manage Accounts</span>
         </a>
         <span class="tooltip">Manage Accounts</span>
       </li>
       <li>
-        <a href="#">
-          <i class="bx bx-extension"></i>
-          <span class="links_name">Manage Extension</span>
-        </a>
-        <span class="tooltip">Manage Extension</span>
-      </li>
-      <li>
-        <a href="#">
+        <a [routerLink]="['list-programs']">
           <i class="bx bx-list-ul"></i>
           <span class="links_name">Programs</span>
         </a>
         <span class="tooltip">Programs</span>
       </li>
       <li>
-        <a href="#">
-          <i class="bx bx-link-external"></i>
-          <span class="links_name">Extension Partners</span>
+        <!-- to find where is the manage extension -->
+        <a [routerLink]="['ongoing_partners']">
+          <i class="bx bx-extension"></i>
+          <span class="links_name">Ongoing Partners</span>
         </a>
-        <span class="tooltip">Extension Partners</span>
+        <span class="tooltip">Ongoing Partners</span>
       </li>
       <li>
+        <a [routerLink]="['expired_partners']">
+          <i class="bx bx-link-external"></i>
+          <span class="links_name">Expired Partners</span>
+        </a>
+        <span class="tooltip">Expired Partners</span>
+      </li>
+      <!-- <li>
         <a href="#">
           <i class="bx bx-lock-open"></i>
           <span class="links_name">Reset Password</span>
         </a>
         <span class="tooltip">Reset Password</span>
-      </li>
+      </li> -->
       <li>
-        <a href="#">
+        <a [routerLink]="['edit']">
           <i class="bx bx-cog"></i>
           <span class="links_name">Settings</span>
         </a>
@@ -90,11 +95,9 @@
         <div class="profile_details">
           <!-- <img src="/icon/admin_profile.png" alt=""> -->
           <!-- <i class='bx bx-user-circle'></i> -->
-          <img
-            src="https://img.icons8.com/ios/50/000000/admin-settings-male.png"
-          />
+
           <div class="user_admin">
-            <div class="name">Admin</div>
+            <div class="name">Logout</div>
           </div>
         </div>
 
@@ -110,10 +113,7 @@
       </div>
     </div>
   </div>
-  <div
-    class="home_content"
-    style="background-color: {{ hexToRgbA(systemProfile.ThemeColor, alpha) }}"
-  >
+  <div class="home_content">
     <router-outlet></router-outlet>
   </div>
 

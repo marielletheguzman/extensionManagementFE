@@ -6,7 +6,12 @@
   <section class="container">
     <header>Edit System Profile</header>
     <br />
-    <form action="#" class="form">
+    <form
+      action="#"
+      class="form"
+      [formGroup]="profileForm"
+      (ngSubmit)="onSubmit()"
+    >
       <div class="input-box">
         <label>Logo:</label>
         <button routerLink="/admin/edit-logo" type="”button”" class="buttonp">
@@ -34,7 +39,15 @@
 
       <div class="input-box">
         <label>Description:</label>
-        <textarea class="field" name="w3review" rows="10" cols="86" required>
+        <textarea
+          class="field"
+          name="w3review"
+          rows="10"
+          cols="86"
+          class="form-control"
+          formControlName="Description"
+          required
+        >
         </textarea>
       </div>
 

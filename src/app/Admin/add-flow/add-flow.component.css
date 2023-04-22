@@ -1,0 +1,67 @@
+add-flow.component.css body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.container {
+  position: relative;
+  max-width: 500px;
+  padding: 50px;
+  width: 100%;
+  background: #fff;
+
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  margin-top: 150px;
+}
+
+#enamebox {
+  padding-left: 15px;
+  display: flex;
+  height: 50px;
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+  margin-top: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+#etypebox {
+  padding-left: 15px;
+  display: flex;
+  height: 50px;
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+  margin-top: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 5px;
+}
+
+button {
+  font-size: large;
+  margin: 5px;
+  outline: none;
+  border: none;
+  color: white;
+  background-color: #3744fc;
+  border-radius: 6px;
+  padding: 10px 15px;
+  margin-top: 30px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgba(51, 76, 179, 0.788);
+}
+
+@media screen and (max-width: 500px) {
+  .form .column {
+    flex-wrap: wrap;
+  }
+}

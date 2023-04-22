@@ -1,16 +1,29 @@
-<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="name">Select Program Member:</label>
-    <p-dropdown
-      [options]="users.pending"
-      optionLabel="fullName"
-      formControlName="name"
-    ></p-dropdown>
-    <input
-      type="text"
-      placeholder="Involvement"
-      formControlName="involvement"
-    />
-  </div>
-  <button type="submit">Submit</button>
-</form>
+<div class="container" style="text-align: center">
+  <h1>Add Members</h1>
+  <br /><br />
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="form">
+    <div class="column">
+      <div>
+        <label for="name" class="selectp">Select Member:</label>
+        <p-dropdown
+          [options]="users.pending"
+          optionLabel="fullName"
+          formControlName="name"
+          id="parti"
+        ></p-dropdown>
+      </div>
+      <br /><br />
+
+      <div>
+        <label for="entity" class="inv">Involvement:</label>
+        <input
+          type="text"
+          id="enti"
+          placeholder="Involvement"
+          formControlName="involvement"
+        />
+      </div>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</div>
