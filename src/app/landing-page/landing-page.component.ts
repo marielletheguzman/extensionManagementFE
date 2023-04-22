@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { homepage } from './homepage-data';
 import { LandingService } from './landing.service';
 import { HttpClient } from '@angular/common/http';
-
+import { PrimeNGConfig } from 'primeng/api';
+import { CarouselModule } from 'primeng/carousel';
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
@@ -16,10 +17,12 @@ export class LandingPageComponent {
     Description: '',
     MainImg: '',
   };
+  partners!: any[];
 
   constructor(
     private landingService: LandingService,
-    private http: HttpClient
+    private http: HttpClient,
+    private primengConfig: PrimeNGConfig
   ) {}
 
   alpha = 0.04;
@@ -30,6 +33,14 @@ export class LandingPageComponent {
       this.systemProfile = data;
       console.log(this.systemProfile);
     });
+    this.http
+      .get(
+        `http://localhost/extensionManagementRestAPI/controllers/admin/show_ongoing_for_landing.php`
+      )
+      .subscribe((data: any) => {
+        this.partners = data.partners;
+        console.log(data);
+      });
   }
 
   hexToRgbA(hex: string, alpha: number) {

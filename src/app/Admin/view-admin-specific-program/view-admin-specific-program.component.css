@@ -36,14 +36,13 @@ h3 {
   background-size: cover;
   background-position: center center;
   position: relative;
-  max-width: 900px;
-  padding: 50px;
-  background: #fff;
-
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-  align-self: center;
+  max-width: 1000px;
+  padding: 40px;
+  width: 100%;
   margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  display: inline-block;
 }
 .card {
   padding-left: 20px;

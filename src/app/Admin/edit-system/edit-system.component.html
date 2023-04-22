@@ -14,18 +14,19 @@
       (ngSubmit)="onSubmit()"
     >
       <div class="input-box">
-        <label>Logo:</label>
-        <button routerLink="/admin/edit-logo" type="”button”" class="buttonp">
-          <span class="button_text">Edit Image</span>
-          <span class="button_icon"> <i class="bx bx-plus"></i></span></button
-        ><br />
-        <img
-          src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
-            systemProfile.Logo
-          }}"
-          style="height: 10em"
-          alt=""
-        />
+        <div class="center-box">
+          <img
+            src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
+              systemProfile.Logo
+            }}"
+            style="height: 10em"
+            alt=""
+          /><br />
+          <button routerLink="/admin/edit-logo" type="”button”" class="buttonp">
+            <span class="button_text">Edit Logo</span>
+            <span class="button_icon"> <i class="bx bx-plus"></i></span></button
+          ><br />
+        </div>
       </div>
       <div class="input-box">
         <label>Website Name:</label>
@@ -54,18 +55,18 @@
 
       <div class="column">
         <div class="input-box">
-          <label>Landing Page Image:</label>
-          <button routerLink="/admin/edit-img" class="buttonp">
-            <span class="button_text">Edit Image</span>
-            <span class="button_icon"> <i class="bx bx-plus"></i></span></button
-          ><br />
           <img
             src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
               systemProfile.MainImg
             }}"
             style="height: 10em"
             alt=""
-          />
+          /><br /><br />
+          <label>Landing Page Image:</label>
+          <button routerLink="/admin/edit-img" class="buttonx">
+            <span class="button_text">Edit Image</span>
+            <span class="button_icon"> <i class="bx bx-plus"></i></span></button
+          ><br />
         </div>
         <div class="input-box">
           <label>Theme Color:&nbsp; </label>

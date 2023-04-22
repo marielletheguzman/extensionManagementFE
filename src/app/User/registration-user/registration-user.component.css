@@ -1,4 +1,4 @@
-* {
+registration-user.component.css * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -9,7 +9,6 @@ body {
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background: rgb(222, 220, 224);
 }
 
 .container {
@@ -70,6 +69,21 @@ h1 {
 .form .column {
   display: flex;
   column-gap: 15px;
+}
+.upload-box {
+  font-size: 1rem;
+  outline: none;
+}
+::-webkit-file-upload-button {
+  color: white;
+  background: #6b7280;
+  padding: 8px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+::-webkit-file-upload-button:hover {
+  background: #707070;
 }
 
 .address :where(input, .select-box) {

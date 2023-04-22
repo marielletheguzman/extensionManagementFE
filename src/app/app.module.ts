@@ -75,8 +75,16 @@ const admins: Routes = [
     path: 'admin',
     component: SideNavComponent,
     children: [
-      { path: 'dashboard', component: AdminDashboardComponent },
-      { path: 'pending', component: PendingAccountComponent },
+      {
+        path: 'dashboard',
+        component: AdminDashboardComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'pending',
+        component: PendingAccountComponent,
+        canActivate: [AuthGuard],
+      },
       { path: 'manage_users', component: ManageAccountsComponent },
       { path: 'edit_user/:id', component: AdminEditProfileComponent }, //@mich
       { path: 'list-programs', component: ListOfProgramsComponent }, //added
@@ -124,13 +132,13 @@ const admin: Routes = [
   { path: 'expired', component: ExpiredPartnersComponent },
 ];
 const user: Routes = [
-  { path: 'registration', component: RegistrationUserComponent },
+  { path: 'registration', component: RegistrationUserComponent }, //@mich button
   // { path: '', redirectTo: 'login_user', pathMatch: 'full' },
   // { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'login_user', component: LoginUserComponent },
+  { path: 'login_user', component: LoginUserComponent }, // remove gray bg
   { path: 'edit-profile', component: EditProfileComponent },
   // canActivate: [UserGuard]
-  { path: 'list', component: ShowListComponent },
+  { path: 'list', component: ShowListComponent }, //fix bg
   { path: 'edit-img', component: EditUserImgComponent },
   { path: 'edit-password', component: EditUserPasswordComponent },
   {
@@ -139,6 +147,7 @@ const user: Routes = [
     canActivate: [UserGuard],
   },
 ];
+
 @NgModule({
   declarations: [
     AppComponent,

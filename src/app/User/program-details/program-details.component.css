@@ -1,46 +1,65 @@
-* {
-  color: #404040;
-}
-.program-content {
-  margin-left: 5%;
-  margin-right: 5%;
-  background-color: rgb(255, 255, 255);
-  padding-bottom: 50px;
-  padding-top: 50px;
-  margin-bottom: 50px;
+program-details.component.css table {
+  border-collapse: collapse;
+  width: 100%;
 }
 
-h1 p {
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid black;
+}
+
+h1 {
+  font-size: large;
+}
+
+h2 {
+  font-size: large;
+}
+
+h3 {
+  font-size: large;
+  padding-bottom: 10px;
+}
+
+.progtitle {
+  padding-top: 25%;
+}
+
+.container {
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  max-width: 1000px;
+  padding: 40px;
+  width: 100%;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   display: inline-block;
 }
-p {
-  font-weight: 600;
+.card {
+  padding-left: 20px;
+}
+.whole {
+  position: relative;
+  max-width: 1000px;
+  padding: 20px;
+  width: 100%;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  margin-left: 220px;
 }
 
-p {
-  font-size: 15px;
-}
-h5 {
-  font-weight: 500;
-  font-size: 15px;
-}
-h5 p {
-  display: inline;
-}
-
-.details {
-  padding-top: 20px;
-  display: inline;
+.row {
   text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
-.table {
-  margin-top: 5%;
-  width: 90%;
-  margin-left: 5%;
-  margin-right: 5%;
-}
-
-.certificate {
-  height: 350px;
-  width: auto;
+.content {
+  margin-bottom: 300px;
 }

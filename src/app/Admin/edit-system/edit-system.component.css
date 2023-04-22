@@ -48,6 +48,9 @@ textarea {
 .input-box label {
   color: #333;
 }
+.center-box {
+  text-align: center;
+}
 .form :where(.input-box input) {
   position: relative;
   height: 50px;
@@ -67,6 +70,21 @@ textarea {
   display: flex;
   column-gap: 15px;
 }
+.buttonx {
+  display: flex;
+  height: 40px;
+  padding: 0;
+  background: #009578;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  overflow: hidden;
+  font-family: "Quicksand", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 8px;
+}
 .buttonp {
   display: flex;
   height: 40px;
@@ -81,6 +99,7 @@ textarea {
   font-weight: 500;
   cursor: pointer;
   margin-top: 8px;
+  margin-left: 315px;
 }
 
 .buttonp:hover {

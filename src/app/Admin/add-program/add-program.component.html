@@ -1,52 +1,4 @@
-<!-- <div class="card-box">
-  <h2>Add Extension Program</h2>
-
-  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-    <div class="input-box">
-      <label>Program Title</label>
-      <input type="text" required />
-    </div>
-
-    <div class="input-box">
-      <label>Place</label>
-      <input type="text" required />
-    </div>
-
-    <div class="column">
-      <div class="input-box">
-        <label>Program Leader</label>
-        <input type="text" required />
-      </div>
-      <div class="input-box">
-        <label>Start Date</label>
-    <h5>Start Date</h5>
-    <p-calendar [showIcon]="true" formControlName="startDate"></p-calendar>
-    </div>
-    <div class="input-box">
-    <h5>End Date</h5>
-    <p-calendar [showIcon]="true" formControlName="endDate"></p-calendar>
-  </div>
-  <div class="input-box">
-<label>Additional Details:</label>
-    <textarea
-      rows="5"
-      cols="30"
-      pInputTextarea
-      formControlName="additionalDetails"
-    ></textarea>
-    <h5>Extension Partner</h5>
-    <br />
-    <p-dropdown
-      [options]="partnerss.partners"
-      optionLabel="partnerName"
-      formControlName="partner"
-    ></p-dropdown>
-
-    <br /><br />
-    <p-button label="Next" type="submit"></p-button>
-  </form>
-</div> --><p-toast
-></p-toast>
+<p-toast></p-toast>
 <body>
   <section class="container">
     <header>Add Extension Program</header>
@@ -68,15 +20,8 @@
           <input type="text" required formControlName="programLead" />
         </div>
         <div class="input-box">
-          <label>Partner</label>
+          <label class="partner">Partner</label>
           <div class="select-box">
-            <!-- <select>
-              <option hidden>Select Partner</option>
-              <option>Department of Communications and Tenchnolgy</option>
-              <option>Accenture Philippines</option>
-              <option>Department of Health</option>
-              <option>Department of Immigration</option>
-            </select> -->
             <p-dropdown
               [options]="partnerss.partners"
               optionLabel="partnerName"
@@ -85,7 +30,7 @@
           </div>
         </div>
       </div>
-      <div class="column">
+      <div class="column1">
         <div class="input-box">
           <label>Start Date</label>
 

@@ -68,12 +68,47 @@
   </div>
   <div class="companyContent">
     <!-- change the url for this -->
-    <h2>{{ systemProfile.WebsiteName }}</h2>
+    <h1>
+      <b>{{ systemProfile.WebsiteName }}</b>
+    </h1>
     <br />
     <p>{{ systemProfile.Description }}</p>
   </div>
 </div>
+<div style="width: 50%; margin: 0 auto">
+  <br /><br />
+  <h4 style="margin: 0 auto; text-align: center">Extension Partners:</h4>
+  <br /><br />
+  <p-carousel
+    [value]="partners"
+    [numVisible]="5"
+    [numScroll]="1"
+    [circular]="true"
+    [autoplayInterval]="1500"
+  >
+    <ng-template let-partner pTemplate="item">
+      <img
+        src="http://localhost/extensionManagementRestAPI/assets/extensionProfile/{{
+          partner.partnerLogo
+        }}"
+        alt="{{ partner.partnerName }} logo"
+        style="width: 100px"
+      />
+    </ng-template>
+  </p-carousel>
+  <br />
+</div>
 
+<div
+  class="content-container"
+  style="display: inline-block; background-color: {{
+    systemProfile.ThemeColor
+  }}"
+>
+  <p style="color: white; text-align: center">
+    © 2023 Uglyz | All rights reserved
+  </p>
+</div>
 <!-- Bootstrap -->
 <script
   src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
