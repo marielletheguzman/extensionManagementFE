@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AdminDashboardService } from './admin-dashboard.service';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LandingService } from 'src/app/landing-page/landing.service';
 import { ExpiredPartnersServicesService } from '../expired-partners/expired-partners-services.service';
 import { OngoingPartnersServicesService } from '../ongoing-partners/ongoing-partners-services.service';
@@ -33,11 +33,24 @@ export class AdminDashboardComponent {
   };
   expiredDetails = {
     count: 0,
+    partners: [
+      {
+        id: 1,
+        partnerName: '',
+        partnerAddress: '',
+        partnerContactPerson: '',
+        partnerContactNumber: '',
+        partnerLogo: '',
+        partnerMoaFile: '',
+        partnerStartDate: '',
+        partnerEndDate: '',
+      },
+    ],
   };
   ongoingDetails = {
     count: 0,
   };
-
+  partners!: any[];
   constructor(
     //to get the background color in the database
     private landingService: LandingService,
@@ -67,7 +80,7 @@ export class AdminDashboardComponent {
       this.systemProfile = data;
     });
 
-    this.expiredService.getOngoingPartners().subscribe((expiredData: any) => {
+    this.expiredService.getExpired().subscribe((expiredData: any) => {
       this.expiredDetails = expiredData;
       this.ongoingService.getOngoingPartners().subscribe((ongoingData: any) => {
         this.ongoingDetails = ongoingData;
@@ -94,6 +107,19 @@ export class AdminDashboardComponent {
         };
       });
     });
+    const headers = new HttpHeaders().set(
+      'Authorization',
+      `${localStorage.getItem('token')}`
+    );
+    this.http
+      .get(
+        `http://localhost/extensionManagementRestAPI/controllers/admin/show_expired_partners.php`,
+        { headers }
+      )
+      .subscribe((data: any) => {
+        this.partners = data.partners;
+        console.log(data);
+      });
 
     this.authService.getDashboardDetails().subscribe((data: any) => {
       this.dashboardDetails = data;
@@ -150,7 +176,9 @@ export class AdminDashboardComponent {
     let sidebar = document.querySelector('.sidebar');
     sidebar?.classList.toggle('active');
   }
-
+  renew(id: number) {
+    this.router.navigate([`admin/renew_partner/${id}`]);
+  }
   //for thebackground color:::
 
   alpha = 0.04;

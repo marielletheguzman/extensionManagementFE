@@ -15,7 +15,7 @@
     hexToRgbA(systemProfile.ThemeColor, alpha)
   }}; height:auto;"
 >
-  <div class="dashboard" style="margin-top: -50px">
+  <div class="dashboard" style="margin-top: -70px">
     <div class="dash-content">
       <div class="overview">
         <div class="title">
@@ -99,10 +99,11 @@
 
         <p-table
           #myTab
-          [value]="dashboardDetails.partners"
+          [value]="expiredDetails.partners"
           [tableStyle]="{ 'min-width': '60rem' }"
           [paginator]="true"
           [rows]="5"
+          [rowsPerPageOptions]="[5, 10, 15, 20]"
           [globalFilterFields]="[
             'extensionPartner',
             'partnerAddress',
@@ -129,7 +130,7 @@
               </th>
 
               <th pSortableColumn="extensionPartner" style="width: 16%">
-                Extension Partner <p-sortIcon field="price"></p-sortIcon>
+                Contact Number <p-sortIcon field="price"></p-sortIcon>
               </th>
               <th pSortableColumn="partnerStartDate" style="width: 16%">
                 Start Date <p-sortIcon field="price"></p-sortIcon>
@@ -145,7 +146,8 @@
           <th *ngFor="let obj of dashboardDetails.partners"></th>
           <ng-template pTemplate="body" let-details>
             <tr>
-              <td>{{ details.extensionPartner }}</td>
+              <td>{{ details.partnerName }}</td>
+
               <td>{{ details.partnerAddress }}</td>
               <td>{{ details.partnerContactPerson }}</td>
               <td>{{ details.partnerContactNumber }}</td>
@@ -160,5 +162,6 @@
         </p-table>
       </div>
     </div>
+    <br /><br />
   </div>
 </body>

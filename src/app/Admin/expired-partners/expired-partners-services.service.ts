@@ -8,6 +8,8 @@ import { Observable } from 'rxjs';
 export class ExpiredPartnersServicesService {
   private getUrlApi =
     'http://localhost/extensionManagementRestAPI/controllers/admin/show_expired_partners.php';
+  private getExpiredApi =
+    'http://localhost/extensionManagementRestAPI/controllers/admin/show_expired_partners.php';
   constructor(private http: HttpClient) {}
 
   getOngoingPartners(): Observable<any> {
@@ -16,6 +18,16 @@ export class ExpiredPartnersServicesService {
       `${localStorage.getItem('token')}`
     );
     return this.http.get(this.getUrlApi, {
+      headers,
+    });
+  }
+
+  getExpired(): Observable<any> {
+    const headers = new HttpHeaders().set(
+      'Authorization',
+      `${localStorage.getItem('token')}`
+    );
+    return this.http.get(this.getExpiredApi, {
       headers,
     });
   }

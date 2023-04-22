@@ -1,5 +1,32 @@
 <h1>Finished Programs</h1>
-<p-table [value]="users.programs">
+<input
+  pInputText
+  type="text"
+  (input)="myTab.filterGlobal($any($event.target).value, 'contains')"
+  placeholder="Search"
+  class="searchField"
+/>
+<p-table
+  #myTab
+  [value]="users.programs"
+  [tableStyle]="{ 'min-width': '60rem' }"
+  [paginator]="true"
+  [rows]="5"
+  [rowsPerPageOptions]="[5, 10, 15, 20]"
+  [globalFilterFields]="[
+    'programTitle',
+    'programLead',
+    'partnerContactPerson',
+    'place',
+    'startDate',
+    'endDate',
+    'partner'
+  ]"
+  styleClass="p-datatable-gridlines"
+  [resizableColumns]="true"
+  [autoLayout]="true"
+  class="tbl"
+>
   <ng-template pTemplate="header">
     <tr>
       <th>ID</th>

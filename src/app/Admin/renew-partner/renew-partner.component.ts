@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { RenewPartnerServicesService } from './renew-partner-services.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-renew-partner',
@@ -17,6 +19,8 @@ export class RenewPartnerComponent {
 
   constructor(
     private renewServices: RenewPartnerServicesService,
+    private message: MessageService,
+    private router: Router,
     private route: ActivatedRoute
   ) {}
 
@@ -46,9 +50,24 @@ export class RenewPartnerComponent {
     this.renewServices.submit(id, formData).subscribe(
       (response) => {
         console.log(response);
+        this.message.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Renew Success',
+        });
+        timer(300)
+          .toPromise()
+          .then((done) => {
+            this.router.navigate(['/admin/expired_partners']);
+          });
       },
       (error) => {
         console.log(error);
+        this.message.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'Failed to renew',
+        });
       }
     );
   }

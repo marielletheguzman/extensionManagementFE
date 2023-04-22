@@ -61,6 +61,13 @@
         <span class="tooltip">Programs</span>
       </li>
       <li>
+        <a [routerLink]="['finished-programs']">
+          <i class="bx bx-check"></i>
+          <span class="links_name">Finished Program</span>
+        </a>
+        <span class="tooltip">Finished Program</span>
+      </li>
+      <li>
         <!-- to find where is the manage extension -->
         <a [routerLink]="['ongoing_partners']">
           <i class="bx bx-extension"></i>
@@ -70,7 +77,7 @@
       </li>
       <li>
         <a [routerLink]="['expired_partners']">
-          <i class="bx bx-link-external"></i>
+          <i class="bx bx-time"></i>
           <span class="links_name">Expired Partners</span>
         </a>
         <span class="tooltip">Expired Partners</span>
