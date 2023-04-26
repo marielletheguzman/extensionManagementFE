@@ -1,6 +1,6 @@
 <p-toast></p-toast>
 <div class="container" style="text-align: center">
-  <h1>Add Participants</h1>
+  <h1>Add Participant</h1>
   <br /><br />
   <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
     <div>
@@ -24,6 +24,16 @@
       />
     </div>
 
-    <button type="submit">Submit</button>
+    <button
+      type="submit"
+      [style]="{
+        'background-color': systemProfile.ThemeColor + ' !important',
+        width: '150px',
+        height: '45px',
+        color: 'white'
+      }"
+    >
+      Submit
+    </button>
   </form>
 </div>

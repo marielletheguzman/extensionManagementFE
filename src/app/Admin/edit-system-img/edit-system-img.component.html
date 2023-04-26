@@ -4,7 +4,7 @@
 />
 <body>
   <section class="container">
-    <header>Edit System Landing Page</header>
+    <header>Change landing page picture</header>
     <form (ngSubmit)="onSubmit()" class="form">
       <img
         src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
@@ -19,10 +19,28 @@
         class="upload-box"
         id="myfile"
         name="myfile"
+        style="
+          border: 1px solid #d5d7da;
+          width: 60%;
+          border-radius: 5px;
+          height: 100%;
+        "
         (change)="onImageSelected($event)"
       />
 
-      <button type="submit" class="main-btn">Submit</button>
+      <button
+        type="submit"
+        class="buttons"
+        [style]="{
+          'background-color': systemProfile.ThemeColor + ' !important',
+          width: '160px',
+          height: '45px',
+          color: 'white',
+          'margin-left': '30%'
+        }"
+      >
+        Submit
+      </button>
     </form>
   </section>
 </body>

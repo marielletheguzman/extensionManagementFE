@@ -82,46 +82,55 @@ export class EditUserPasswordComponent {
   onSubmit() {
     const formData = new FormData();
     const password = this.form.value.password;
-
-    if (password.length >= 7) {
-      console.log('greater than');
-      if (password) {
-        formData.append('password', password);
-      }
-      this.editPass.submit(formData).subscribe(
-        (response) => {
-          this.messageService.add({
-            key: 'bc',
-            severity: 'success',
-            summary: 'Success',
-            detail: 'Password Updated',
-          });
-          timer(1000)
-            .toPromise()
-            .then((done) => {
-              this.router.navigate(['/edit-profile']);
-            });
-        },
-        (error) => {
-          this.messageService.add({
-            key: 'bc',
-            severity: 'error',
-            summary: 'Error',
-            detail: 'Failed to update',
-          });
-        }
-      );
-    } else {
-      console.log('less than');
+    const password1 = this.form.get('password')?.value;
+    const confirmPassword = this.form.get('confirmPassword')?.value;
+    if (password1 !== confirmPassword) {
       this.messageService.add({
         key: 'bc',
         severity: 'error',
         summary: 'Failed',
-        detail: 'Password must be at least 7 characters long',
+        detail: 'Password not match',
       });
+    } else {
+      if (password.length >= 7) {
+        console.log('greater than');
+        if (password) {
+          formData.append('password', password);
+        }
+        this.editPass.submit(formData).subscribe(
+          (response) => {
+            this.messageService.add({
+              key: 'bc',
+              severity: 'success',
+              summary: 'Success',
+              detail: 'Password Updated',
+            });
+            timer(1000)
+              .toPromise()
+              .then((done) => {
+                this.router.navigate(['/edit-profile']);
+              });
+          },
+          (error) => {
+            this.messageService.add({
+              key: 'bc',
+              severity: 'error',
+              summary: 'Error',
+              detail: 'Failed to update',
+            });
+          }
+        );
+      } else {
+        console.log('less than');
+        this.messageService.add({
+          key: 'bc',
+          severity: 'error',
+          summary: 'Failed',
+          detail: 'Password must be at least 7 characters long',
+        });
+      }
     }
   }
-
   alpha = 0.1;
   hexToRgbA(hex: string, alpha: number) {
     var r = parseInt(hex.slice(1, 3), 16),

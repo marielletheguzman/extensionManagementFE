@@ -23,9 +23,27 @@
     </h1>
     <br />
 
-    <button type="button" class="button" routerLink="/admin/add_partner">
-      <span class="button_text">Add Extension Partner</span>
-      <span class="button_icon"> <i class="bx bx-plus"></i></span>
+    <button
+      type="button"
+      class="button"
+      routerLink="/admin/add_partner"
+      [style]="{
+        'background-color': 'white',
+        height: '45px',
+        color: 'white',
+        border: '2px solid' + systemProfile.ThemeColor
+      }"
+    >
+      <span class="button_text" [style]="{ color: systemProfile.ThemeColor }"
+        >Add Extension Partner</span
+      >
+      <span
+        class="button_icon"
+        [style]="{
+        'background-color': systemProfile.ThemeColor,}"
+      >
+        <i class="bx bx-plus"></i
+      ></span>
     </button>
 
     <br /><br />
@@ -129,12 +147,19 @@
           <!-- <td>{{ pending.startDate }}</td>
         <td>{{ pending.endDate }}</td> -->
           <td>
-            <p-button
+            <button
               label="View"
               (click)="onView(partners.id)"
-              styleClass="p-button-primary"
-              [ngStyle]="{ 'margin-right': '8px' }"
-            ></p-button>
+              class="buttons"
+              [style]="{
+                'background-color': systemProfile.ThemeColor + ' !important',
+                width: '100px',
+                height: '45px',
+                color: 'white '
+              }"
+            >
+              View
+            </button>
             <!-- (click)="archive(active.id)" -->
 
             <!-- </td> -->

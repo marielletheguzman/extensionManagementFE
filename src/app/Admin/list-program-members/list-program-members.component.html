@@ -6,10 +6,28 @@
 <body>
   <section class="container">
     <h1>Program Members:</h1>
-    <button pButton routerLink="/admin/add-member" class="add-btn">
-      <span class="button_text">Add Members</span>
+    <button
+      pButton
+      routerLink="/admin/add-member"
+      class="add-btn"
+      [style]="{
+        'background-color': 'white',
+        height: '45px',
+        color: 'white',
+        border: '2px solid' + systemProfile.ThemeColor
+      }"
+    >
+      <span class="button_text" [style]="{ color: systemProfile.ThemeColor }"
+        >Add Members</span
+      >
       <br />
-      <span class="button_icon"> <i class="bx bx-plus"></i></span></button
+      <span
+        class="button_icon"
+        [style]="{
+        'background-color': systemProfile.ThemeColor,}"
+      >
+        <i class="bx bx-plus"></i
+      ></span></button
     ><br /><br /><br />
     <p-table [value]="users.partners" styleClass="p-datatable-gridlines">
       <ng-template pTemplate="header">
@@ -26,12 +44,19 @@
           <td>{{ member.position }}</td>
           <td>{{ member.involvement }}</td>
           <td>
-            <p-button
+            <button
               (click)="removeMember(member.id)"
               styleClass="p-button-danger"
+              class="button"
+              [style]="{
+                'background-color': systemProfile.ThemeColor + ' !important',
+                width: '100px',
+                height: '45px',
+                color: 'white'
+              }"
             >
               Remove
-            </p-button>
+            </button>
           </td>
         </tr>
       </ng-template>
@@ -39,9 +64,28 @@
     <br /><br /><br />
     <br /><br /><br />
     <h1>Program Participants:</h1>
-    <button pButton routerLink="/admin/add-participant" class="add-btn">
-      <span class="button_text">Add Participants</span>
-      <span class="button_icon"> <i class="bx bx-plus"></i></span></button
+    <button
+      pButton
+      routerLink="/admin/add-participant"
+      class="add-btn"
+      [style]="{
+        'background-color': 'white',
+        height: '45px',
+        color: 'white',
+        border: '2px solid' + systemProfile.ThemeColor
+      }"
+    >
+      <span class="button_text" [style]="{ color: systemProfile.ThemeColor }"
+        >Add Participant</span
+      >
+      <br />
+      <span
+        class="button_icon"
+        [style]="{
+        'background-color': systemProfile.ThemeColor,}"
+      >
+        <i class="bx bx-plus"></i
+      ></span></button
     ><br /><br /><br />
     <p-table [value]="usersp.participants" styleClass="p-datatable-gridlines">
       <ng-template pTemplate="header">
@@ -56,12 +100,18 @@
           <td>{{ member.participant }}</td>
           <td>{{ member.entity }}</td>
           <td>
-            <p-button
+            <button
               (click)="removeParticipant(member.id)"
-              styleClass="p-button-danger"
+              class="button"
+              [style]="{
+                'background-color': systemProfile.ThemeColor + ' !important',
+                width: '100px',
+                height: '45px',
+                color: 'white'
+              }"
             >
               Remove
-            </p-button>
+            </button>
           </td>
         </tr>
       </ng-template>
@@ -70,9 +120,28 @@
     <br /><br /><br />
     <h1>Program Flow:</h1>
 
-    <button pButton routerLink="/admin/add-flow" class="add-btn">
-      <span class="button_text">Add Program Flow</span>
-      <span class="button_icon"> <i class="bx bx-plus"></i></span></button
+    <button
+      pButton
+      routerLink="/admin/add-flow"
+      class="add-btn"
+      [style]="{
+        'background-color': 'white',
+        height: '45px',
+        color: 'white',
+        border: '2px solid' + systemProfile.ThemeColor
+      }"
+    >
+      <span class="button_text" [style]="{ color: systemProfile.ThemeColor }"
+        >Add Program Flow</span
+      >
+      <br />
+      <span
+        class="button_icon"
+        [style]="{
+      'background-color': systemProfile.ThemeColor,}"
+      >
+        <i class="bx bx-plus"></i
+      ></span></button
     ><br /><br /><br />
     <p-table [value]="userFlow.flow" styleClass="p-datatable-gridlines">
       <ng-template pTemplate="header">
@@ -87,12 +156,18 @@
           <td>{{ member.eventName }}</td>
           <td>{{ member.eventType }}</td>
           <td>
-            <p-button
+            <button
               (click)="removeFlow(member.id)"
-              styleClass="p-button-danger"
+              class="button"
+              [style]="{
+                'background-color': systemProfile.ThemeColor + ' !important',
+                width: '100px',
+                height: '45px',
+                color: 'white'
+              }"
             >
               Remove
-            </p-button>
+            </button>
           </td>
         </tr>
       </ng-template>
@@ -100,8 +175,14 @@
     <br /><br />
     <button
       routerLink="/admin/list-programs"
-      class="save-btn"
+      class="save-btn button"
       style="border-radius: 8px"
+      [style]="{
+        'background-color': systemProfile.ThemeColor + ' !important',
+        width: '150px',
+        height: '45px',
+        color: 'white'
+      }"
     >
       Save
     </button>

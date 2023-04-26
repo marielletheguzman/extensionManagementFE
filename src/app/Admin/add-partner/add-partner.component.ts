@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { MessageService } from 'primeng/api';
 import { timer } from 'rxjs';
+import { LandingService } from 'src/app/landing-page/landing.service';
 
 @Component({
   selector: 'app-add-partner',
@@ -25,13 +26,25 @@ export class AddPartnerComponent {
   partnerEndDate!: string;
   partnerLogo!: File;
   partnerMoaFile!: File;
-
+  systemProfile = {
+    Logo: '',
+    WebsiteName: '',
+    ThemeColor: '',
+    Description: '',
+    MainImg: '',
+  };
   constructor(
     private message: MessageService,
     private router: Router,
+    private landingService: LandingService,
     private http: HttpClient
   ) {}
-
+  ngOnInit() {
+    this.landingService.getSystemProfile().subscribe((data: any) => {
+      this.systemProfile = data;
+      console.log(this.systemProfile);
+    });
+  }
   onSubmit() {
     const formData = new FormData();
     formData.append('partnerName', this.partnerName);

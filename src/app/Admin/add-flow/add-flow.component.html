@@ -27,7 +27,17 @@
           />
         </div>
       </div>
-      <button type="submit">Submit</button>
+      <button
+        type="submit"
+        [style]="{
+          'background-color': systemProfile.ThemeColor + ' !important',
+          width: '150px',
+          height: '45px',
+          color: 'white'
+        }"
+      >
+        Submit
+      </button>
     </div>
   </form>
 </div>

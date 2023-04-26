@@ -4,7 +4,7 @@
 />
 <body>
   <section class="container">
-    <header>Edit System Profile</header>
+    <header>Change System Logo</header>
     <form (ngSubmit)="onSubmit()" class="form">
       <img
         src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
@@ -20,9 +20,27 @@
         id="myfile"
         name="myfile"
         (change)="onImageSelected($event)"
+        style="
+          border: 1px solid #d5d7da;
+          width: 60%;
+          border-radius: 5px;
+          height: 100%;
+        "
       />
-
-      <button type="submit" class="main-btn">Submit</button>
+      <br /><br />
+      <button
+        type="submit"
+        class="main-btn"
+        [style]="{
+          'background-color': systemProfile.ThemeColor + ' !important',
+          width: '150px',
+          height: '45px',
+          color: 'white'
+        }"
+        class="buttons"
+      >
+        Submit
+      </button>
     </form>
   </section>
 </body>

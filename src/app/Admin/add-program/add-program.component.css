@@ -17,7 +17,7 @@ body {
   width: 100%;
   background: #fff;
 
-  border-radius: 8px;
+  border-radius: 20px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 .container header {
@@ -118,7 +118,7 @@ p-calendar,
   height: 55px;
   margin-left: 40%;
   width: 100px;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   color: #fff;
   font-size: 1rem;
   font-weight: 400;
@@ -136,4 +136,17 @@ p-calendar,
   .form .column {
     flex-wrap: wrap;
   }
+}
+h1 {
+  font-size: 30px;
+}
+.button {
+  color: white;
+  width: 100px;
+  height: 40px;
+  border-radius: 6px;
+  border: 0px;
+  font-weight: 600;
+  font-size: 17px;
+  cursor: pointer;
 }

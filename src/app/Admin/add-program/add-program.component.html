@@ -1,26 +1,26 @@
 <p-toast></p-toast>
 <body>
   <section class="container">
-    <header>Add Extension Program</header>
+    <header><h1>Add Extension Program</h1></header>
     <br />
     <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="form">
       <div class="input-box">
-        <label>Program Title</label>
+        <label>Program Title:</label>
         <input type="text" required formControlName="programTitle" />
       </div>
 
       <div class="input-box">
-        <label>Place</label>
+        <label>Place:</label>
         <input type="text" required formControlName="place" />
       </div>
 
       <div class="column">
         <div class="input-box">
-          <label>Program Leader</label>
+          <label>Program Leader:</label>
           <input type="text" required formControlName="programLead" />
         </div>
         <div class="input-box">
-          <label class="partner">Partner</label>
+          <label class="partner">Partner:</label>
           <div class="select-box">
             <p-dropdown
               [options]="partnerss.partners"
@@ -32,13 +32,13 @@
       </div>
       <div class="column1">
         <div class="input-box">
-          <label>Start Date</label>
+          <label>Start Date:</label>
 
           <input type="date" formControlName="startDate" />
         </div>
 
         <div class="input-box">
-          <label>End Date</label>
+          <label>End Date:</label>
           <input type="date" formControlName="endDate" />
         </div>
       </div>
@@ -55,7 +55,17 @@
         </textarea>
       </div>
 
-      <button>Submit</button>
+      <button
+        class="button"
+        [style]="{
+          'background-color': systemProfile.ThemeColor + ' !important',
+          width: '100px',
+          height: '45px',
+          color: 'white'
+        }"
+      >
+        Submit
+      </button>
     </form>
   </section>
 </body>

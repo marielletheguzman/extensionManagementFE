@@ -10,6 +10,7 @@ import {
 } from 'primeng/api';
 import { timer } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { LandingService } from 'src/app/landing-page/landing.service';
 
 @Component({
   selector: 'app-add-program',
@@ -25,16 +26,28 @@ export class AddProgramComponent {
       },
     ],
   };
+  systemProfile = {
+    Logo: '',
+    WebsiteName: '',
+    ThemeColor: '',
+    Description: '',
+    MainImg: '',
+  };
   date: Date | undefined;
   myForm!: FormGroup;
   constructor(
     private http: HttpClient,
     private fb: FormBuilder,
     private router: Router,
+    private landingService: LandingService,
     private messageService: MessageService
   ) {}
 
   ngOnInit(): void {
+    this.landingService.getSystemProfile().subscribe((data: any) => {
+      this.systemProfile = data;
+      console.log(this.systemProfile);
+    });
     this.http
       .get<any>(
         'http://localhost/extensionManagementRestAPI/controllers/admin/show_all_extension_partners.php'

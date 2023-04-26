@@ -21,20 +21,39 @@
             placeholder="YYYY-MM-DD"
           />
         </div>
-        <div class="input-box">
-          <label for="partnerMoaFile">Upload MOA</label>
-          <input
-            type="file"
-            id="myFile"
-            class="upload-box"
-            name="partnerMoaFile"
-            (change)="onFileSelected($event)"
-            required
-          />
-        </div>
       </div>
-
-      <button type="submit">Submit</button>
+      <br /><br />
+      <label for="partnerMoaFile" style="margin-left: 20%">Upload MOA:</label>
+      <div class="input-box">
+        <input
+          type="file"
+          id="myFile"
+          class="upload-box"
+          name="partnerMoaFile"
+          (change)="onFileSelected($event)"
+          required
+          style="
+            border: 1px solid #d5d7da;
+            width: 58%;
+            border-radius: 5px;
+            height: 100%;
+            margin-left: 20%;
+          "
+        />
+      </div>
+      <button
+        class="buttons"
+        type="submit"
+        [style]="{
+          'background-color': systemProfile.ThemeColor + ' !important',
+          width: '150px',
+          height: '45px',
+          color: 'white',
+          'margin-left': '35%'
+        }"
+      >
+        Submit
+      </button>
     </form>
   </section>
 </body>

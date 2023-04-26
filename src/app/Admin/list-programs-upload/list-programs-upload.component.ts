@@ -4,6 +4,7 @@ import { UploadRelatedFilesService } from './upload-related-files.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { timer } from 'rxjs';
+import { LandingService } from 'src/app/landing-page/landing.service';
 
 @Component({
   selector: 'app-list-programs-upload',
@@ -11,6 +12,13 @@ import { timer } from 'rxjs';
   styleUrls: ['./list-programs-upload.component.css'],
 })
 export class ListProgramsUploadComponent {
+  systemProfile = {
+    Logo: '',
+    WebsiteName: '',
+    ThemeColor: '',
+    Description: '',
+    MainImg: '',
+  };
   upload = new FormGroup({
     certificate: new FormControl(undefined),
     attendance: new FormControl(undefined),
@@ -19,10 +27,16 @@ export class ListProgramsUploadComponent {
   constructor(
     private uploadServices: UploadRelatedFilesService,
     private messageService: MessageService,
+    private landingService: LandingService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
-
+  ngOnInit() {
+    this.landingService.getSystemProfile().subscribe((data: any) => {
+      this.systemProfile = data;
+      console.log(this.systemProfile);
+    });
+  }
   onSubmit() {
     const formData = new FormData();
 

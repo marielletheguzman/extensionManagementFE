@@ -51,3 +51,16 @@ h1 {
 button {
   float: right;
 }
+.buttons {
+  color: white;
+  width: 100px;
+  height: 40px;
+  border-radius: 6px;
+  border: 0px;
+  font-weight: 600;
+  font-size: 17px;
+  cursor: pointer;
+  margin-left: 33%;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}

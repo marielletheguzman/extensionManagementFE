@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { timer } from 'rxjs';
+import { LandingService } from 'src/app/landing-page/landing.service';
 
 @Component({
   selector: 'app-add-flow',
@@ -16,14 +17,26 @@ export class AddFlowComponent {
     eventName: '',
     eventType: '',
   };
+  systemProfile = {
+    Logo: '',
+    WebsiteName: '',
+    ThemeColor: '',
+    Description: '',
+    MainImg: '',
+  };
   myForm!: FormGroup;
   constructor(
     private http: HttpClient,
     private fb: FormBuilder,
+    private landingService: LandingService,
     private message: MessageService,
     private router: Router
   ) {}
   ngOnInit() {
+    this.landingService.getSystemProfile().subscribe((data: any) => {
+      this.systemProfile = data;
+      console.log(this.systemProfile);
+    });
     this.myForm = this.fb.group({
       eventName: ['', Validators.required],
       eventType: ['', Validators.required],

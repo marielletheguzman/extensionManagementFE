@@ -4,6 +4,7 @@ import { RenewPartnerServicesService } from './renew-partner-services.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { timer } from 'rxjs';
+import { LandingService } from 'src/app/landing-page/landing.service';
 
 @Component({
   selector: 'app-renew-partner',
@@ -16,15 +17,27 @@ export class RenewPartnerComponent {
     partnerEndDate: new FormControl(''),
     partnerMoaFile: new FormControl(undefined),
   });
-
+  systemProfile = {
+    Logo: '',
+    WebsiteName: '',
+    ThemeColor: '',
+    Description: '',
+    MainImg: '',
+  };
   constructor(
     private renewServices: RenewPartnerServicesService,
     private message: MessageService,
+    private landingService: LandingService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
 
-  onOnInit() {}
+  ngOnInit() {
+    this.landingService.getSystemProfile().subscribe((data: any) => {
+      this.systemProfile = data;
+      console.log(this.systemProfile);
+    });
+  }
 
   onSubmit() {
     const formData = new FormData();

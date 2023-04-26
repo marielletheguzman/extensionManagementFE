@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MessageService } from 'primeng/api';
+import { LandingService } from 'src/app/landing-page/landing.service';
 
 @Component({
   selector: 'app-list-program-members',
@@ -41,13 +42,25 @@ export class ListProgramMembersComponent {
       },
     ],
   };
+  systemProfile = {
+    Logo: '',
+    WebsiteName: '',
+    ThemeColor: '',
+    Description: '',
+    MainImg: '',
+  };
   constructor(
     private http: HttpClient,
     private fb: FormBuilder,
+    private landingService: LandingService,
     private messageService: MessageService
   ) {}
 
   ngOnInit() {
+    this.landingService.getSystemProfile().subscribe((data: any) => {
+      this.systemProfile = data;
+      console.log(this.systemProfile);
+    });
     this.http
       .get<any>(
         'http://localhost/extensionManagementRestAPI/controllers/admin/show_latest_programmember.php'

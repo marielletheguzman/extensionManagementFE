@@ -1,7 +1,8 @@
-<p-toast></p-toast>
+<p-toast></p-toast> <br /><br />
 <div class="container" style="text-align: center">
-  <h1>Add Members</h1>
   <br /><br />
+  <h1>Add Members</h1>
+  <br /><br /><br />
   <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="form">
     <div class="column">
       <div>
@@ -25,6 +26,18 @@
         />
       </div>
     </div>
-    <button type="submit">Submit</button>
+    <br /><br />
+    <button
+      type="submit"
+      class="button"
+      [style]="{
+        'background-color': systemProfile.ThemeColor + ' !important',
+        width: '150px',
+        height: '45px',
+        color: 'white'
+      }"
+    >
+      Submit
+    </button>
   </form>
 </div>

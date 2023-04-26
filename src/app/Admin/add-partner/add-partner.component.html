@@ -6,11 +6,11 @@
     <form (submit)="onSubmit()" class="form">
       <div class="column">
         <div class="input-box">
-          <label>Extension Partner Name</label>
+          <label>Extension Partner Name:</label>
           <input type="text" name="partnerName" [(ngModel)]="partnerName" />
         </div>
         <div class="input-box">
-          <label>Extension Partner Address</label>
+          <label>Extension Partner Address:</label>
           <input
             type="email"
             name="partnerAddress"
@@ -28,7 +28,7 @@
           />
         </div>
         <div class="input-box">
-          <label>Contact Number</label>
+          <label>Contact Number:</label>
           <input
             type="email"
             name="partnerContactNumber"
@@ -38,7 +38,7 @@
       </div>
       <div class="column">
         <div class="input-box">
-          <label>Start Date</label>
+          <label>Start Date:</label>
           <input
             type="date"
             name="partnerStartDate"
@@ -46,7 +46,7 @@
           />
         </div>
         <div class="input-box">
-          <label>End Date</label>
+          <label>End Date:</label>
           <input
             type="date"
             name="partnerEndDate"
@@ -57,7 +57,7 @@
 
       <div class="column">
         <div class="input-box1">
-          <label>Extension Partner Logo</label><br /><br />
+          <label>Extension Partner Logo:</label><br /><br />
           <input
             type="file"
             class="upload-box"
@@ -65,22 +65,47 @@
             name="partnerLogo"
             id="partnerLogo"
             (change)="onLogoSelected($event)"
+            style="
+              border: 1px solid #d5d7da;
+              width: 65%;
+              border-radius: 5px;
+              height: 100%;
+            "
           />
         </div>
         <div class="input-box1">
-          <label>Upload MOA</label><br /><br />
+          <label>Upload MOA:</label><br /><br />
           <input
             type="file"
             class="upload-box"
             name="image"
             name="partnerMoaFile"
             id="partnerMoaFile"
+            style="
+              border: 1px solid #d5d7da;
+              width: 65%;
+              border-radius: 5px;
+              height: 100%;
+              color: black;
+            "
             (change)="onMoaFileSelected($event)"
           />
         </div>
       </div>
 
-      <button type="submit">Submit</button>
+      <button
+        type="submit"
+        class="button"
+        [style]="{
+        'background-color': systemProfile.ThemeColor + ' !important',
+        width: '150px',
+        height: '45px',
+        color: 'white',
+
+      }"
+      >
+        Submit
+      </button>
     </form>
   </section>
 </body>

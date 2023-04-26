@@ -23,7 +23,18 @@
     </h1>
     <br />
 
-    <button type="button" class="button" routerLink="/admin/add_partner">
+    <button
+      type="button"
+      class="button"
+      routerLink="/admin/add_partner"
+      [style]="{
+        'background-color': systemProfile.ThemeColor + ' !important',
+        width: '270px',
+        height: '45px',
+        color: 'white',
+        'margin-left': '10px'
+      }"
+    >
       <span class="button_text">Add Extension Partner</span>
       <span class="button_icon"> <i class="bx bx-plus"></i></span>
     </button>
@@ -128,12 +139,40 @@
           <!-- <td>{{ pending.startDate }}</td>
         <td>{{ pending.endDate }}</td> -->
           <td>
-            <p-button
-              label="Renew"
-              styleClass="p-button-primary"
-              [ngStyle]="{ 'margin-right': '8px' }"
-              (click)="renew(partners.id)"
-            ></p-button>
+            <div style="display: flex">
+              <button
+                label="Renew"
+                class="buttons"
+                routerLink="/admin/view_partner/{{ partners.id }}"
+                styleClass="p-button-primary"
+                [style]="{
+                  'background-color': systemProfile.ThemeColor + ' !important',
+                  width: '100px',
+                  height: '45px',
+                  color: 'white',
+                  'margin-left': '10px'
+                }"
+              >
+                View
+              </button>
+              <button
+                label="Renew"
+                class="buttons"
+                styleClass="p-button-primary"
+                (click)="renew(partners.id)"
+                [style]="{
+                  border: '2px solid ' + systemProfile.ThemeColor,
+                  width: '100px',
+                  height: '45px',
+                  color: systemProfile.ThemeColor,
+                  'background-color': 'white',
+                  'font-weight': 700,
+                  'margin-left': '10px'
+                }"
+              >
+                Renew
+              </button>
+            </div>
 
             <!-- </td> -->
           </td>

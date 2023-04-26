@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ExpiredPartnersServicesService } from './expired-partners-services.service';
 import { MessageService } from 'primeng/api';
+import { LandingService } from 'src/app/landing-page/landing.service';
 
 @Component({
   selector: 'app-expired-partners',
@@ -29,12 +30,20 @@ export class ExpiredPartnersComponent {
       },
     ],
   };
+  systemProfile = {
+    Logo: '',
+    WebsiteName: '',
+    ThemeColor: '',
+    Description: '',
+    MainImg: '',
+  };
   private token: string | null | undefined;
   selectedAccountId: Number | undefined;
   constructor(
     private router: Router,
     private manageServices: ManageServicesService,
     private http: HttpClient,
+    private landingService: LandingService,
     private expiredPartnersService: ExpiredPartnersServicesService,
     private messageService: MessageService
   ) {
@@ -42,6 +51,10 @@ export class ExpiredPartnersComponent {
     this.token = localStorage.getItem('token');
   }
   ngOnInit(): void {
+    this.landingService.getSystemProfile().subscribe((data: any) => {
+      this.systemProfile = data;
+      console.log(this.systemProfile);
+    });
     const token = localStorage.getItem('token');
     this.expiredPartnersService.getOngoingPartners().subscribe((data: any) => {
       this.onGoingPartners = data;

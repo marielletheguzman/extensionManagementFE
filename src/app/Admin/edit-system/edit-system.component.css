@@ -17,7 +17,7 @@ body {
   width: 100%;
   background: #fff;
 
-  border-radius: 8px;
+  border-radius: 20px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 .container header {
@@ -145,4 +145,17 @@ textarea {
   .form :where(.gender-option, .gender) {
     row-gap: 15px;
   }
+}
+.buttons {
+  color: white;
+  width: 100px;
+  height: 40px;
+  border-radius: 6px;
+  border: 0px;
+  font-weight: 600;
+  font-size: 17px;
+  cursor: pointer;
+  margin-left: 33%;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }

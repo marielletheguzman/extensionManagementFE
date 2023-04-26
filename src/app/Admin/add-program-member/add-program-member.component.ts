@@ -6,6 +6,7 @@ import { Observable, timer } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AddProgramMemberService } from './add-program-member.service';
 import { Router } from '@angular/router';
+import { LandingService } from 'src/app/landing-page/landing.service';
 
 @Component({
   selector: 'app-add-program-member',
@@ -22,14 +23,26 @@ export class AddProgramMemberComponent implements OnInit {
       },
     ],
   };
+  systemProfile = {
+    Logo: '',
+    WebsiteName: '',
+    ThemeColor: '',
+    Description: '',
+    MainImg: '',
+  };
   myForm!: FormGroup;
   constructor(
     private http: HttpClient,
     private fb: FormBuilder,
+    private landingService: LandingService,
     private message: MessageService,
     private router: Router
   ) {}
   ngOnInit(): void {
+    this.landingService.getSystemProfile().subscribe((data: any) => {
+      this.systemProfile = data;
+      console.log(this.systemProfile);
+    });
     const headers = new HttpHeaders().set(
       'Authorization',
       `${localStorage.getItem('token')}`

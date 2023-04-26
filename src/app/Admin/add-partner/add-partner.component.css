@@ -17,7 +17,7 @@ body {
   width: 100%;
   background: #fff;
 
-  border-radius: 8px;
+  border-radius: 20px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 .container header {
@@ -95,15 +95,16 @@ textarea {
   outline: none;
 }
 ::-webkit-file-upload-button {
-  color: white;
-  background: #6b7280;
+  color: rgb(0, 0, 0);
+  background: #e8ecef;
   padding: 15px;
   border: none;
   outline: none;
   cursor: pointer;
+  font-family: "Montserrat", sans-serif;
 }
 ::-webkit-file-upload-button:hover {
-  background: #707070;
+  background: #d1d4d6;
 }
 
 .form button {
@@ -131,4 +132,17 @@ textarea {
   .form :where(.gender-option, .gender) {
     row-gap: 15px;
   }
+}
+.button {
+  color: white;
+  width: 100px;
+  height: 40px;
+  border-radius: 6px;
+  border: 0px;
+  font-weight: 600;
+  font-size: 17px;
+  cursor: pointer;
+  margin-left: 33%;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
