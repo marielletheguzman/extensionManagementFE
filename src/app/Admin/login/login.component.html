@@ -4,15 +4,30 @@
     rel="stylesheet"
   />
 </head>
-<body>
+<body
+  style="background-color: {{
+    hexToRgbA(systemProfile.ThemeColor, alpha)
+  }}; height:100%"
+>
   <p-toast></p-toast>
   <div class="container">
     <div class="Midpart">
+      <br /><br /><br /><br />
       <div class="loginpage">
-        <h1>Login</h1>
-        <hr />
+        <br /><br />
+        <img
+          src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
+            systemProfile.Logo
+          }}"
+          alt=""
+          class="companyLogo"
+          style="height: 100px; width: 100px"
+        />
 
         <form [formGroup]="formGroup" (ngSubmit)="loginProcess()">
+          <h1>Login</h1>
+          <hr />
+          <br />
           <input
             type="text"
             pInputText
@@ -25,14 +40,18 @@
             id="password"
             formControlName="password"
             [toggleMask]="true"
-            [style]="{ width: '380px', height: '60px' }"
-            [inputStyle]="{ width: '100%' }"
+            [style]="{ width: '380px', height: '60px', borderRadius: '20px' }"
+            [inputStyle]="{ width: '100%', borderRadius: '9px' }"
           ></p-password>
-
-          <a href="#"><input type="submit" /></a>
+          <br />
+          <button style="background-color: {{ systemProfile.ThemeColor }}">
+            Submit</button
+          ><br />
           <p><a href="#">Forgot Password ?</a></p>
         </form>
+        <br /><br />
       </div>
     </div>
   </div>
+  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 </body>

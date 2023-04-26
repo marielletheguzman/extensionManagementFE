@@ -10,10 +10,14 @@ body {
   justify-content: center;
   padding: 20px;
 }
-
+.contains {
+  width: 90%;
+  margin-left: 5%;
+  align-items: center;
+}
 .container {
   position: relative;
-  max-width: 700px;
+  max-width: 800px;
   width: 100%;
   background: #fff;
   padding: 25px;
@@ -22,9 +26,12 @@ body {
 }
 h1 {
   font-size: 30px;
-  color: #6b7280;
+  color: #000000;
 
   text-align: center;
+}
+.form {
+  height: auto;
 }
 .container .form {
   margin-top: 30px;
@@ -76,7 +83,7 @@ h1 {
 }
 ::-webkit-file-upload-button {
   color: white;
-  background: #6b7280;
+  background: #6f6f6f;
   padding: 8px;
   border: none;
   outline: none;
@@ -116,7 +123,11 @@ h1 {
   border: none;
   cursor: pointer;
   transition: all 0.2s ease;
-  background: #6b7280;
+  background: #1877f2;
+}
+.form button:hover {
+  transition: all 0.2s ease;
+  background-color: #166fe5;
 }
 /*Responsive*/
 @media screen and (max-width: 500px) {

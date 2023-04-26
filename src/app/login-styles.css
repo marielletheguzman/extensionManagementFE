@@ -12,7 +12,6 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: rgb(222, 220, 224);
 }
 .container {
   margin: 10px 20px;
@@ -20,6 +19,7 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  padding-bottom: 100px;
 }
 
 .Midpart {
@@ -35,11 +35,12 @@ body {
   background-color: #fff;
   width: 450px;
   height: 380px;
-  box-shadow: -10px -10px 15px rgba(0, 0, 0, 0.1),
-    10px 10px 15px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-radius: 20px;
+  height: auto;
 }
 form {
+  margin-top: -20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -48,9 +49,13 @@ form {
 }
 h1 {
   font-size: 35px;
-  color: #6b7280;
+  color: #000000;
   padding-top: 15px;
   margin-bottom: 20px;
+}
+.desc {
+  color: #434343;
+  font-weight: 600;
 }
 span {
   position: absolute;
@@ -72,9 +77,23 @@ input {
   font-size: 1rem;
   border-radius: 10px;
 }
-
+button {
+  width: 100%;
+  color: white;
+  height: 60px;
+  border-radius: 10px;
+  border: 0px solid #ccc;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+}
 input[type="submit"] {
-  background-color: #6b7280;
+  /* background-color: #1877f2; */
+  color: white;
+  cursor: pointer;
+}
+input[type="submit"]:hover {
+  background-color: #166fe5;
   color: white;
   cursor: pointer;
 }

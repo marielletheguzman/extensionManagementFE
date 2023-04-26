@@ -1,4 +1,8 @@
-<div style="background-color: rgb(255, 248, 238); height: 1000px">
+<body
+  style="width:100%;display: inline-block; background-color: {{
+    hexToRgbA(systemProfile.ThemeColor, alpha)
+  }}; "
+>
   <app-top-nav></app-top-nav>
   <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
   <link
@@ -22,6 +26,7 @@
       [tableStyle]="{ 'min-width': '60rem' }"
       [paginator]="true"
       [rows]="5"
+      [rowsPerPageOptions]="[5, 10, 15, 20]"
       [globalFilterFields]="[
         'programTitle',
         'partner',
@@ -37,7 +42,7 @@
     >
       <ng-template pTemplate="header">
         <tr>
-          <th pSortableColumn="id" style="width: 16%">
+          <th pSortableColumn="id" style="width: 29%">
             Program Title <p-sortIcon field="code"></p-sortIcon>
           </th>
           <th pSortableColumn="programLead" style="width: 16%">
@@ -56,7 +61,7 @@
           <th pSortableColumn="endDate" style="width: 16%">
             End Date <p-sortIcon field="price"></p-sortIcon>
           </th>
-          <th pSortableColumn="viewDetails" style="width: 16%">
+          <th pSortableColumn="viewDetails" style="width: 8%">
             View Details <p-sortIcon field="price"></p-sortIcon>
           </th>
         </tr>
@@ -71,10 +76,23 @@
           <td>{{ program.startDate }}</td>
           <td>{{ program.endDate }}</td>
           <td>
-            <p-button label="View" (click)="onView(program.id)"></p-button>
+            <button
+              class="btn"
+              label="View"
+              (click)="onView(program.id)"
+              [style]="{
+                'background-color': systemProfile.ThemeColor + ' !important'
+              }"
+            >
+              View
+            </button>
           </td>
         </tr>
       </ng-template>
     </p-table>
   </div>
-</div>
+  <br /><br /><br /><br /><br /><br />
+  <br /><br /><br /><br /><br /><br />
+  <br /><br /><br /><br /><br /><br />
+  <br />
+</body>

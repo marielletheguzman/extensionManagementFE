@@ -93,19 +93,40 @@
           <td>{{ pending.position }}</td>
           <!-- <td>{{ pending.profilePicture }}</td> -->
           <!-- <td>{{ pending.startDate }}</td>
-        <td>{{ pending.endDate }}</td> -->
+            <td>{{ pending.endDate }}</td> -->
           <td>
             <!-- (click)="onView(program.id)" -->
-            <p-button
+            <button
               (click)="confirm(pending.id)"
               label="Approve"
+              class="button"
               [ngStyle]="{ 'margin-right': '8px' }"
-            ></p-button>
-            <p-button
+              [style]="{
+                'background-color': systemProfile.ThemeColor + ' !important',
+                width: '100px',
+                height: '45px',
+                color: 'white'
+              }"
+            >
+              Approve
+            </button>
+            <button
               label="Decline"
               styleClass="p-button-danger"
+              class="button"
               (click)="reject(pending.id)"
-            ></p-button>
+              [style]="{
+                border: '2px solid ' + systemProfile.ThemeColor,
+                width: '100px',
+                height: '45px',
+                color: systemProfile.ThemeColor,
+                'background-color': 'white',
+                'font-weight': 700,
+                'margin-right': '15px'
+              }"
+            >
+              Reject
+            </button>
 
             <!-- </td> -->
           </td>

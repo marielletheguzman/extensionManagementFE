@@ -2,7 +2,6 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Responsive Sidebar Menu</title>
   <!--Boxicons CDN link -->
   <link
     href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
@@ -14,7 +13,10 @@
     hexToRgbA(systemProfile.ThemeColor, alpha)
   }}; height:100%"
 >
-  <div class="sidebar" style="background-color: {{ systemProfile.ThemeColor }}">
+  <div
+    class="sidebar"
+    style="background-color: {{ systemProfile.ThemeColor }}; z-index: 100;"
+  >
     <div class="logo_content">
       <div class="logo">
         <img

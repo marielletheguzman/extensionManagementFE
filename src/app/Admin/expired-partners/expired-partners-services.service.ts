@@ -25,8 +25,9 @@ export class ExpiredPartnersServicesService {
   getExpired(): Observable<any> {
     const headers = new HttpHeaders().set(
       'Authorization',
-      `${localStorage.getItem('token')}`
+      `${localStorage.getItem('token')?.replace('Bearer ', '')}`
     );
+    console.log(`Token: ${localStorage.getItem('token')}`);
     return this.http.get(this.getExpiredApi, {
       headers,
     });

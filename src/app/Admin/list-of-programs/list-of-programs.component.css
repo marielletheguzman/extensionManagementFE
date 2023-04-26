@@ -17,7 +17,7 @@ body {
   width: 100%;
   background: #fff;
 
-  border-radius: 8px;
+  border-radius: 20px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 .add-btn {
@@ -54,4 +54,14 @@ body {
 .button_icon {
   font-size: 1.5em;
   background: rgba(0, 0, 0, 0.08);
+}
+.button {
+  color: white;
+  width: 100px;
+  height: 40px;
+  border-radius: 6px;
+  border: 0px;
+  font-weight: 600;
+  font-size: 17px;
+  cursor: pointer;
 }

@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { UploadRelatedFilesService } from './upload-related-files.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-list-programs-upload',
@@ -16,6 +18,8 @@ export class ListProgramsUploadComponent {
   });
   constructor(
     private uploadServices: UploadRelatedFilesService,
+    private messageService: MessageService,
+    private router: Router,
     private route: ActivatedRoute
   ) {}
 
@@ -35,7 +39,16 @@ export class ListProgramsUploadComponent {
 
     this.uploadServices.submit(formData, id).subscribe(
       (res) => {
-        console.log(res);
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Successfully Uploaded',
+        });
+        timer(1000)
+          .toPromise()
+          .then((done) => {
+            this.router.navigate(['/admin/list-programs']);
+          });
       },
       (err) => {
         console.log(err);

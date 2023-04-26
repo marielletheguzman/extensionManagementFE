@@ -52,6 +52,11 @@ export class AddParticipantComponent {
           summary: 'Success',
           detail: 'User added to program',
         });
+        timer(200)
+          .toPromise()
+          .then((done) => {
+            this.router.navigate(['/admin/list-member']);
+          });
       },
       (error) => {
         console.error(error);
@@ -60,12 +65,12 @@ export class AddParticipantComponent {
           summary: 'Error',
           detail: 'Failed to add user to program',
         });
+        timer(200)
+          .toPromise()
+          .then((done) => {
+            this.router.navigate(['/admin/list-member']);
+          });
       }
     );
-    timer(50)
-      .toPromise()
-      .then((done) => {
-        this.router.navigate(['/admin/list-member']);
-      });
   }
 }

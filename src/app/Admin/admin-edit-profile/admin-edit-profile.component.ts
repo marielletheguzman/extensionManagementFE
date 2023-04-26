@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { AdminEditProfileService } from './admin-edit-profile.service';
 import { timer } from 'rxjs';
+import { LandingService } from 'src/app/landing-page/landing.service';
 
 @Component({
   selector: 'app-admin-edit-profile',
@@ -19,9 +20,16 @@ export class AdminEditProfileComponent implements OnInit {
     position: '',
     profilePicture: '',
   };
-
+  systemProfile = {
+    Logo: '',
+    WebsiteName: '',
+    ThemeColor: '',
+    Description: '',
+    MainImg: '',
+  };
   constructor(
     private activatedRoute: ActivatedRoute,
+    private landingService: LandingService,
     private formBuilder: FormBuilder,
     private editUser: AdminEditProfileService,
     private router: Router,
@@ -29,6 +37,11 @@ export class AdminEditProfileComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.landingService.getSystemProfile().subscribe((data: any) => {
+      this.systemProfile = data;
+      console.log(this.systemProfile);
+    });
+
     this.profileForm = this.formBuilder.group({
       fullName: '',
       email: '',

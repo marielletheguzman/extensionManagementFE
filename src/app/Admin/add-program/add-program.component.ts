@@ -80,7 +80,12 @@ export class AddProgramComponent {
       )
       .subscribe(
         (res) => {
-          timer(50)
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: 'Program Added',
+          });
+          timer(200)
             .toPromise()
             .then((done) => {
               this.router.navigate(['/admin/list-member']);

@@ -2,8 +2,30 @@
   <section class="container">
     <h1>List of Programs</h1>
     <button routerLink="/admin/add_program" class="add-btn">
-      <span class="button_text">Add Program</span>
-      <span class="button_icon"> <i class="bx bx-plus"></i></span></button
+      <span
+        class="button_text"
+        [style]="{
+          'background-color':
+            hexToRgbA(systemProfile.ThemeColor, 1) + ' !important',
+          width: '150px',
+          height: '45px',
+          color: 'white'
+        }"
+        >Add Program</span
+      >
+      <span
+        class="button_icon"
+        [style]="{
+          'background-color': systemProfile.ThemeColor + ' !important'
+        }"
+      >
+        <i
+          class="bx bx-plus"
+          [style]="{
+            'background-color': systemProfile.ThemeColor + ' !important'
+          }"
+        ></i
+      ></span></button
     ><br />
     <br /><br /><input
       pInputText
@@ -56,8 +78,33 @@
           <td>{{ program.endDate }}</td>
           <td>{{ program.partner }}</td>
           <td>
-            <p-button (click)="onView(program.id)">View</p-button>&nbsp; &nbsp;
-            <p-button (click)="onUpload(program.id)">Upload Files</p-button>
+            <button
+              (click)="onView(program.id)"
+              class="button"
+              [style]="{
+                'background-color': systemProfile.ThemeColor + ' !important',
+                width: '100px',
+                height: '45px',
+                color: 'white'
+              }"
+            >
+              View</button
+            >&nbsp; &nbsp;
+            <button
+              (click)="onUpload(program.id)"
+              class="button"
+              [style]="{
+                border: '2px solid ' + systemProfile.ThemeColor,
+                width: '150px',
+                height: '45px',
+                color: systemProfile.ThemeColor,
+                'background-color': 'white',
+                'font-weight': 700,
+                'margin-right': '15px'
+              }"
+            >
+              Upload Files
+            </button>
           </td>
         </tr>
       </ng-template>

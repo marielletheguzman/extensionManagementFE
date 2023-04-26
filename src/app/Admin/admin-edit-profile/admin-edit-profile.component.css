@@ -18,9 +18,8 @@ body {
   width: 100%;
   background: #fff;
 
-  border-radius: 8px;
-  box-shadow: -10px -10px 15px rgba(0, 0, 0, 0.1),
-    10px 10px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 .container header {
   font-size: 1.5rem;
@@ -123,4 +122,14 @@ body {
   .form :where(.gender-option, .gender) {
     row-gap: 15px;
   }
+}
+.button {
+  color: white;
+  width: 100px;
+  height: 40px;
+  border-radius: 6px;
+  border: 0px;
+  font-weight: 600;
+  font-size: 17px;
+  cursor: pointer;
 }

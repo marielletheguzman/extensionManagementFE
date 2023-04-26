@@ -8,6 +8,7 @@ import {
 import { ManageServicesService } from './manage-services.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { timer } from 'rxjs';
+import { LandingService } from 'src/app/landing-page/landing.service';
 
 @Component({
   selector: 'app-manage-accounts',
@@ -28,6 +29,13 @@ export class ManageAccountsComponent {
       },
     ],
   };
+  systemProfile = {
+    Logo: '',
+    WebsiteName: '',
+    ThemeColor: '',
+    Description: '',
+    MainImg: '',
+  };
 
   private token: string | null | undefined;
 
@@ -38,6 +46,7 @@ export class ManageAccountsComponent {
     private router: Router,
     private manageServices: ManageServicesService,
     private http: HttpClient,
+    private landingService: LandingService,
     private confirmationService: ConfirmationService,
     private messageService: MessageService
   ) {
@@ -45,6 +54,10 @@ export class ManageAccountsComponent {
     this.token = localStorage.getItem('token');
   }
   ngOnInit(): void {
+    this.landingService.getSystemProfile().subscribe((data: any) => {
+      this.systemProfile = data;
+      console.log(this.systemProfile);
+    });
     const token = localStorage.getItem('token');
     this.manageServices.getActiveAccount().subscribe((data: any) => {
       this.activeAccounts = data;
@@ -70,8 +83,8 @@ export class ManageAccountsComponent {
             (response) => {
               this.messageService.add({
                 severity: 'success',
-                summary: 'Successfully Approved',
-                detail: 'Account Approved',
+                summary: 'Successfully Archived',
+                detail: 'Account Archived',
               });
               timer(750)
                 .toPromise()

@@ -7,20 +7,31 @@ edit-profile.component.html
 >
   <p-toast></p-toast>
 
+  <br />
+  <br />
+  <br />
   <body>
     <section class="container">
+      <img
+        src="http://localhost/extensionManagementRestAPI/assets/profile/{{
+          profileDetails.profilePicture
+        }}"
+        alt=""
+        class="profilePicture"
+      />
+      <br />
       <header>Edit Profile</header>
       <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="form">
-        <img
-          src="http://localhost/extensionManagementRestAPI/assets/profile/{{
-            profileDetails.profilePicture
-          }}"
-          alt=""
-          class="profilePicture"
-        />
-        <br /><br />
-        <p-button routerLink="/edit-img" class="change-btn"
-          >Change Profile Picture</p-button
+        <button
+          routerLink="/edit-img"
+          class="button"
+          [style]="{
+            'background-color': systemProfile.ThemeColor + ' !important',
+            width: '240px',
+            'margin-left': '30%'
+          }"
+        >
+          Change Profile Picture</button
         ><br /><br /><br />
         <div class="input-box">
           <label>Full Name:</label><br />
@@ -55,11 +66,31 @@ edit-profile.component.html
         </div>
         <br /><br /><br />
         <div class="gap-btn">
-          <p-button type="submit" class="p-button-succes"
-            >Save Changes</p-button
+          <button
+            class="button"
+            routerLink="/edit-password"
+            [style]="{
+              border: '2px solid' + systemProfile.ThemeColor,
+              color: systemProfile.ThemeColor,
+              backgroundColor: 'white',
+              width: '200px',
+              height: '55px'
+            }"
           >
+            Change Password
+          </button>
           &nbsp; &nbsp; &nbsp;
-          <p-button routerLink="/edit-password">Change Password</p-button>
+          <button
+            type="submit"
+            class="button"
+            [style]="{
+              'background-color': systemProfile.ThemeColor + ' !important',
+              width: '200px',
+              height: '55px'
+            }"
+          >
+            Save Changes
+          </button>
         </div>
       </form>
     </section>

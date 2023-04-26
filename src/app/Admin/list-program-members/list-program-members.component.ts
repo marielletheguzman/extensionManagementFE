@@ -92,14 +92,19 @@ export class ListProgramMembersComponent {
         (res) => {
           this.messageService.add({
             severity: 'success',
-            summary: 'Deleted',
-            detail: 'Successfully Removed',
+            summary: 'Removed',
+            detail: 'Successfully removed participant',
           });
           // Remove the member from the local array
           this.users.partners = this.users.partners.filter((m) => m.id !== id);
         },
         (err) => {
           console.error('Error deleting member:', err);
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Failed to removed participant',
+          });
         }
       );
   }
@@ -114,8 +119,8 @@ export class ListProgramMembersComponent {
         (res) => {
           this.messageService.add({
             severity: 'success',
-            summary: 'Deleted',
-            detail: 'Successfully Removed',
+            summary: 'Removed',
+            detail: 'Successfully removed participant',
           });
           // Remove the member from the local array
           this.usersp.participants = this.usersp.participants.filter(
@@ -124,6 +129,11 @@ export class ListProgramMembersComponent {
         },
         (err) => {
           console.error('Error deleting member:', err);
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Failed to removed participant',
+          });
         }
       );
   }
@@ -138,14 +148,19 @@ export class ListProgramMembersComponent {
         (res) => {
           this.messageService.add({
             severity: 'success',
-            summary: 'Deleted',
-            detail: 'Successfully Removed',
+            summary: 'Removed',
+            detail: 'Successfully removed participant',
           });
           // Remove the member from the local array
           this.userFlow.flow = this.userFlow.flow.filter((m) => m.id !== id);
         },
         (err) => {
           console.error('Error deleting member:', err);
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Failed to removed participant',
+          });
         }
       );
   }

@@ -312,6 +312,7 @@ nav.close ~ .dashboard .top {
   background-color: #707070;
   transition: var(--tran-05);
 }
+
 .boxes .box i {
   font-size: 35px;
   color: var(--text-color);
@@ -482,4 +483,24 @@ nav.close ~ .dashboard .top {
 .box:not(.box5) {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
     rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+.box1:hover,
+.box2:hover,
+.box3:hover,
+.box4:hover {
+  opacity: 0.7;
+  transform: scale(1.04);
+  transition: transform 0.9s;
+  cursor: pointer;
+}
+.button {
+  color: white;
+  width: 100px;
+  height: 40px;
+  border-radius: 6px;
+  border: 0px;
+  font-weight: 600;
+  font-size: 17px;
+  cursor: pointer;
 }

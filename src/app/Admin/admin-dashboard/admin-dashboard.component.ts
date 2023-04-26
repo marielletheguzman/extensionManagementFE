@@ -171,7 +171,9 @@ export class AdminDashboardComponent {
     let sidebar = document.querySelector('.sidebar');
     sidebar?.classList.toggle('active');
   }
-
+  onView(id: string) {
+    this.router.navigate(['admin/view_partner', id]);
+  }
   myLogout() {
     let sidebar = document.querySelector('.sidebar');
     sidebar?.classList.toggle('active');

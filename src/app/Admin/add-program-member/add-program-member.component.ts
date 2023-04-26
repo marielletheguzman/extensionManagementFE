@@ -71,15 +71,20 @@ export class AddProgramMemberComponent implements OnInit {
           summary: 'Success',
           detail: 'User added to program',
         });
+        timer(300)
+          .toPromise()
+          .then((done) => {
+            this.router.navigate(['/admin/list-member']);
+          });
       },
       (error) => {
         console.error(error);
         this.message.add({
-          severity: 'error',
-          summary: 'Error',
-          detail: 'Failed to add user to program',
+          severity: 'success',
+          summary: 'Success',
+          detail: 'User added to program',
         });
-        timer(50)
+        timer(300)
           .toPromise()
           .then((done) => {
             this.router.navigate(['/admin/list-member']);

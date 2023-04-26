@@ -8,6 +8,8 @@ import {
 import { AddPartnerServicesService } from './add-partner-services.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { MessageService } from 'primeng/api';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-add-partner',
@@ -24,7 +26,11 @@ export class AddPartnerComponent {
   partnerLogo!: File;
   partnerMoaFile!: File;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private message: MessageService,
+    private router: Router,
+    private http: HttpClient
+  ) {}
 
   onSubmit() {
     const formData = new FormData();
@@ -42,7 +48,27 @@ export class AddPartnerComponent {
         'http://localhost/extensionManagementRestAPI/controllers/admin/create_ext_partner.php',
         formData
       )
-      .subscribe((response) => console.log(response));
+      .subscribe(
+        (response) => {
+          this.message.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: 'User added to program',
+          });
+          timer(800)
+            .toPromise()
+            .then((done) => {
+              this.router.navigate(['/admin/ongoing_partners']);
+            });
+        },
+        (error) => {
+          this.message.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Failed to add user to program',
+          });
+        }
+      );
     console.log(formData);
   }
   onLogoSelected(event: any) {

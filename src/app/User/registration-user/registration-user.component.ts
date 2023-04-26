@@ -4,6 +4,7 @@ import { RegistrationService } from './registration.service';
 import { timer } from 'rxjs';
 import { Router } from '@angular/router';
 import { Message, MessageService } from 'primeng/api';
+import { LandingService } from 'src/app/landing-page/landing.service';
 
 @Component({
   selector: 'app-registration-user',
@@ -19,15 +20,40 @@ export class RegistrationUserComponent {
     profilePicture: new FormControl(undefined),
   });
   messages!: Message[];
-
+  systemProfile = {
+    Logo: '',
+    WebsiteName: '',
+    ThemeColor: '',
+    Description: '',
+    MainImg: '',
+  };
   constructor(
     private registrationService: RegistrationService,
+    private landingService: LandingService,
     private router: Router,
     private messageService: MessageService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.landingService.getSystemProfile().subscribe((data: any) => {
+      this.systemProfile = data;
+      console.log(this.systemProfile);
+    });
+  }
+  alpha = 0.1;
+  alphaDarker = 0.9;
+  hex = this.systemProfile.ThemeColor;
+  hexToRgbA(hex: string, alpha: number) {
+    var r = parseInt(hex.slice(1, 3), 16),
+      g = parseInt(hex.slice(3, 5), 16),
+      b = parseInt(hex.slice(5, 7), 16);
 
+    if (alpha) {
+      return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + alpha + ')';
+    } else {
+      return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+    }
+  }
   onSubmit() {
     const formData = new FormData();
     const fullName = this.form.value.fullName;

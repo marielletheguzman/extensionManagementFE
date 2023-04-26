@@ -4,7 +4,7 @@
       [ngStyle]="{
         backgroundImage: 'url(assets/placeholder_templates/placeholderImg.jpg)',
         'background-size': '100% 100%',
-        'background-repeat': 'no-repeat'
+        'background-repeat': 'no-repeat',
       }"
       class="container"
       #myContainer
@@ -96,7 +96,18 @@
     </div>
   </div>
   <br />
-  <br /><p-button class="print" (click)="print()">Print</p-button>
+  <br /><button
+    class="print button"
+    (click)="print()"
+    [style]="{
+      'background-color': systemProfile.ThemeColor + ' !important',
+      width: '100px',
+      height: '45px',
+      color: 'white'
+    }"
+  >
+    Print
+  </button>
 </div>
 <br /><br /><br /><br /><br />
 <div class="card">

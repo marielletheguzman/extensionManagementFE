@@ -97,7 +97,7 @@ const admins: Routes = [
         path: 'edit_user/:id',
         component: AdminEditProfileComponent,
         canActivate: [AuthGuard],
-      }, //@mich
+      },
       {
         path: 'list-programs',
         component: ListOfProgramsComponent,
@@ -198,23 +198,23 @@ const admins: Routes = [
   },
 ];
 
-// const admin: Routes = [
-//   { path: '', component: LandingPageComponent },
-//   { path: 'home', component: HomeComponent },
-//   { path: 'login', component: LoginComponent },
-//   {
-//     path: 'pending',
-//     component: PendingAccountComponent,
-//     canActivate: [AuthGuard],
-//   },
-//   // { path: 'dashboard', component: AdminDashboardComponent },
-//   { path: 'side', component: SideNavComponent },
-//   // { path: 'manage', component: ManageExtensionComponent },
-//   { path: 'programs', component: ProgramsComponent },
-//   { path: 'manage-accounts', component: ManageAccountsComponent },
-//   { path: 'ongoing', component: OngoingPartnersComponent },
-//   { path: 'expired', component: ExpiredPartnersComponent },
-// ];
+const admin: Routes = [
+  { path: '', component: LandingPageComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  {
+    path: 'pending',
+    component: PendingAccountComponent,
+    canActivate: [AuthGuard],
+  },
+  // { path: 'dashboard', component: AdminDashboardComponent },
+  { path: 'side', component: SideNavComponent },
+  { path: 'manage', component: ManageExtensionComponent },
+  { path: 'programs', component: ProgramsComponent },
+  { path: 'manage-accounts', component: ManageAccountsComponent },
+  { path: 'ongoing', component: OngoingPartnersComponent },
+  { path: 'expired', component: ExpiredPartnersComponent },
+];
 const user: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'registration', component: RegistrationUserComponent }, //@mich button
@@ -291,7 +291,7 @@ const user: Routes = [
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
-    // RouterModule.forRoot(admin),
+    RouterModule.forRoot(admin),
     RouterModule.forRoot(admins),
     RouterModule.forRoot(user),
     ButtonModule,

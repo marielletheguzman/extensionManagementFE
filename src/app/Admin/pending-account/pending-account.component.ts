@@ -11,6 +11,7 @@ import {
 } from 'primeng/api';
 import { timer } from 'rxjs';
 import { ImageModule } from 'primeng/image';
+import { LandingService } from 'src/app/landing-page/landing.service';
 
 @Component({
   selector: 'app-pending-account',
@@ -32,9 +33,17 @@ export class PendingAccountComponent {
       },
     ],
   };
+  systemProfile = {
+    Logo: '',
+    WebsiteName: '',
+    ThemeColor: '',
+    Description: '',
+    MainImg: '',
+  };
   selectedAccountId: Number | undefined;
   constructor(
     private router: Router,
+    private landingService: LandingService,
     private pendingService: PendingAccountService,
     private http: HttpClient,
     private confirmationService: ConfirmationService,
@@ -44,6 +53,10 @@ export class PendingAccountComponent {
   }
 
   ngOnInit(): void {
+    this.landingService.getSystemProfile().subscribe((data: any) => {
+      this.systemProfile = data;
+      console.log(this.systemProfile);
+    });
     const token = localStorage.getItem('token');
 
     this.pendingService.getPendingAccounts().subscribe((data: any) => {
@@ -119,7 +132,7 @@ export class PendingAccountComponent {
     this.selectedAccountId = accountId;
     this.confirmationService.confirm({
       message: `Are you sure that you want to continue?`,
-      header: 'Approve Account',
+      header: 'Reject Account',
       accept: () => {
         // Make an HTTP request to the backend API
         this.http
@@ -133,7 +146,7 @@ export class PendingAccountComponent {
               this.messageService.add({
                 severity: 'success',
                 summary: 'Successfully Declined',
-                detail: 'Account Successfully Declined',
+                detail: 'Account Successfully Rejected',
               });
               timer(750)
                 .toPromise()
@@ -156,14 +169,14 @@ export class PendingAccountComponent {
             this.messageService.add({
               severity: 'warn',
               summary: 'Cancelled',
-              detail: 'You have cancelled declining account',
+              detail: 'You have cancelled rejecting account',
             });
             break;
           case ConfirmEventType.CANCEL:
             this.messageService.add({
               severity: 'warn',
               summary: 'Cancelled',
-              detail: 'You have cancelled declining account',
+              detail: 'You have cancelled rejecting account',
             });
             break;
         }

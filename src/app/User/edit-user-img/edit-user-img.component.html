@@ -2,9 +2,12 @@
 
 <p-toast position="top-right" key="bc"></p-toast>
 
-<body>
+<body
+  style="width:100%;background-color: {{
+    hexToRgbA(systemProfile.ThemeColor, alpha)
+  }}; "
+>
   <section class="container">
-    <header>Edit Profile Picture</header>
     <form (ngSubmit)="onSubmit()" class="form">
       <img
         src="http://localhost/extensionManagementRestAPI/assets/profile/{{
@@ -20,19 +23,37 @@
           display: block;
           margin-left: auto;
           margin-right: auto;
+          margin-top: -150px;
           box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
           border: 4px solid white;
         "
-      /><br /><br />
+      />
+      <br />
+      <header>Edit Profile Picture</header>
+      <br /><br />
       <input
         type="file"
         class="upload-box"
         id="myfile"
         name="myfile"
+        accept="image/png, image/gif, image/jpeg"
         (change)="onImageSelected($event)"
+        style="border: 1px solid #d5d7da; width: 58%; border-radius: 5px"
       />
-      <br /><br /><br />
-      <p-button type="submit" class="p-button-succes">Save Changes</p-button>
+      <br /><br /><br /><br />
+      <button
+        type="submit"
+        class="button"
+        [style]="{
+          'background-color': systemProfile.ThemeColor + ' !important',
+          width: '200px',
+          height: '55px',
+          marginLeft: '25%'
+        }"
+      >
+        Save Changes
+      </button>
     </form>
+    <br />
   </section>
 </body>

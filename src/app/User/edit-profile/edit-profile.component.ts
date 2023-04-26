@@ -67,10 +67,10 @@ export class EditProfileComponent implements OnInit {
           summary: 'Success',
           detail: 'User Updated Successfully',
         });
-        timer(1000)
+        timer(500)
           .toPromise()
           .then((done) => {
-            this.router.navigate(['/list']);
+            this.router.navigate(['/edit-profile']);
           });
         console.log('Success');
       },
@@ -92,6 +92,19 @@ export class EditProfileComponent implements OnInit {
 
     if (alpha) {
       return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + alpha + ')';
+    } else {
+      return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+    }
+  }
+
+  lightAlpha = 0.8;
+  lightRGBA(hex: string, lightAlpha: number) {
+    var r = parseInt(hex.slice(1, 3), 16),
+      g = parseInt(hex.slice(3, 5), 16),
+      b = parseInt(hex.slice(5, 7), 16);
+
+    if (lightAlpha) {
+      return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + lightAlpha + ')';
     } else {
       return 'rgb(' + r + ', ' + g + ', ' + b + ')';
     }

@@ -20,16 +20,15 @@
       <div class="overview">
         <div class="title">
           <i class="uil uil-tachometer-fast-alt"></i>
-
-          <span class="text">Dashboard</span>
+          &nbsp;&nbsp;&nbsp;
+          <h1>Dashboard</h1>
         </div>
 
         <div class="boxes">
           <div
             class="box box1"
-            style="background-color: {{
-              hexToRgbA(systemProfile.ThemeColor, alphaDarker)
-            }};"
+            style="background-color: #2097f3"
+            routerLink="/admin/manage_users"
           >
             <i class="bx bx-user" style="color: white"></i>
             <span class="text" style="color: white">Faculty</span>
@@ -39,9 +38,8 @@
           </div>
           <div
             class="box box2"
-            style="background-color: {{
-              hexToRgbA(systemProfile.ThemeColor, alphaDarker)
-            }};"
+            style="background-color: #fac02e"
+            routerLink="/admin/pending"
           >
             <i class="bx bx-line-chart" style="color: white"></i>
             <span class="text" style="color: white">Pending Accounts</span>
@@ -51,9 +49,8 @@
           </div>
           <div
             class="box box3"
-            style="background-color: {{
-              hexToRgbA(systemProfile.ThemeColor, alphaDarker)
-            }};"
+            style="background-color: #4db051"
+            routerLink="/admin/ongoing_partners"
           >
             <i class="bx bx-extension" style="color: white"></i>
             <span class="text" style="color: white">Extension Partners</span>
@@ -63,9 +60,8 @@
           </div>
           <div
             class="box box4"
-            style="background-color: {{
-              hexToRgbA(systemProfile.ThemeColor, alphaDarker)
-            }};"
+            style="background-color: #f77b00"
+            routerLink="/admin/list-programs"
           >
             <i class="bx bx-check-square" style="color: white"></i>
             <span class="text" style="color: white">Active Programs</span>
@@ -89,77 +85,93 @@
       </div>
       <br /><br />
       <div class="activity">
-        <div class="title">
-          <i class="uil uil-clock-three"></i>
-          <h1>Extension Partner</h1>
-          <br />
-          <p>Less than 30 days left</p>
-          <br />
+        <div style="margin-top: -70px">
+          <div class="title">
+            <i class="uil uil-clock-three"></i>
+            &nbsp;&nbsp;
+            <h1>Extension Partner</h1>
+            <br />
+            <p>&nbsp;&nbsp;&nbsp;(Less than 30 days left)</p>
+            <br />
+          </div>
+
+          <p-table
+            #myTab
+            [value]="expiredDetails.partners"
+            [tableStyle]="{ 'min-width': '60rem' }"
+            [paginator]="true"
+            [rows]="5"
+            [rowsPerPageOptions]="[5, 10, 15, 20]"
+            [globalFilterFields]="[
+              'extensionPartner',
+              'partnerAddress',
+              'partnerContactPerson',
+              'place',
+              'partnerStartDate',
+              'partnerEndDate'
+            ]"
+            styleClass="p-datatable-gridlines"
+            [resizableColumns]="true"
+            [autoLayout]="true"
+            class="tbl"
+          >
+            <ng-template pTemplate="header">
+              <tr>
+                <th pSortableColumn="extensionPartner" style="width: 16%">
+                  Extension Partner <p-sortIcon field="code"></p-sortIcon>
+                </th>
+                <th pSortableColumn="partnerAddress" style="width: 16%">
+                  Address<p-sortIcon field="name"></p-sortIcon>
+                </th>
+                <th pSortableColumn="partnerContactPerson" style="width: 16%">
+                  Contact Person <p-sortIcon field="category"></p-sortIcon>
+                </th>
+
+                <th pSortableColumn="extensionPartner" style="width: 16%">
+                  Contact Number <p-sortIcon field="price"></p-sortIcon>
+                </th>
+                <th pSortableColumn="partnerStartDate" style="width: 16%">
+                  Start Date <p-sortIcon field="price"></p-sortIcon>
+                </th>
+                <th pSortableColumn="partnerEndDate" style="width: 16%">
+                  End Date <p-sortIcon field="price"></p-sortIcon>
+                </th>
+                <th pSortableColumn="viewDetails" style="width: 16%">
+                  View Details <p-sortIcon field="price"></p-sortIcon>
+                </th>
+              </tr>
+            </ng-template>
+            <th *ngFor="let obj of dashboardDetails.partners"></th>
+            <ng-template pTemplate="body" let-details>
+              <tr>
+                <td>{{ details.partnerName }}</td>
+
+                <td>{{ details.partnerAddress }}</td>
+                <td>{{ details.partnerContactPerson }}</td>
+                <td>{{ details.partnerContactNumber }}</td>
+                <td>{{ details.partnerStartDate }}</td>
+                <td>{{ details.partnerEndDate }}</td>
+                <td>
+                  <button
+                    label="View"
+                    class="button"
+                    (click)="onView(details.id)"
+                    [style]="{
+                      'background-color':
+                        systemProfile.ThemeColor + ' !important',
+                      width: '100px',
+                      height: '45px',
+                      color: 'white',
+                      'margin-left': '15%'
+                    }"
+                  >
+                    View
+                  </button>
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
         </div>
-
-        <p-table
-          #myTab
-          [value]="expiredDetails.partners"
-          [tableStyle]="{ 'min-width': '60rem' }"
-          [paginator]="true"
-          [rows]="5"
-          [rowsPerPageOptions]="[5, 10, 15, 20]"
-          [globalFilterFields]="[
-            'extensionPartner',
-            'partnerAddress',
-            'partnerContactPerson',
-            'place',
-            'partnerStartDate',
-            'partnerEndDate'
-          ]"
-          styleClass="p-datatable-gridlines"
-          [resizableColumns]="true"
-          [autoLayout]="true"
-          class="tbl"
-        >
-          <ng-template pTemplate="header">
-            <tr>
-              <th pSortableColumn="extensionPartner" style="width: 16%">
-                Extension Partner <p-sortIcon field="code"></p-sortIcon>
-              </th>
-              <th pSortableColumn="partnerAddress" style="width: 16%">
-                Address<p-sortIcon field="name"></p-sortIcon>
-              </th>
-              <th pSortableColumn="partnerContactPerson" style="width: 16%">
-                Contact Person <p-sortIcon field="category"></p-sortIcon>
-              </th>
-
-              <th pSortableColumn="extensionPartner" style="width: 16%">
-                Contact Number <p-sortIcon field="price"></p-sortIcon>
-              </th>
-              <th pSortableColumn="partnerStartDate" style="width: 16%">
-                Start Date <p-sortIcon field="price"></p-sortIcon>
-              </th>
-              <th pSortableColumn="partnerEndDate" style="width: 16%">
-                End Date <p-sortIcon field="price"></p-sortIcon>
-              </th>
-              <th pSortableColumn="viewDetails" style="width: 16%">
-                View Details <p-sortIcon field="price"></p-sortIcon>
-              </th>
-            </tr>
-          </ng-template>
-          <th *ngFor="let obj of dashboardDetails.partners"></th>
-          <ng-template pTemplate="body" let-details>
-            <tr>
-              <td>{{ details.partnerName }}</td>
-
-              <td>{{ details.partnerAddress }}</td>
-              <td>{{ details.partnerContactPerson }}</td>
-              <td>{{ details.partnerContactNumber }}</td>
-              <td>{{ details.partnerStartDate }}</td>
-              <td>{{ details.partnerEndDate }}</td>
-              <td>
-                <!-- (click)="onView(program.id)" -->
-                <p-button label="View"></p-button>
-              </td>
-            </tr>
-          </ng-template>
-        </p-table>
       </div>
     </div>
     <br /><br />

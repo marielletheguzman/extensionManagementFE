@@ -93,20 +93,41 @@
           <!-- <td>{{ pending.startDate }}</td>
         <td>{{ pending.endDate }}</td> -->
           <td>
-            <p-button
+            <button
               label="Edit Profile"
               styleClass="p-button-primary"
+              class="button"
               [ngStyle]="{ 'margin-right': '8px' }"
               (click)="edit(active.id)"
-            ></p-button>
+              [style]="{
+                'background-color': systemProfile.ThemeColor + ' !important',
+                width: '150px',
+                height: '45px',
+                color: 'white'
+              }"
+            >
+              Edit Profile
+            </button>
             <!-- (click)="reject(pending.id)" -->
             <!-- (click)="onView(program.id)" -->
-            <p-button
+            <button
               styleClass="p-button-danger"
               (click)="archive(active.id)"
+              class="button"
               label="Archive"
               [ngStyle]="{ 'margin-right': '8px' }"
-            ></p-button>
+              [style]="{
+                border: '2px solid ' + systemProfile.ThemeColor,
+                width: '100px',
+                height: '45px',
+                color: systemProfile.ThemeColor,
+                'background-color': 'white',
+                'font-weight': 700,
+                'margin-right': '15px'
+              }"
+            >
+              Archive
+            </button>
 
             <!-- </td> -->
           </td>

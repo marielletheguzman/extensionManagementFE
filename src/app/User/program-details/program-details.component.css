@@ -51,7 +51,7 @@ h3 {
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   display: inline-block;
-  margin-left: 220px;
+  margin-left: 25%;
 }
 
 .row {
@@ -62,4 +62,14 @@ h3 {
 }
 .content {
   margin-bottom: 300px;
+}
+.btn {
+  color: white;
+  width: 200px;
+  height: 50px;
+  border-radius: 6px;
+  border: 0px;
+  font-weight: 600;
+  font-size: 17px;
+  cursor: pointer;
 }

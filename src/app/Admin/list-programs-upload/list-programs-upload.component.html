@@ -1,3 +1,4 @@
+<p-toast></p-toast>
 <form class="form" [formGroup]="upload" (ngSubmit)="onSubmit()">
   <section class="container">
     <div class="input-box">
@@ -11,6 +12,12 @@
         class="upload-box"
         name="certificate"
         (change)="certificateUpload($event)"
+        style="
+          border: 1px solid #d5d7da;
+          width: 58%;
+          border-radius: 5px;
+          height: 100%;
+        "
         required
       />
     </div>
@@ -25,6 +32,12 @@
         class="upload-box"
         name="attendance"
         (change)="attendanceUpload($event)"
+        style="
+          border: 1px solid #d5d7da;
+          width: 58%;
+          border-radius: 5px;
+          height: 100%;
+        "
         required
       />
     </div>
@@ -38,6 +51,12 @@
         id="myFile"
         class="upload-box"
         name="invitation"
+        style="
+          border: 1px solid #d5d7da;
+          width: 58%;
+          border-radius: 5px;
+          height: 100%;
+        "
         required
         (change)="invitationUpload($event)"
       />
