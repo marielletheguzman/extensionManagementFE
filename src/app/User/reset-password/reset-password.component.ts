@@ -1,17 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { timer } from 'rxjs';
 import { LandingService } from 'src/app/landing-page/landing.service';
 
 @Component({
-  selector: 'app-forgot',
-  templateUrl: './forgot.component.html',
-  styleUrls: ['./forgot.component.css'],
+  selector: 'app-reset-password',
+  templateUrl: './reset-password.component.html',
+  styleUrls: ['./reset-password.component.css'],
 })
-export class ForgotComponent {
+export class ResetPasswordComponent {
   systemProfile = {
     Logo: '',
     WebsiteName: '',
@@ -19,11 +19,15 @@ export class ForgotComponent {
     Description: '',
     MainImg: '',
   };
+
+  token!: string | null;
+
   forgot!: FormGroup;
   constructor(
     private landingService: LandingService,
     private messageService: MessageService,
     private router: Router,
+    private route: ActivatedRoute,
     private http: HttpClient
   ) {}
   ngOnInit() {
@@ -32,8 +36,10 @@ export class ForgotComponent {
       console.log(this.systemProfile);
     });
     this.forgot = new FormGroup({
-      email: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required]),
     });
+    this.token = this.route.snapshot.queryParamMap.get('token');
+    console.log(this.token);
   }
   alpha = 0.1;
   alphaDarker = 0.9;
@@ -66,10 +72,10 @@ export class ForgotComponent {
     if (this.forgot.valid) {
       this.http
         .post(
-          'http://localhost/extensionManagementRestAPI/emailResetPass/forgotpass/sendAPI.php',
+          `http://localhost/extensionManagementRestAPI/controllers/users/user_reset_pass.php?token=${this.token}`,
           this.forgot.value
         )
-        .subscribe((result) => {
+        .subscribe(() => {
           console.log('success');
         });
     }

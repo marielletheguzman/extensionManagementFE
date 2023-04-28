@@ -71,6 +71,7 @@ import { TerminalReportComponent } from './Admin/terminal-report/terminal-report
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 import { ForgotComponent } from './User/forgot/forgot.component';
 import { ExpiredProgramsComponent } from './User/expired-programs/expired-programs.component';
+import { ResetPasswordComponent } from './User/reset-password/reset-password.component';
 // import { EditWebsiteComponent } from './Admin/edit-website/edit-website.component';
 
 const admins: Routes = [
@@ -220,6 +221,7 @@ const admin: Routes = [
 const user: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'forgot', component: ForgotComponent },
+  { path: 'reset', component: ResetPasswordComponent },
   { path: 'registration', component: RegistrationUserComponent }, //@mich button
   // { path: '', redirectTo: 'login_user', pathMatch: 'full' },
   // { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
@@ -295,6 +297,7 @@ const user: Routes = [
     ListProgramsUploadComponent,
     ForgotComponent,
     ExpiredProgramsComponent,
+    ResetPasswordComponent,
     // EditWebsiteComponent,
   ],
   imports: [
