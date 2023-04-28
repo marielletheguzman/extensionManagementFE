@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { EditSystemService } from '../edit-system/edit-system.service';
 import { EditWebsiteServicesService } from '../edit-website/edit-website-services.service';
+import { MessageService } from 'primeng/api';
+import { Router } from '@angular/router';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-edit-system-img',
@@ -24,7 +27,9 @@ export class EditSystemImgComponent {
   constructor(
     private editService: EditSystemService,
     private editWeb: EditWebsiteServicesService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private messageService: MessageService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -41,10 +46,25 @@ export class EditSystemImgComponent {
     }
     this.editWeb.submitImg(formData).subscribe(
       (response) => {
-        console.log(response);
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Logo was successfully updated',
+        });
+        timer(500)
+          .toPromise()
+          .then((done) => {
+            this.router.navigate(['/admin/edit']);
+          });
+        // location.reload();
+        console.log('success');
       },
       (error) => {
-        console.log(error);
+        this.messageService.add({
+          severity: 'error',
+          summary: 'error',
+          detail: 'Failed Updating',
+        });
       }
     );
   }

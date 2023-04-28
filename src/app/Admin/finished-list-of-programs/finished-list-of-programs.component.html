@@ -19,13 +19,12 @@
       [rows]="5"
       [rowsPerPageOptions]="[5, 10, 15, 20, 30, 50, 75, 100]"
       [globalFilterFields]="[
+        'id',
         'programTitle',
         'programLead',
-        'partnerContactPerson',
         'place',
         'startDate',
-        'endDate',
-        'partner'
+        'endDate'
       ]"
       styleClass="p-datatable-gridlines"
       [resizableColumns]="true"
@@ -34,14 +33,28 @@
     >
       <ng-template pTemplate="header">
         <tr>
-          <th>ID</th>
-          <th>Title</th>
-          <th>Program Lead</th>
-          <th>Place</th>
-          <th>Start Date</th>
-          <th>End Date</th>
-          <th>Partner</th>
-          <th>Action</th>
+          <th pSortableColumn="id" style="width: 16%">
+            ID <p-sortIcon field="id"></p-sortIcon>
+          </th>
+          <th pSortableColumn="programTitle" style="width: 16%">
+            Title <p-sortIcon field="programTitle"></p-sortIcon>
+          </th>
+          <th pSortableColumn="programLead" style="width: 16%">
+            Program Lead <p-sortIcon field="programLead"></p-sortIcon>
+          </th>
+          <th pSortableColumn="place" style="width: 16%">
+            Place <p-sortIcon field="place"></p-sortIcon>
+          </th>
+          <th pSortableColumn="startDate" style="width: 16%">
+            Start <p-sortIcon field="startDate"></p-sortIcon>
+          </th>
+          <th pSortableColumn="endDate" style="width: 16%">
+            End Date<p-sortIcon field="endDate"></p-sortIcon>
+          </th>
+          <th pSortableColumn="startDate" style="width: 16%">
+            Partner<p-sortIcon field="id"></p-sortIcon>
+          </th>
+          <th style="width: 12">Action</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-program>
