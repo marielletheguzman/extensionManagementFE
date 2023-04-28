@@ -24,8 +24,8 @@
           style="height: 100px; width: 100px"
         />
 
-        <form [formGroup]="formGroup" (ngSubmit)="loginProcess()">
-          <h1>Login</h1>
+        <form (ngSubmit)="loginProcess()">
+          <h1>Forgot Password</h1>
           <hr />
 
           <!-- <p class="desc">as User</p> -->
@@ -36,15 +36,7 @@
             formControlName="email"
             placeholder="Email"
           />
-          <p-password
-            type="password"
-            placeholder="Password"
-            id="password"
-            formControlName="password"
-            [toggleMask]="true"
-            [style]="{ width: '380px', height: '60px', borderRadius: '20px' }"
-            [inputStyle]="{ width: '100%', borderRadius: '9px' }"
-          ></p-password>
+
           <br />
 
           <!-- <a href="#"><input type="submit" /></a> -->
@@ -52,7 +44,6 @@
             Submit
           </button>
           <br />
-          <p><a href="#" routerLink="/forgot">Forgot Password ?</a></p>
         </form>
         <br /><br />
       </div>

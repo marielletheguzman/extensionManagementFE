@@ -69,6 +69,7 @@ import { ViewAdminSpecificProgramComponent } from './Admin/view-admin-specific-p
 import { ListProgramsUploadComponent } from './Admin/list-programs-upload/list-programs-upload.component';
 import { TerminalReportComponent } from './Admin/terminal-report/terminal-report.component';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
+import { ForgotComponent } from './User/forgot/forgot.component';
 // import { EditWebsiteComponent } from './Admin/edit-website/edit-website.component';
 
 const admins: Routes = [
@@ -217,6 +218,7 @@ const admin: Routes = [
 ];
 const user: Routes = [
   { path: '', component: LandingPageComponent },
+  { path: 'forgot', component: ForgotComponent },
   { path: 'registration', component: RegistrationUserComponent }, //@mich button
   // { path: '', redirectTo: 'login_user', pathMatch: 'full' },
   // { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
@@ -285,6 +287,7 @@ const user: Routes = [
     FinishedListOfProgramsComponent,
     ViewAdminSpecificProgramComponent,
     ListProgramsUploadComponent,
+    ForgotComponent,
     // EditWebsiteComponent,
   ],
   imports: [
