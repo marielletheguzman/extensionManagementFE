@@ -25,7 +25,7 @@
         />
 
         <form [formGroup]="formGroup" (ngSubmit)="loginProcess()">
-          <h1>Login</h1>
+          <h1>User Login</h1>
           <hr />
 
           <!-- <p class="desc">as User</p> -->
@@ -34,7 +34,7 @@
             type="text"
             pInputText
             formControlName="email"
-            placeholder="Email"
+            placeholder="Email Address"
           />
           <p-password
             type="password"
@@ -43,7 +43,7 @@
             formControlName="password"
             [toggleMask]="true"
             [style]="{ width: '380px', height: '60px', borderRadius: '20px' }"
-            [inputStyle]="{ width: '100%', borderRadius: '9px' }"
+            [inputStyle]="{ width: '100%', borderRadius: '3px' }"
           ></p-password>
           <br />
 

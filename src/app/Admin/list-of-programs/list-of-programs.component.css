@@ -12,34 +12,48 @@ body {
 }
 .container {
   position: relative;
-  max-width: 1500px;
-  padding: 50px;
+  /* max-width: 1500px; */
+  width: 1000px;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom: 50px;
   width: 100%;
   background: #fff;
-
+  margin-top: -200px;
+  margin-left: 25px;
+  margin-right: 25px;
   border-radius: 20px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
-.add-btn {
+h1 {
+  display: flex;
+  align-items: center;
+  font-size: 2em;
+}
+.searchField {
+  padding: 0.5rem;
+  margin-top: 20px;
+}
+.add-btn,
+.searchField {
   float: right;
 }
 .add-btn {
   display: flex;
   height: 40px;
   padding: 0;
-  background: #009578;
+  background: #1877f2;
   border: none;
   outline: none;
-  border-radius: 5px;
+  border-radius: 6px;
   overflow: hidden;
-  font-family: "Quicksand", sans-serif;
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
 }
 
 .add-btn:hover {
-  background: #008168;
+  background: #166fe5;
 }
 
 .button_text,

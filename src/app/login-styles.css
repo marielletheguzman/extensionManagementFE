@@ -75,13 +75,13 @@ input {
   outline: none;
   border: 1px solid #ccc;
   font-size: 1rem;
-  border-radius: 10px;
+  border-radius: 3px;
 }
 button {
   width: 100%;
   color: white;
   height: 60px;
-  border-radius: 10px;
+  border-radius: 3px;
   border: 0px solid #ccc;
   font-weight: 600;
   font-size: 15px;

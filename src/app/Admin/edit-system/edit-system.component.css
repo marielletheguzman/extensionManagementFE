@@ -42,7 +42,7 @@ textarea {
   color: #707070;
   margin-top: 8px;
   border: 1px solid #ddd;
-  border-radius: 6px;
+  border-radius: 3px;
   padding: 0 15px;
 }
 .input-box label {
@@ -60,7 +60,7 @@ textarea {
   color: #707070;
   margin-top: 8px;
   border: 1px solid #ddd;
-  border-radius: 6px;
+  border-radius: 3px;
   padding: 0 15px;
 }
 .input-box input:focus {

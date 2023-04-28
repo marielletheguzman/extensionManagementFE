@@ -25,7 +25,7 @@
         />
 
         <form [formGroup]="formGroup" (ngSubmit)="loginProcess()">
-          <h1>Login</h1>
+          <h1>Admin Login</h1>
           <hr />
           <br />
           <input
@@ -41,7 +41,7 @@
             formControlName="password"
             [toggleMask]="true"
             [style]="{ width: '380px', height: '60px', borderRadius: '20px' }"
-            [inputStyle]="{ width: '100%', borderRadius: '9px' }"
+            [inputStyle]="{ width: '100%', borderRadius: '3px' }"
           ></p-password>
           <br />
           <button style="background-color: {{ systemProfile.ThemeColor }}">

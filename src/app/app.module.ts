@@ -70,6 +70,7 @@ import { ListProgramsUploadComponent } from './Admin/list-programs-upload/list-p
 import { TerminalReportComponent } from './Admin/terminal-report/terminal-report.component';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 import { ForgotComponent } from './User/forgot/forgot.component';
+import { ExpiredProgramsComponent } from './User/expired-programs/expired-programs.component';
 // import { EditWebsiteComponent } from './Admin/edit-website/edit-website.component';
 
 const admins: Routes = [
@@ -231,6 +232,11 @@ const user: Routes = [
   // canActivate: [UserGuard]
   { path: 'list', component: ShowListComponent, canActivate: [UserGuard] }, //fix bg
   {
+    path: 'list-expired',
+    component: ExpiredProgramsComponent,
+    canActivate: [UserGuard],
+  }, //fix bg
+  {
     path: 'edit-img',
     component: EditUserImgComponent,
     canActivate: [UserGuard],
@@ -288,6 +294,7 @@ const user: Routes = [
     ViewAdminSpecificProgramComponent,
     ListProgramsUploadComponent,
     ForgotComponent,
+    ExpiredProgramsComponent,
     // EditWebsiteComponent,
   ],
   imports: [

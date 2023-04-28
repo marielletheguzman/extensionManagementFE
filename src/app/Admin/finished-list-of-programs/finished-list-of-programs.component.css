@@ -8,3 +8,24 @@
   font-size: 17px;
   cursor: pointer;
 }
+.card {
+  max-width: 100%;
+  /* width: 1000px;  */
+  background-color: white;
+  margin-top: 50px;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom: 50px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 100px;
+}
+h1 {
+  display: flex;
+  align-items: center;
+}
+.searchField {
+  float: right;
+}

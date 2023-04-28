@@ -12,7 +12,7 @@ body {
 }
 .container {
   position: relative;
-  max-width: 700px;
+  max-width: 600px;
   padding: 50px;
   width: 100%;
   background: #fff;

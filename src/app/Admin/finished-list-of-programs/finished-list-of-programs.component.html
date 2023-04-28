@@ -1,67 +1,75 @@
-<h1>Finished Programs</h1>
-<input
-  pInputText
-  type="text"
-  (input)="myTab.filterGlobal($any($event.target).value, 'contains')"
-  placeholder="Search"
-  class="searchField"
-/>
-<p-table
-  #myTab
-  [value]="users.programs"
-  [tableStyle]="{ 'min-width': '60rem' }"
-  [paginator]="true"
-  [rows]="5"
-  [rowsPerPageOptions]="[5, 10, 15, 20]"
-  [globalFilterFields]="[
-    'programTitle',
-    'programLead',
-    'partnerContactPerson',
-    'place',
-    'startDate',
-    'endDate',
-    'partner'
-  ]"
-  styleClass="p-datatable-gridlines"
-  [resizableColumns]="true"
-  [autoLayout]="true"
-  class="tbl"
->
-  <ng-template pTemplate="header">
-    <tr>
-      <th>ID</th>
-      <th>Title</th>
-      <th>Program Lead</th>
-      <th>Place</th>
-      <th>Start Date</th>
-      <th>End Date</th>
-      <th>Partner</th>
-      <th>Action</th>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-program>
-    <tr>
-      <td>{{ program.id }}</td>
-      <td>{{ program.programTitle }}</td>
-      <td>{{ program.programLead }}</td>
-      <td>{{ program.place }}</td>
-      <td>{{ program.startDate }}</td>
-      <td>{{ program.endDate }}</td>
-      <td>{{ program.partner }}</td>
-      <td>
-        <button
-          class="button"
-          [style]="{
-            'background-color': systemProfile.ThemeColor + ' !important',
-            width: '100px',
-            height: '45px',
-            color: 'white'
-          }"
-          routerLink="/admin/view-programs/{{ program.id }}"
-        >
-          View
-        </button>
-      </td>
-    </tr>
-  </ng-template>
-</p-table>
+<br /><br />
+<div>
+  <div class="card">
+    <br />
+    <input
+      pInputText
+      type="text"
+      (input)="myTab.filterGlobal($any($event.target).value, 'contains')"
+      placeholder="Search"
+      class="searchField"
+    />
+    <h1>Finished Programs</h1>
+    <br /><br />
+    <p-table
+      #myTab
+      [value]="users.programs"
+      [tableStyle]="{ 'min-width': '60rem' }"
+      [paginator]="true"
+      [rows]="5"
+      [rowsPerPageOptions]="[5, 10, 15, 20, 30, 50, 75, 100]"
+      [globalFilterFields]="[
+        'programTitle',
+        'programLead',
+        'partnerContactPerson',
+        'place',
+        'startDate',
+        'endDate',
+        'partner'
+      ]"
+      styleClass="p-datatable-gridlines"
+      [resizableColumns]="true"
+      [autoLayout]="true"
+      class="tbl"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Program Lead</th>
+          <th>Place</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Partner</th>
+          <th>Action</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-program>
+        <tr>
+          <td>{{ program.id }}</td>
+          <td>{{ program.programTitle }}</td>
+          <td>{{ program.programLead }}</td>
+          <td>{{ program.place }}</td>
+          <td>{{ program.startDate }}</td>
+          <td>{{ program.endDate }}</td>
+          <td>{{ program.partner }}</td>
+          <td>
+            <button
+              class="button"
+              [style]="{
+                'background-color': systemProfile.ThemeColor + ' !important',
+                width: '100px',
+                height: '45px',
+                color: 'white'
+              }"
+              routerLink="/admin/view-programs/{{ program.id }}"
+            >
+              View
+            </button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+<br /><br />

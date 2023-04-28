@@ -1,5 +1,14 @@
 <body>
-  <section class="container">
+  <section class="container" style="width: 100%">
+    <br />
+    <input
+      pInputText
+      type="text"
+      (input)="myTab.filterGlobal($any($event.target).value, 'contains')"
+      placeholder="Search"
+      class="searchField"
+    />
+    <br /><br />
     <h1>List of Programs</h1>
     <button routerLink="/admin/add_program" class="add-btn">
       <span
@@ -26,14 +35,9 @@
           }"
         ></i
       ></span></button
-    ><br />
-    <br /><br /><input
-      pInputText
-      type="text"
-      (input)="myTab.filterGlobal($any($event.target).value, 'contains')"
-      placeholder="Search"
-      class="searchField"
-    />
+    ><br /><br />
+
+    <br />
     <br />
     <p-table
       #myTab
@@ -41,7 +45,7 @@
       [tableStyle]="{ 'min-width': '60rem' }"
       [paginator]="true"
       [rows]="5"
-      [rowsPerPageOptions]="[5, 10, 15, 20]"
+      [rowsPerPageOptions]="[5, 10, 15, 20, 30, 50, 75, 100]"
       [globalFilterFields]="[
         'programTitle',
         'programLead',
@@ -55,17 +59,39 @@
       [resizableColumns]="true"
       [autoLayout]="true"
       class="tbl"
+      [globalFilterFields]="[
+        'id',
+        'programTitle',
+        'programLead',
+        'place',
+        'startDate',
+        'endDate'
+      ]"
     >
       <ng-template pTemplate="header">
         <tr>
-          <th>ID</th>
-          <th>Title</th>
-          <th>Program Lead</th>
-          <th>Place</th>
-          <th>Start Date</th>
-          <th>End Date</th>
-          <th>Partner</th>
-          <th>Action</th>
+          <th pSortableColumn="id" style="width: 16%">
+            ID <p-sortIcon field="id"></p-sortIcon>
+          </th>
+          <th pSortableColumn="programTitle" style="width: 16%">
+            Title <p-sortIcon field="programTitle"></p-sortIcon>
+          </th>
+          <th pSortableColumn="programLead" style="width: 16%">
+            Program Lead <p-sortIcon field="programLead"></p-sortIcon>
+          </th>
+          <th pSortableColumn="place" style="width: 16%">
+            Place <p-sortIcon field="place"></p-sortIcon>
+          </th>
+          <th pSortableColumn="startDate" style="width: 16%">
+            Start <p-sortIcon field="startDate"></p-sortIcon>
+          </th>
+          <th pSortableColumn="endDate" style="width: 16%">
+            End Date<p-sortIcon field="endDate"></p-sortIcon>
+          </th>
+          <th pSortableColumn="startDate" style="width: 16%">
+            Partner<p-sortIcon field="id"></p-sortIcon>
+          </th>
+          <th style="width: 12">Action</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-program>
