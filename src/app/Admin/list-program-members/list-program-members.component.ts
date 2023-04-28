@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
+import { timer } from 'rxjs';
 import { LandingService } from 'src/app/landing-page/landing.service';
 
 @Component({
@@ -53,9 +55,22 @@ export class ListProgramMembersComponent {
     private http: HttpClient,
     private fb: FormBuilder,
     private landingService: LandingService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private router: Router
   ) {}
 
+  onSubmitBtn() {
+    this.messageService.add({
+      severity: 'success',
+      summary: 'Success',
+      detail: 'Successfuly Added!',
+    });
+    timer(500)
+      .toPromise()
+      .then((done) => {
+        this.router.navigate(['/admin/ongoing_partners']);
+      });
+  }
   ngOnInit() {
     this.landingService.getSystemProfile().subscribe((data: any) => {
       this.systemProfile = data;

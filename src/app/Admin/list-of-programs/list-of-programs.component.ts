@@ -2,7 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MessageService } from 'primeng/api';
+import {
+  ConfirmEventType,
+  ConfirmationService,
+  MessageService,
+} from 'primeng/api';
+import { timer } from 'rxjs';
 import { LandingService } from 'src/app/landing-page/landing.service';
 
 @Component({
@@ -40,8 +45,10 @@ export class ListOfProgramsComponent {
     private router: Router,
     private http: HttpClient,
     private fb: FormBuilder,
+    private confirmationService: ConfirmationService,
     private landingService: LandingService,
-    private message: MessageService
+    private message: MessageService,
+    private messageService: MessageService
   ) {}
 
   ngOnInit() {
@@ -79,5 +86,76 @@ export class ListOfProgramsComponent {
     } else {
       return 'rgb(' + r + ', ' + g + ', ' + b + ')';
     }
+  }
+  selectedAccountId: Number | undefined;
+  deleteProgram(id: Number) {
+    // this.http
+    //   .get<any>(
+    //     `http://localhost/extensionManagementRestAPI/controllers/admin/delete-program.php?id=${id}`
+    //   )
+    //   .subscribe((data) => {
+    //     if (data && data['programs']) {
+    //       this.users.programs = data.programs;
+    //       console.log(data);
+    //     }
+    //   });
+
+    this.selectedAccountId = id;
+    this.confirmationService.confirm({
+      message: `Are you sure that you want to continue?`,
+      header: 'Approve Account',
+      accept: () => {
+        // Make an HTTP request to the backend API
+        this.http
+          .post(
+            `http://localhost/extensionManagementRestAPI/controllers/admin/delete-program.php?id=${id}`,
+            {}
+          )
+          .subscribe(
+            (response) => {
+              this.messageService.add({
+                severity: 'success',
+                summary: 'Successfully Declined',
+                detail: 'Account Successfully Declined',
+              });
+              timer(750)
+                .toPromise()
+                .then((done) => {
+                  window.location.reload();
+                });
+            },
+            (error) => {
+              this.messageService.add({
+                severity: 'success',
+                summary: 'Successfully Declined',
+                detail: 'Account Successfully Declined',
+              });
+              timer(500)
+                .toPromise()
+                .then((done) => {
+                  window.location.reload();
+                });
+            }
+          );
+      },
+      reject: (type: any) => {
+        switch (type) {
+          case ConfirmEventType.REJECT:
+            this.messageService.add({
+              severity: 'warn',
+              summary: 'Cancelled',
+              detail: 'You have cancelled declining account',
+            });
+            break;
+          case ConfirmEventType.CANCEL:
+            this.messageService.add({
+              severity: 'warn',
+              summary: 'Cancelled',
+              detail: 'You have cancelled declining account',
+            });
+            break;
+        }
+      },
+    });
   }
 }

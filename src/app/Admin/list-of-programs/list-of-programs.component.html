@@ -1,4 +1,5 @@
 <body>
+  <p-toast></p-toast><p-confirmDialog></p-confirmDialog>
   <section class="container" style="width: 100%">
     <br />
     <input
@@ -109,7 +110,8 @@
               class="button"
               [style]="{
                 'background-color': systemProfile.ThemeColor + ' !important',
-                width: '100px',
+                width: '80px',
+                marginLeft: '-10px',
                 height: '45px',
                 color: 'white'
               }"
@@ -117,11 +119,26 @@
               View</button
             >&nbsp; &nbsp;
             <button
+              (click)="deleteProgram(program.id)"
+              class="button"
+              [style]="{
+                'background-color': systemProfile.ThemeColor + ' !important',
+                width: '80px',
+                marginLeft: '-10px',
+                height: '45px',
+                color: 'white'
+              }"
+            >
+              Delete
+            </button>
+            &nbsp; &nbsp;
+            <button
               (click)="onUpload(program.id)"
               class="button"
               [style]="{
                 border: '2px solid ' + systemProfile.ThemeColor,
-                width: '150px',
+                width: '130px',
+                marginLeft: '-15px',
                 height: '45px',
                 color: systemProfile.ThemeColor,
                 'background-color': 'white',
