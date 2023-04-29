@@ -23,8 +23,9 @@
           class="companyLogo"
           style="height: 100px; width: 100px"
         />
+        <br />
 
-        <form [formGroup]="forgot" (ngSubmit)="resetPass()">
+        <form [formGroup]="forgot" (click)="resetPass()">
           <h1>Forgot Password</h1>
           <hr />
 
@@ -41,7 +42,14 @@
 
           <!-- <a href="#"><input type="submit" /></a> -->
           <button style="background-color: {{ systemProfile.ThemeColor }}">
-            Submit
+            <p *ngIf="!loading">Submit</p>
+            <p-progressSpinner
+              styleClass="w-2rem h-2rem"
+              strokeWidth="5"
+              animationDuration=".8s"
+              [style]="{ 'margin-left': '-10px', height: '50px' }"
+              *ngIf="loading"
+            ></p-progressSpinner>
           </button>
           <br />
         </form>

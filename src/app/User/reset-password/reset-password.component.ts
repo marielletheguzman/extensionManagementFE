@@ -67,17 +67,42 @@ export class ResetPasswordComponent {
         this.router.navigate(['']);
       });
   }
+  private loading = false;
 
   resetPass() {
     if (this.forgot.valid) {
+      this.loading = true;
       this.http
         .post(
           `http://localhost/extensionManagementRestAPI/controllers/users/user_reset_pass.php?token=${this.token}`,
           this.forgot.value
         )
-        .subscribe(() => {
-          console.log('success');
-        });
+        .subscribe(
+          (result) => {
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Success',
+              detail: 'Changed password successfully',
+            });
+            timer(500)
+              .toPromise()
+              .then((done) => {
+                this.router.navigate(['']);
+              });
+          },
+          (error) => {
+            this.messageService.add({
+              severity: 'error',
+              summary: 'Error',
+              detail: 'Failed changing password',
+            });
+          }
+        );
     }
+  }
+  passwordsMatch() {
+    const password = this.forgot.get('password')?.value;
+    const confirmPassword = this.forgot.get('confirmPassword')?.value;
+    return password === confirmPassword;
   }
 }

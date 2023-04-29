@@ -61,17 +61,40 @@ export class ForgotComponent {
         this.router.navigate(['']);
       });
   }
-
+  public loading = false;
   resetPass() {
     if (this.forgot.valid) {
+      this.loading = true;
       this.http
         .post(
           'http://localhost/extensionManagementRestAPI/emailResetPass/forgotpass/sendAPI.php',
           this.forgot.value
         )
-        .subscribe((result) => {
-          console.log('success');
-        });
+
+        .subscribe(
+          (response) => {
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Success',
+              detail: 'Email sent successfully',
+            });
+            this.loading = false;
+            timer(1000)
+              .toPromise()
+              .then((done) => {
+                // this.router.navigate(['']);
+              });
+          },
+          (error) => {
+            this.loading = false;
+            this.messageService.add({
+              severity: 'error',
+              summary: 'Failed',
+              detail: 'Unable to access email',
+            });
+          }
+        );
     }
+    // this.loading = false;
   }
 }
