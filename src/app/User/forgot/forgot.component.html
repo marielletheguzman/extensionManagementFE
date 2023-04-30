@@ -41,13 +41,26 @@
           <br />
 
           <!-- <a href="#"><input type="submit" /></a> -->
-          <button style="background-color: {{ systemProfile.ThemeColor }}">
+          <button
+            style="background-color: {{ systemProfile.ThemeColor }} "
+            [disabled]="loading"
+            [ngStyle]="{
+              'background-color': loading
+                ? hexToRgbA(systemProfile.ThemeColor, 0.3)
+                : systemProfile.ThemeColor,
+              cursor: loading ? 'default' : 'pointer'
+            }"
+          >
             <p *ngIf="!loading">Submit</p>
             <p-progressSpinner
               styleClass="w-2rem h-2rem"
               strokeWidth="5"
               animationDuration=".8s"
-              [style]="{ 'margin-left': '-10px', height: '50px' }"
+              [style]="{
+                'margin-left': '-10px',
+                height: '50px',
+                'margin-top': '4px'
+              }"
               *ngIf="loading"
             ></p-progressSpinner>
           </button>

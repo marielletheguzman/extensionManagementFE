@@ -82,7 +82,7 @@ export class ForgotComponent {
             timer(1000)
               .toPromise()
               .then((done) => {
-                // this.router.navigate(['']);
+                this.router.navigate(['']);
               });
           },
           (error) => {

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
+import { timer } from 'rxjs';
 import { AuthServiceService } from 'src/app/auth-service.service';
 import { LandingService } from 'src/app/landing-page/landing.service';
 import { UserAuthService } from 'src/app/user-auth.service';
@@ -13,7 +15,8 @@ export class TopNavComponent {
   constructor(
     private authService: UserAuthService,
     private router: Router,
-    private landingService: LandingService
+    private landingService: LandingService,
+    private messageService: MessageService
   ) {}
 
   systemProfile = {
@@ -42,7 +45,15 @@ export class TopNavComponent {
   }
   onLogoutClick() {
     this.authService.logout();
-    this.router.navigate(['/login']);
-    alert('logged out');
+    this.messageService.add({
+      severity: 'success',
+      summary: 'Success',
+      detail: 'Logged out Successfully',
+    });
+    timer(1500)
+      .toPromise()
+      .then((done) => {
+        this.router.navigate(['']);
+      });
   }
 }
