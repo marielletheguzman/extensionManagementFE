@@ -57,45 +57,46 @@
           </div>
           <div class="input-box">
             <label>Upload Image:</label>
+
             <input
               type="file"
               id="myFile"
+              class="upload-box"
               name="profilePicture"
-              (change)="onFileSelected($event)"
+              style="border: 1px solid #d5d7da; border-radius: 5px"
               required
-            />
+              (change)="onFileSelected($event)"
+            /><br /><br /><br />
           </div>
         </div>
 
-        <div class="column">
-          <div class="input-box">
-            <label>Password:</label>
-            <!-- <input type="text" required formControlName="password" /> -->
-            <br /><br />
-            <p-password
-              type="password"
-              placeholder="Password"
-              id="password"
-              formControlName="password"
-              [toggleMask]="true"
-              [style]="{
+        <div class="input-box" id="adjust">
+          <label>Password:</label>
+          <!-- <input type="text" required formControlName="password" /> -->
+        </div>
+        <p-password
+          type="password"
+          placeholder="Password"
+          id="password"
+          formControlName="password"
+          [toggleMask]="true"
+          [style]="{
                 width: '100%',
                 height: '55px',
                 borderRadius: '20px',
               }"
-              [inputStyle]="{
-                width: '100%',
-                borderRadius: '9px',
-                fontFamily: 'Montserrat'
-              }"
-            ></p-password>
-          </div>
-          <!-- <div class="input-box">
+          [inputStyle]="{
+            width: '100%',
+            borderRadius: '9px',
+            fontFamily: 'Montserrat'
+          }"
+        ></p-password>
+
+        <!-- <div class="input-box">
           <label>Confirm Password</label>
           <input type="text" required />
         </div> -->
-        </div>
-
+        <br />
         <button style="background-color: {{ systemProfile.ThemeColor }}">
           Submit
         </button>
