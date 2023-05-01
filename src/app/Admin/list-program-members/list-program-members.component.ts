@@ -68,7 +68,7 @@ export class ListProgramMembersComponent {
     timer(500)
       .toPromise()
       .then((done) => {
-        this.router.navigate(['/admin/ongoing_partners']);
+        this.router.navigate(['/admin/list-programs']);
       });
   }
   ngOnInit() {

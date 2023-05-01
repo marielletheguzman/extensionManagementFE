@@ -78,7 +78,7 @@ export class AddProgramComponent {
       startDate: this.myForm.value.startDate,
       endDate: this.myForm.value.endDate,
       additionalDetails: this.myForm.value.additionalDetails,
-      partner: this.myForm.value.partner.id, // Get the selected partner ID from the object
+      partner: this.myForm.value.partner.partnerName,
     };
 
     const headers = new HttpHeaders().set(

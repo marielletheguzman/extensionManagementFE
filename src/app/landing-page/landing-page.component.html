@@ -3,7 +3,7 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
 />
 
-<nav style="background-color: {{ systemProfile.ThemeColor }}">
+<nav style="background-color: {{ systemProfile.ThemeColor }}; z-index: 1000;">
   <div class="logo">
     <img
       src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
@@ -45,7 +45,7 @@
 </div> -->
 
 <div class="content-container" style="display: inline-block">
-  <div class="companyImage">
+  <div class="companyImage" style="z-index: -1000">
     <img
       src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
         systemProfile.MainImg
