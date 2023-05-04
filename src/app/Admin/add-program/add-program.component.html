@@ -16,8 +16,13 @@
 
       <div class="column">
         <div class="input-box">
-          <label>Program Leader:</label>
-          <input type="text" required formControlName="programLead" />
+          <label for="name" class="selectp">Select Member:</label>
+          <p-dropdown
+            [options]="users.pending"
+            optionLabel="fullName"
+            formControlName="programLead"
+            id="parti"
+          ></p-dropdown>
         </div>
         <div class="input-box">
           <label class="partner">Partner:</label>
@@ -64,7 +69,7 @@
           color: 'white'
         }"
       >
-        Submit
+        Next
       </button>
     </form>
   </section>

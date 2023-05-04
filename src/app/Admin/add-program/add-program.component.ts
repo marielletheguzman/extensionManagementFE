@@ -18,6 +18,15 @@ import { LandingService } from 'src/app/landing-page/landing.service';
   styleUrls: ['./add-program.component.css'],
 })
 export class AddProgramComponent {
+  users = {
+    pending: [
+      {
+        id: 0,
+        fullName: '',
+        position: '',
+      },
+    ],
+  };
   partnerss = {
     partners: [
       {
@@ -44,6 +53,8 @@ export class AddProgramComponent {
   ) {}
 
   ngOnInit(): void {
+    console.log('users: ');
+    console.log(this.users);
     this.landingService.getSystemProfile().subscribe((data: any) => {
       this.systemProfile = data;
       console.log(this.systemProfile);
@@ -56,6 +67,21 @@ export class AddProgramComponent {
         if (data && data['partners']) {
           this.partnerss.partners = data.partners;
           console.log(this.partnerss);
+        }
+      });
+    const headers = new HttpHeaders().set(
+      'Authorization',
+      `${localStorage.getItem('token')}`
+    );
+
+    this.http
+      .get<any>(
+        'http://localhost/extensionManagementRestAPI/controllers/admin/show_manage_account.php'
+      )
+      .subscribe((data) => {
+        if (data && data['pending']) {
+          this.users.pending = data.pending;
+          console.log(this.users.pending);
         }
       });
 
@@ -71,9 +97,12 @@ export class AddProgramComponent {
   }
 
   onSubmit() {
+    const selectedUser = this.myForm.controls['programLead'].value;
+    console.log(selectedUser);
+    const programLead = selectedUser.fullName;
     const data = {
       programTitle: this.myForm.value.programTitle,
-      programLead: this.myForm.value.programLead,
+      programLead: programLead,
       place: this.myForm.value.place,
       startDate: this.myForm.value.startDate,
       endDate: this.myForm.value.endDate,
