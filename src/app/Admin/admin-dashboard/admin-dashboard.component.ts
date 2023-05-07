@@ -85,7 +85,7 @@ export class AdminDashboardComponent {
       this.ongoingService.getOngoingPartners().subscribe((ongoingData: any) => {
         this.ongoingDetails = ongoingData;
         this.data2 = {
-          labels: ['On Going Extension Partners', 'Expired Extension Partners'],
+          labels: ['On Going Extension Partners', 'Expired Extension MOA'],
           datasets: [
             {
               data: [this.ongoingDetails.count, this.expiredDetails.count],
