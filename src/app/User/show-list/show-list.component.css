@@ -37,3 +37,10 @@ h1 {
 .searchField {
   float: right;
 }
+.ui-datatable table {
+  table-layout: auto !important;
+}
+.status {
+  text-align: center;
+  margin-left: 10%;
+}

@@ -35,6 +35,7 @@ import { MenuItem } from 'primeng/api';
 import { Table } from 'primeng/table';
 import { CommonModule } from '@angular/common';
 import { TagModule } from 'primeng/tag';
+import { SpeedDialModule } from 'primeng/speeddial';
 
 import { ViewAssignedProgramsComponent } from './User/view-assigned-programs/view-assigned-programs.component';
 import { ManageExtensionComponent } from './Admin/manage-extension/manage-extension.component';
@@ -329,6 +330,7 @@ const user: Routes = [
     FormsModule,
     TableModule,
     PaginatorModule,
+    SpeedDialModule,
     ChartModule,
     ConfirmDialogModule,
     DialogModule,

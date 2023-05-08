@@ -1,17 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthServiceService } from 'src/app/auth-service.service';
 import { ProgramListService } from './program-list.service';
 import jwt_decode from 'jwt-decode';
 import { UserAuthService } from 'src/app/user-auth.service';
 import { LandingService } from 'src/app/landing-page/landing.service';
-
+import { Table } from 'primeng/table';
+import { MenuItem } from 'primeng/api';
 @Component({
   selector: 'app-show-list',
   templateUrl: './show-list.component.html',
   styleUrls: ['./show-list.component.css'],
 })
 export class ShowListComponent {
+  @ViewChild('myTab') myTab: Table | undefined;
+  filterItems: MenuItem[] | undefined;
   programs: {
     programTitle: string;
     id: string;
@@ -19,6 +22,7 @@ export class ShowListComponent {
     place: string;
     additionalDetails: string;
     partner: string;
+    status: string;
     startDate: string;
     endDate: string;
   }[] = [];
@@ -29,13 +33,19 @@ export class ShowListComponent {
     Description: '',
     MainImg: '',
   };
+  statuses: { label: string; value: string }[] = [
+    { label: 'Any', value: '' },
+    { label: 'Active', value: 'Active' },
+    { label: 'Expired', value: 'Expired' },
+  ];
+
   constructor(
     private authService: UserAuthService,
     private router: Router,
     private landingService: LandingService,
     private programService: ProgramListService
   ) {}
-
+  selectedOption: string | undefined;
   ngOnInit(): void {
     const token = localStorage.getItem('token');
 
@@ -47,7 +57,15 @@ export class ShowListComponent {
       console.log(this.systemProfile);
     });
   }
-
+  filterByOption() {
+    if (this.selectedOption === 'Any') {
+      this.myTab?.filter(['Active', 'Expired'], 'status', 'in');
+    } else if (this.selectedOption) {
+      this.myTab?.filter(this.selectedOption, 'status', 'equals');
+    } else {
+      this.myTab?.filterGlobal('', 'contains');
+    }
+  }
   //redirect to view on the other page
   onView(id: string) {
     this.router.navigate(['/program-details', id]);
@@ -65,6 +83,16 @@ export class ShowListComponent {
       return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + alpha + ')';
     } else {
       return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+    }
+  }
+  getSeverity(status: string) {
+    switch (status.toLowerCase()) {
+      case 'expired':
+        return 'danger';
+      case 'active':
+        return 'success';
+      default:
+        return '';
     }
   }
 }

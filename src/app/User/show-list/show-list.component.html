@@ -10,7 +10,7 @@
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
   />
   <div class="card">
-    <h1>Active Programs</h1>
+    <h1>Programs</h1>
     <br />
     <input
       pInputText
@@ -19,11 +19,18 @@
       placeholder="Search"
       class="searchField"
     />
+    <p-dropdown
+      [options]="['Active', 'Expired', 'Any']"
+      [(ngModel)]="selectedOption"
+      (onChange)="filterByOption()"
+      placeholder="Any"
+      [showClear]="true"
+    ></p-dropdown>
     <br /><br /><br />
     <p-table
       #myTab
       [value]="programs"
-      [tableStyle]="{ 'min-width': '60rem' }"
+      [tableStyle]="{ 'table-layout': 'auto' }"
       [paginator]="true"
       [rows]="5"
       [rowsPerPageOptions]="[5, 10, 15, 20, 30, 50, 75, 100]"
@@ -36,32 +43,40 @@
         'endDate'
       ]"
       styleClass="p-datatable-gridlines"
-      [resizableColumns]="true"
-      [autoLayout]="true"
       class="tbl"
     >
       <ng-template pTemplate="header">
         <tr>
-          <th pSortableColumn="id" style="width: 29%">
+          <th>
+            <p-dropdown
+              [options]="['Active', 'Expired', 'Any']"
+              [(ngModel)]="selectedOption"
+              (onChange)="filterByOption()"
+              placeholder="Any"
+              [showClear]="true"
+              [style]="{ width: '100px' }"
+            ></p-dropdown>
+          </th>
+          <th pSortableColumn="id" [style]="{ width: '23%' }">
             Program Title <p-sortIcon field="code"></p-sortIcon>
           </th>
-          <th pSortableColumn="programLead" style="width: 16%">
+          <th pSortableColumn="programLead" [style]="{ width: '16%' }">
             Program Lead<p-sortIcon field="name"></p-sortIcon>
           </th>
-          <th pSortableColumn="place" style="width: 16%">
+          <th pSortableColumn="place" [style]="{ width: '20%' }">
             Place <p-sortIcon field="category"></p-sortIcon>
           </th>
 
           <th pSortableColumn="extensionPartner" style="width: 16%">
             Extension Partner <p-sortIcon field="price"></p-sortIcon>
           </th>
-          <th pSortableColumn="startDate" style="width: 16%">
+          <th pSortableColumn="startDate" [style]="{ width: '8%' }">
             Start Date <p-sortIcon field="price"></p-sortIcon>
           </th>
-          <th pSortableColumn="endDate" style="width: 16%">
+          <th pSortableColumn="endDate" [style]="{ width: '8%' }">
             End Date <p-sortIcon field="price"></p-sortIcon>
           </th>
-          <th pSortableColumn="viewDetails" style="width: 8%">
+          <th pSortableColumn="viewDetails" [style]="{ width: '100px' }">
             View Details <p-sortIcon field="price"></p-sortIcon>
           </th>
         </tr>
@@ -69,6 +84,14 @@
       <th *ngFor="let obj of programs"></th>
       <ng-template pTemplate="body" let-program>
         <tr>
+          <td>
+            <p-tag
+              class="status"
+              value="{{ program.status }} "
+              [severity]="getSeverity(program.status)"
+              [rounded]="true"
+            ></p-tag>
+          </td>
           <td>{{ program.programTitle }}</td>
           <td>{{ program.programLead }}</td>
           <td>{{ program.place }}</td>
@@ -91,6 +114,7 @@
       </ng-template>
     </p-table>
   </div>
+
   <br /><br /><br /><br /><br /><br />
   <br /><br /><br /><br /><br /><br />
   <br /><br /><br /><br /><br /><br />
