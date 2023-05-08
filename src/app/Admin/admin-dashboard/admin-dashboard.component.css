@@ -465,17 +465,16 @@ nav.close ~ .dashboard .top {
   padding-bottom: 40px;
   margin-left: -50px;
   margin-top: -20px;
-  /* margin-bottom: -70px; */
 }
 
 .activity {
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   border-radius: 20px;
-  padding-left: 30px;
+  padding-left: 50px;
   padding-right: 30px;
   padding-bottom: 100px;
-  padding-top: -10px;
+  padding-top: 50px;
   margin-left: -50px;
   margin-top: -10px;
 }

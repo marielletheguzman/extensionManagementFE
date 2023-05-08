@@ -109,6 +109,14 @@ p-calendar,
 .form .column {
   display: flex;
 }
+#righty,
+#porti {
+  margin-left: -13px;
+}
+#lefty,
+#parti {
+  margin-left: -15px;
+}
 .form .column1 {
   display: flex;
   column-gap: 10px;

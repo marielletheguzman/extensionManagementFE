@@ -4,52 +4,55 @@
     rel="stylesheet"
   />
 </head>
-<body
-  style="background-color: {{
-    hexToRgbA(systemProfile.ThemeColor, alpha)
-  }}; height:100%"
->
-  <p-toast></p-toast>
-  <div class="container">
-    <div class="Midpart">
-      <br /><br /><br /><br />
-      <div class="loginpage">
-        <br /><br />
-        <img
-          src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
-            systemProfile.Logo
-          }}"
-          alt=""
-          class="companyLogo"
-          style="height: 100px; width: 100px"
-        />
-
-        <form [formGroup]="formGroup" (ngSubmit)="loginProcess()">
-          <h1>Admin Login</h1>
-          <hr />
-          <br />
-          <input
-            type="text"
-            pInputText
-            formControlName="username"
-            placeholder="Username"
+<body>
+  <div
+    [ngStyle]="{
+      backgroundImage: 'url(assets/placeholder_templates/bg.jpg)'
+    }"
+    class="adjustWidth"
+  >
+    <p-toast></p-toast>
+    <div class="container">
+      <div class="Midpart">
+        <br /><br /><br /><br />
+        <div class="loginpage">
+          <br /><br />
+          <img
+            src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
+              systemProfile.Logo
+            }}"
+            alt=""
+            class="companyLogo"
+            style="height: 100px; width: 100px"
           />
-          <p-password
-            type="password"
-            placeholder="Password"
-            id="password"
-            formControlName="password"
-            [toggleMask]="true"
-            [style]="{ width: '380px', height: '60px', borderRadius: '20px' }"
-            [inputStyle]="{ width: '100%', borderRadius: '3px' }"
-          ></p-password>
-          <br />
-          <button style="background-color: {{ systemProfile.ThemeColor }}">
-            Submit</button
-          ><br />
-          <p><a href="#">Forgot Password ?</a></p>
-        </form>
-        <br /><br />
+
+          <form [formGroup]="formGroup" (ngSubmit)="loginProcess()">
+            <h1>Admin Login</h1>
+            <hr />
+            <br />
+            <input
+              type="text"
+              pInputText
+              formControlName="username"
+              placeholder="Username"
+            />
+            <p-password
+              type="password"
+              placeholder="Password"
+              id="password"
+              formControlName="password"
+              [toggleMask]="true"
+              [style]="{ width: '380px', height: '60px', borderRadius: '20px' }"
+              [inputStyle]="{ width: '100%', borderRadius: '3px' }"
+            ></p-password>
+            <br />
+            <button style="background-color: {{ systemProfile.ThemeColor }}">
+              Submit</button
+            ><br />
+            <p><a href="#">Forgot Password ?</a></p>
+          </form>
+          <br /><br />
+        </div>
       </div>
     </div>
   </div>

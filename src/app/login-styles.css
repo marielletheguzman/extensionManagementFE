@@ -6,12 +6,22 @@
 }
 
 body {
-  padding-top: 90px;
+  /* padding-top: 90px; */
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+.adjustWidth {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .container {
   margin: 10px 20px;
@@ -19,9 +29,34 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding-bottom: 100px;
+  /* padding-bottom: 100px; */
+}
+/* .carousel {
+  position: absolute;
+  height: 100%;
+  width: 55%;
+  left: 45%;
+  top: 0;
+  background-color: #ffe0d2;
+  border-radius: 2rem;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  padding-bottom: 2rem;
+  overflow: hidden;
+  transition: 0.8s ease-in-out;
+}
+.carousel {
+  position: revert;
+  height: auto;
+  width: 100%;
+  padding: 3rem 2rem;
+  display: flex;
+  left: 0%;
 }
 
+.carousel {
+  float: right;
+} */
 .Midpart {
   width: 50%;
   display: flex;

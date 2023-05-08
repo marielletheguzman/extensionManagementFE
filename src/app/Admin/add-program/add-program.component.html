@@ -13,28 +13,6 @@
         <label>Place:</label>
         <input type="text" required formControlName="place" />
       </div>
-
-      <div class="column">
-        <div class="input-box">
-          <label for="name" class="selectp">Select Leader:</label>
-          <p-dropdown
-            [options]="users.pending"
-            optionLabel="fullName"
-            formControlName="programLead"
-            id="parti"
-          ></p-dropdown>
-        </div>
-        <div class="input-box">
-          <label class="partner">Partner:</label>
-          <div class="select-box">
-            <p-dropdown
-              [options]="partnerss.partners"
-              optionLabel="partnerName"
-              formControlName="partner"
-            ></p-dropdown>
-          </div>
-        </div>
-      </div>
       <div class="column1">
         <div class="input-box">
           <label>Start Date:</label>
@@ -47,6 +25,29 @@
           <input type="date" formControlName="endDate" />
         </div>
       </div>
+      <div class="column">
+        <div class="input-box">
+          <label for="name" class="partner" id="lefty">Select Leader:</label>
+          <p-dropdown
+            [options]="users.pending"
+            optionLabel="fullName"
+            formControlName="programLead"
+            id="parti"
+          ></p-dropdown>
+        </div>
+        <div class="input-box">
+          <label class="partner" id="righty">Partner:</label>
+          <div class="select-box">
+            <p-dropdown
+              [options]="partnerss.partners"
+              optionLabel="partnerName"
+              formControlName="partner"
+              id="porti"
+            ></p-dropdown>
+          </div>
+        </div>
+      </div>
+
       <div class="input-box">
         <label>Additional Details:</label>
         <textarea
