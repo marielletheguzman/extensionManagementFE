@@ -82,11 +82,11 @@ img {
   transition: all 0.2s ease;
   background: #6b7280;
 }
-/Responsive/ @media screen and (max-width: 500px) {
-  .form .column {
+@media screen and (max-width: 500px) {
+.form .column {
     flex-wrap: wrap;
   }
-  .form :where(.gender-option, .gender) {
+.form :where(.gender-option, .gender) {
     row-gap: 15px;
   }
 }

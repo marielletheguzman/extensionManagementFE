@@ -89,6 +89,7 @@ export class AddProgramComponent {
       programTitle: ['', Validators.required],
       programLead: ['', Validators.required],
       place: ['', Validators.required],
+      lead_id: ['', Validators.required],
       startDate: ['', Validators.required],
       endDate: ['', Validators.required],
       additionalDetails: ['', Validators.required],
@@ -100,16 +101,19 @@ export class AddProgramComponent {
     const selectedUser = this.myForm.controls['programLead'].value;
     console.log(selectedUser);
     const programLead = selectedUser.fullName;
+    const lead_id = selectedUser.id || '';
+    console.log(lead_id);
     const data = {
       programTitle: this.myForm.value.programTitle,
       programLead: programLead,
+      lead_id: lead_id,
       place: this.myForm.value.place,
       startDate: this.myForm.value.startDate,
       endDate: this.myForm.value.endDate,
       additionalDetails: this.myForm.value.additionalDetails,
       partner: this.myForm.value.partner.partnerName,
     };
-
+    console.log(data);
     const headers = new HttpHeaders().set(
       'Authorization',
       `${localStorage.getItem('token')}`
