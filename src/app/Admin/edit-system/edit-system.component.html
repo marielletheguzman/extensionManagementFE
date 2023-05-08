@@ -1,4 +1,4 @@
-<p-toast></p-toast>
+<!-- <p-toast></p-toast>
 <link
   href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
   rel="stylesheet"
@@ -6,15 +6,14 @@
 <body>
   <section class="container">
     <header>Edit System Profile</header>
-    <br />
     <form
       action="#"
       class="form"
       [formGroup]="profileForm"
       (ngSubmit)="onSubmit()"
     >
-      <div class="input-box">
-        <div class="center-box">
+      <div class="column">
+        <div class="input-box">
           <img
             src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
               systemProfile.Logo
@@ -22,6 +21,8 @@
             style="height: 10em"
             alt=""
           /><br /><br />
+          <div class="buttonAd">
+          <label>Landing Page Image:</label><br />
           <button
             routerLink="/admin/edit-logo"
             type="”button”"
@@ -48,6 +49,39 @@
             ></span></button
           ><br />
         </div>
+        </div>
+        <div class="input-box">
+          <img
+            src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
+              systemProfile.MainImg
+            }}"
+            style="height: 10em"
+            alt=""
+          /><br /><br />
+          <div class="buttonAd">
+          <label>Landing Page Image:</label>
+          <button
+            routerLink="/admin/edit-img"
+            class="buttonx"
+            [style]="{
+              'background-color': systemProfile.ThemeColor + ' !important',
+              width: '175px',
+              height: '45px',
+              color: 'white'
+            }"
+          >
+            <span class="button_text">Edit Image</span>
+            <span class="button_icon"> <i class="bx bx-plus"></i></span></button
+          ><br />
+        </div>
+        </div>
+      </div>
+      <div class="input-box">
+        <label>Theme Color:&nbsp; </label>
+        <p-colorPicker
+          formControlName="ThemeColor"
+          value="ThemeColor"
+        ></p-colorPicker>
       </div>
       <div class="input-box">
         <label>Website Name:</label>
@@ -65,8 +99,8 @@
         <textarea
           class="field"
           name="w3review"
-          rows="10"
-          cols="86"
+          rows="7"
+          cols="66"
           class="form-control"
           formControlName="Description"
           required
@@ -74,8 +108,64 @@
         </textarea>
       </div>
 
-      <div class="column">
-        <div class="input-box">
+      <button
+        class="buttons"
+        [style]="{
+          'background-color': systemProfile.ThemeColor + ' !important',
+          width: '150px',
+          height: '45px',
+          color: 'white',
+          'margin-left': '40%'
+        }"
+      >
+        Submit
+      </button>
+    </form>
+  </section>
+</body> -->
+<link
+  href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+  rel="stylesheet"
+/>
+<body>
+  <section class="container">
+    <header>Edit System Profile</header>
+    <form
+      action="#"
+      class="form"
+      [formGroup]="profileForm"
+      (ngSubmit)="onSubmit()"
+    >
+      <div class="input-box">
+        <div class="image-wrapper">
+          <img
+            src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
+              systemProfile.Logo
+            }}"
+            style="height: 10em"
+            alt=""
+          />
+          <div class="buttonAd">
+            <label>Landing Page Image:</label><br />
+            <button
+              routerLink="/admin/edit-logo"
+              type="button"
+              class="buttonp"
+              [style]="{
+                'background-color': systemProfile.ThemeColor + ' !important',
+                width: '163px',
+                height: '45px',
+                color: 'white'
+              }"
+            >
+              <span class="button_text">Edit Logo</span>
+              <span class="button_icon"> <i class="bx bx-plus"></i></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="input-box">
+        <div class="image-wrapper">
           <img
             src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
               systemProfile.MainImg
@@ -88,25 +178,14 @@
             routerLink="/admin/edit-img"
             class="buttonx"
             [style]="{
-              'background-color': 'white',
+              'background-color': systemProfile.ThemeColor + ' !important',
+              width: '175px',
               height: '45px',
-              color: 'white',
-              border: '2px solid' + systemProfile.ThemeColor
+              color: 'white'
             }"
           >
-            <span
-              class="button_text"
-              [style]="{ color: systemProfile.ThemeColor }"
-              >Edit Image</span
-            >
-
-            <span
-              class="button_icon"
-              [style]="{
-            'background-color': systemProfile.ThemeColor,}"
-            >
-              <i class="bx bx-plus"></i
-            ></span></button
+            <span class="button_text">Edit Image</span>
+            <span class="button_icon"> <i class="bx bx-plus"></i></span></button
           ><br />
         </div>
         <div class="input-box">
@@ -117,7 +196,6 @@
           ></p-colorPicker>
         </div>
       </div>
-
       <button
         class="buttons"
         [style]="{
@@ -125,7 +203,9 @@
           width: '150px',
           height: '45px',
           color: 'white',
-          'margin-left': '40%'
+          'margin-left': 'auto',
+          'margin-right': 'auto',
+          display: 'block'
         }"
       >
         Submit
