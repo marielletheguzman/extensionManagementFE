@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
-import { homepage } from './homepage-data';
-import { LandingService } from './landing.service';
+import { LandingService } from '../landing-page/landing.service';
 import { HttpClient } from '@angular/common/http';
 import { PrimeNGConfig } from 'primeng/api';
-import { CarouselModule } from 'primeng/carousel';
+
 @Component({
-  selector: 'app-landing-page',
-  templateUrl: './landing-page.component.html',
-  styleUrls: ['./landing-page.component.css'],
+  selector: 'app-loading-screen',
+  templateUrl: './loading-screen.component.html',
+  styleUrls: ['./loading-screen.component.css'],
 })
-export class LandingPageComponent {
+export class LoadingScreenComponent {
   systemProfile = {
     Logo: '',
     WebsiteName: '',
@@ -18,18 +17,17 @@ export class LandingPageComponent {
     MainImg: '',
   };
   partners!: any[];
-  isLoading = false;
+
   constructor(
     private landingService: LandingService,
     private http: HttpClient,
     private primengConfig: PrimeNGConfig
   ) {}
 
-  alpha = 0.04;
+  alpha = 1;
   hex = this.systemProfile.ThemeColor;
 
   ngOnInit() {
-    this.isLoading = true;
     this.landingService.getSystemProfile().subscribe((data: any) => {
       this.systemProfile = data;
       console.log(this.systemProfile);
@@ -42,7 +40,6 @@ export class LandingPageComponent {
         this.partners = data.partners;
         console.log(data);
       });
-    this.isLoading = false;
   }
 
   hexToRgbA(hex: string, alpha: number) {

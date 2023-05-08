@@ -4,62 +4,65 @@
     rel="stylesheet"
   />
 </head>
-<body>
-      <div
-        [ngStyle]="{
-          backgroundImage:
-            'url(assets/placeholder_templates/bg.jpg)'
+<body style="background-color: black">
+  <div
+    [ngStyle]="{
+      backgroundImage:
+        'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(http://localhost/extensionManagementRestAPI/assets/adminProfile/' +
+        systemProfile.MainImg +
+        ')',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover'
+    }"
+    class="adjustWidth"
+  >
+    <p-toast></p-toast>
+    <div class="container">
+      <div class="Midpart">
+        <br /><br /><br /><br />
 
-        }"
-        class="adjustWidth"
-      >
-  <p-toast></p-toast>
-  <div class="container">
-    <div class="Midpart">
-      <br /><br /><br /><br />
-
-      <div class="loginpage">
-        <br /><br />
-        <img
-          src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
-            systemProfile.Logo
-          }}"
-          alt=""
-          class="companyLogo"
-          style="height: 100px; width: 100px"
-        />
-
-        <form [formGroup]="formGroup" (ngSubmit)="loginProcess()">
-          <h1>User Login</h1>
-          <hr />
-
-          <!-- <p class="desc">as User</p> -->
-          <br />
-          <input
-            type="text"
-            pInputText
-            formControlName="email"
-            placeholder="Email Address"
+        <div class="loginpage">
+          <br /><br />
+          <img
+            src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
+              systemProfile.Logo
+            }}"
+            alt=""
+            class="companyLogo"
+            style="height: 100px; width: 100px"
           />
-          <p-password
-            type="password"
-            placeholder="Password"
-            id="password"
-            formControlName="password"
-            [toggleMask]="true"
-            [style]="{ width: '380px', height: '60px', borderRadius: '20px' }"
-            [inputStyle]="{ width: '100%', borderRadius: '3px' }"
-          ></p-password>
-          <br />
 
-          <!-- <a href="#"><input type="submit" /></a> -->
-          <button style="background-color: {{ systemProfile.ThemeColor }}">
-            Submit
-          </button>
-          <br />
-          <p><a href="#" routerLink="/forgot">Forgot Password ?</a></p>
-        </form>
-        <!-- <div class="carousel">
+          <form [formGroup]="formGroup" (ngSubmit)="loginProcess()">
+            <h1 style="color: black">User Login</h1>
+            <hr />
+
+            <!-- <p class="desc">as User</p> -->
+            <br />
+            <input
+              type="text"
+              pInputText
+              formControlName="email"
+              placeholder="Email Address"
+            />
+            <p-password
+              type="password"
+              placeholder="Password"
+              id="password"
+              formControlName="password"
+              [toggleMask]="true"
+              [style]="{ width: '380px', height: '60px', borderRadius: '20px' }"
+              [inputStyle]="{ width: '100%', borderRadius: '3px' }"
+            ></p-password>
+            <br />
+
+            <!-- <a href="#"><input type="submit" /></a> -->
+            <button style="background-color: {{ systemProfile.ThemeColor }}">
+              Submit
+            </button>
+            <br />
+            <p><a href="#" routerLink="/forgot">Forgot Password ?</a></p>
+          </form>
+          <!-- <div class="carousel">
           <div class="images-wrapper">
             <img
               src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
@@ -71,11 +74,10 @@
             />
           </div>
         </div> -->
-        <br /><br />
+          <br /><br />
+        </div>
       </div>
     </div>
-
-  </div>
   </div>
   <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 </body>

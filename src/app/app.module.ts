@@ -79,6 +79,7 @@ import { ForgotComponent } from './User/forgot/forgot.component';
 import { ExpiredProgramsComponent } from './User/expired-programs/expired-programs.component';
 import { ResetPasswordComponent } from './User/reset-password/reset-password.component';
 import { LeadingProgramComponent } from './User/leading-program/leading-program.component';
+import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
 // import { EditWebsiteComponent } from './Admin/edit-website/edit-website.component';
 
 const admins: Routes = [
@@ -227,6 +228,7 @@ const admin: Routes = [
 ];
 const user: Routes = [
   { path: '', component: LandingPageComponent },
+  { path: 'load', component: LoadingScreenComponent },
   { path: 'forgot', component: ForgotComponent },
   { path: 'reset', component: ResetPasswordComponent },
   { path: 'registration', component: RegistrationUserComponent }, //@mich button
@@ -311,6 +313,7 @@ const user: Routes = [
     ExpiredProgramsComponent,
     ResetPasswordComponent,
     LeadingProgramComponent,
+    LoadingScreenComponent,
     // EditWebsiteComponent,
   ],
   imports: [

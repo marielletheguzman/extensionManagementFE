@@ -27,14 +27,25 @@
             type="”button”"
             class="buttonp"
             [style]="{
-              'background-color': systemProfile.ThemeColor + ' !important',
-              width: '163px',
+              'background-color': 'white',
               height: '45px',
-              color: 'white'
+              color: 'white',
+              border: '2px solid' + systemProfile.ThemeColor
             }"
           >
-            <span class="button_text">Edit Logo</span>
-            <span class="button_icon"> <i class="bx bx-plus"></i></span></button
+            <span
+              class="button_text"
+              [style]="{ color: systemProfile.ThemeColor }"
+              >Edit Logo</span
+            >
+
+            <span
+              class="button_icon"
+              [style]="{
+            'background-color': systemProfile.ThemeColor,}"
+            >
+              <i class="bx bx-plus"></i
+            ></span></button
           ><br />
         </div>
       </div>
@@ -77,14 +88,25 @@
             routerLink="/admin/edit-img"
             class="buttonx"
             [style]="{
-              'background-color': systemProfile.ThemeColor + ' !important',
-              width: '175px',
+              'background-color': 'white',
               height: '45px',
-              color: 'white'
+              color: 'white',
+              border: '2px solid' + systemProfile.ThemeColor
             }"
           >
-            <span class="button_text">Edit Image</span>
-            <span class="button_icon"> <i class="bx bx-plus"></i></span></button
+            <span
+              class="button_text"
+              [style]="{ color: systemProfile.ThemeColor }"
+              >Edit Image</span
+            >
+
+            <span
+              class="button_icon"
+              [style]="{
+            'background-color': systemProfile.ThemeColor,}"
+            >
+              <i class="bx bx-plus"></i
+            ></span></button
           ><br />
         </div>
         <div class="input-box">

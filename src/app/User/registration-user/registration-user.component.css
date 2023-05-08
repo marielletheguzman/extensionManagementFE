@@ -15,6 +15,16 @@ body {
   margin-left: 5%;
   align-items: center;
 }
+.adjustWidth {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .container {
   position: relative;
   max-width: 800px;
@@ -32,7 +42,6 @@ h1 {
 }
 #adjust {
   margin-bottom: 10px;
-
 }
 .form {
   height: auto;

@@ -91,7 +91,7 @@
             &nbsp;&nbsp;
             <h1>Extension Partner</h1>
             <br />
-            <p>&nbsp;&nbsp;&nbsp;(Less than 30 days left)</p>
+            <p>&nbsp;&nbsp;&nbsp;(MOA Less than 30 days left)</p>
             <br />
           </div>
 
@@ -103,7 +103,8 @@
             [rows]="5"
             [rowsPerPageOptions]="[5, 10, 15, 20, 30, 50, 75, 100]"
             [globalFilterFields]="[
-              'extensionPartner',
+              'id',
+              'partnerName',
               'partnerAddress',
               'partnerContactPerson',
               'place',
@@ -111,39 +112,58 @@
               'partnerEndDate'
             ]"
             styleClass="p-datatable-gridlines"
-            [resizableColumns]="true"
-            [autoLayout]="true"
             class="tbl"
           >
             <ng-template pTemplate="header">
               <tr>
-                <th pSortableColumn="extensionPartner" style="width: 16%">
-                  Extension Partner <p-sortIcon field="code"></p-sortIcon>
+                <th>Logo</th>
+                <th pSortableColumn="id" style="width: 20%">
+                  Extension Partner
+                  <!-- <p-sortIcon field="id"></p-sortIcon> -->
                 </th>
-                <th pSortableColumn="partnerAddress" style="width: 16%">
-                  Address<p-sortIcon field="name"></p-sortIcon>
+                <th pSortableColumn="partnerAddress" style="width: 20%">
+                  Address
+                  <!-- <p-sortIcon field="partnerAddress"></p-sortIcon> -->
                 </th>
                 <th pSortableColumn="partnerContactPerson" style="width: 16%">
                   Contact Person <p-sortIcon field="category"></p-sortIcon>
                 </th>
 
                 <th pSortableColumn="extensionPartner" style="width: 16%">
-                  Contact Number <p-sortIcon field="price"></p-sortIcon>
+                  Contact Number
+                  <!-- <p-sortIcon field="price"></p-sortIcon> -->
                 </th>
-                <th pSortableColumn="partnerStartDate" style="width: 16%">
-                  Start Date <p-sortIcon field="price"></p-sortIcon>
+                <th pSortableColumn="partnerStartDate" style="width: 10%">
+                  Start Date
+                  <!-- <p-sortIcon field="price"></p-sortIcon> -->
                 </th>
-                <th pSortableColumn="partnerEndDate" style="width: 16%">
-                  End Date <p-sortIcon field="price"></p-sortIcon>
+                <th pSortableColumn="partnerEndDate" style="width: 8%">
+                  End Date
+                  <!-- <p-sortIcon field="price"></p-sortIcon> -->
                 </th>
                 <th pSortableColumn="viewDetails" style="width: 16%">
-                  View Details <p-sortIcon field="price"></p-sortIcon>
+                  View Details
+                  <!-- <p-sortIcon field="price"></p-sortIcon> -->
                 </th>
               </tr>
             </ng-template>
             <th *ngFor="let obj of dashboardDetails.partners"></th>
             <ng-template pTemplate="body" let-details>
               <tr>
+                <td>
+                  <img
+                    src="http://localhost/extensionManagementRestAPI/assets/extensionProfile/{{
+                      details.partnerLogo
+                    }}"
+                    alt=""
+                    style="
+                      height: 80px;
+                      width: 80px;
+                      border-radius: 100%;
+                      object-fit: cover;
+                    "
+                  />
+                </td>
                 <td>{{ details.partnerName }}</td>
 
                 <td>{{ details.partnerAddress }}</td>

@@ -18,7 +18,7 @@
       class="searchField"
     />
     <h1>
-      Ongoing Extension Partners: &nbsp;
+      Ongoing MOA Extension Partners: &nbsp;
       <span> {{ onGoingPartners.count }} </span>
     </h1>
     <br />
@@ -65,7 +65,6 @@
         'partnerEndDate'
       ]"
       styleClass="p-datatable-gridlines"
-      [resizableColumns]="true"
       [autoLayout]="true"
       class="tbl"
     >
@@ -81,7 +80,7 @@
           </th>
           <th
             pSortableColumn="partnerAddress"
-            style="width: 16%"
+            style="width: 30%"
             [ngStyle]="{ 'text-align': 'center' }"
           >
             Extension Address <p-sortIcon field="category"></p-sortIcon>
@@ -95,7 +94,7 @@
           </th>
           <th
             pSortableColumn="partnerContactNumber"
-            style="width: 16%"
+            style="width: 13%"
             [ngStyle]="{ 'text-align': 'center' }"
           >
             Contact Number <p-sortIcon field="category"></p-sortIcon>
@@ -103,17 +102,17 @@
 
           <th
             pSortableColumn="partnerStartDate"
-            style="width: 16%"
+            style="width: 10%"
             [ngStyle]="{ 'text-align': 'center' }"
           >
             Start Date <p-sortIcon field="price"></p-sortIcon>
           </th>
           <th
             pSortableColumn="partnerEndDate"
-            style="width: 5%"
+            style="width: 10%"
             [ngStyle]="{ 'text-align': 'center' }"
           >
-            End Date
+            End Date<p-sortIcon field="price"></p-sortIcon>
           </th>
           <th style="width: 5%" [ngStyle]="{ 'text-align': 'center' }">
             Action

@@ -1,0 +1,26 @@
+<body
+  style="background-color:
+    {{ hexToRgbA(systemProfile.ThemeColor, alpha) }};
+  height: 100vh;
+  margin: 0;
+  padding: 0; "
+>
+  <div class="companyLogoContainer">
+    <img
+      src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
+        systemProfile.Logo
+      }}"
+      alt=""
+      class="companyLogo"
+      style="width: 150px"
+    />
+    <br />
+    <p-progressSpinner
+      class="spinner"
+      styleClass="w-4rem h-4rem"
+      strokeWidth="3"
+      animationDuration=".9s"
+      style="margin-left: 30px"
+    ></p-progressSpinner>
+  </div>
+</body>

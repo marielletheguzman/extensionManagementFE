@@ -497,7 +497,7 @@ nav.close ~ .dashboard .top {
   cursor: pointer;
 }
 .button {
-  color: white;
+  color: rgb(58, 75, 210);
   width: 100px;
   height: 40px;
   border-radius: 6px;
