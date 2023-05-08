@@ -31,6 +31,10 @@ import { ImageModule } from 'primeng/image';
 import { CalendarModule } from 'primeng/calendar';
 import { ColorPickerModule } from 'primeng/colorpicker';
 import { CarouselModule } from 'primeng/carousel';
+import { MenuItem } from 'primeng/api';
+import { Table } from 'primeng/table';
+import { CommonModule } from '@angular/common';
+import { TagModule } from 'primeng/tag';
 
 import { ViewAssignedProgramsComponent } from './User/view-assigned-programs/view-assigned-programs.component';
 import { ManageExtensionComponent } from './Admin/manage-extension/manage-extension.component';
@@ -73,6 +77,7 @@ import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 import { ForgotComponent } from './User/forgot/forgot.component';
 import { ExpiredProgramsComponent } from './User/expired-programs/expired-programs.component';
 import { ResetPasswordComponent } from './User/reset-password/reset-password.component';
+import { LeadingProgramComponent } from './User/leading-program/leading-program.component';
 // import { EditWebsiteComponent } from './Admin/edit-website/edit-website.component';
 
 const admins: Routes = [
@@ -235,6 +240,11 @@ const user: Routes = [
   // canActivate: [UserGuard]
   { path: 'list', component: ShowListComponent, canActivate: [UserGuard] }, //fix bg
   {
+    path: 'leading-program',
+    component: LeadingProgramComponent,
+    canActivate: [UserGuard],
+  }, //fix bg
+  {
     path: 'list-expired',
     component: ExpiredProgramsComponent,
     canActivate: [UserGuard],
@@ -299,6 +309,7 @@ const user: Routes = [
     ForgotComponent,
     ExpiredProgramsComponent,
     ResetPasswordComponent,
+    LeadingProgramComponent,
     // EditWebsiteComponent,
   ],
   imports: [
@@ -313,6 +324,7 @@ const user: Routes = [
     PasswordModule,
     InputTextModule,
     MessagesModule,
+    TagModule,
     ToastModule,
     FormsModule,
     TableModule,
@@ -322,6 +334,7 @@ const user: Routes = [
     DialogModule,
     ImageModule,
     ProgressSpinnerModule,
+    CommonModule,
     CalendarModule,
     CarouselModule,
     ColorPickerModule,

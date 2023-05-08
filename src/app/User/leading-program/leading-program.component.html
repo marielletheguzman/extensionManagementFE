@@ -1,0 +1,151 @@
+<body
+  style="width:100%;display: inline-block; background-color: {{
+    hexToRgbA(systemProfile.ThemeColor, alpha)
+  }}; "
+>
+  <app-top-nav></app-top-nav>
+  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+  />
+  <div class="card">
+    <h1>Leading Programs</h1>
+    <br />
+    <input
+      pInputText
+      type="text"
+      (input)="myTab.filterGlobal($any($event.target).value, 'contains')"
+      placeholder="Search"
+      class="searchField"
+    />
+    <p-dropdown
+      [options]="['Active', 'Expired', 'Any']"
+      [(ngModel)]="selectedOption"
+      (onChange)="filterByOption()"
+      placeholder="Any"
+      [showClear]="true"
+    ></p-dropdown>
+    <br /><br /><br />
+    <!-- [filteredValue]="filteredPrograms" -->
+    <p-table
+      #myTab
+      [value]="programs"
+      [tableStyle]="{ 'min-width': '60rem' }"
+      [paginator]="true"
+      [rows]="5"
+      [rowsPerPageOptions]="[5, 10, 15, 20, 30, 50, 75, 100]"
+      [globalFilterFields]="[
+        'programTitle',
+        'partner',
+        'programLead',
+        'place',
+        'startDate',
+        'endDate'
+      ]"
+      styleClass="p-datatable-gridlines"
+      [resizableColumns]="true"
+      [autoLayout]="true"
+      class="tbl"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th>
+            <p-dropdown
+              class="my-dropdown"
+              [options]="['Active', 'Expired', 'Any']"
+              [(ngModel)]="selectedOption"
+              (onChange)="filterByOption()"
+              placeholder="Any"
+              [showClear]="true"
+            ></p-dropdown>
+          </th>
+          <th pSortableColumn="id" style="width: 29%">
+            Program Title <p-sortIcon field="code"></p-sortIcon>
+          </th>
+          <th pSortableColumn="programLead" style="width: 16%">
+            Program Lead<p-sortIcon field="name"></p-sortIcon>
+          </th>
+          <th pSortableColumn="place" style="width: 16%">
+            Place <p-sortIcon field="category"></p-sortIcon>
+          </th>
+
+          <th pSortableColumn="extensionPartner" style="width: 16%">
+            Extension Partner <p-sortIcon field="price"></p-sortIcon>
+          </th>
+
+          <!-- <th style="z-index: 1000">
+            <p-columnFilter
+              field="status"
+              matchMode="equals"
+              [showMenu]="false"
+            >
+              <ng-template
+                pTemplate="filter"
+                let-value
+                let-filter="filterCallback"
+              >
+                <p-dropdown
+                  [(ngModel)]="selectedStatus"
+                  [options]="statuses"
+                  placeholder="Any"
+                  [showClear]="true"
+                  (onChange)="myTab.filterGlobal($event.value, 'contains')"
+                >
+                  <ng-template let-option pTemplate="item"> </ng-template>
+                </p-dropdown>
+              </ng-template>
+            </p-columnFilter>
+          </th> -->
+          <!-- <th pSortableColumn="extensionPartner" style="width: 16%">
+            Status <p-sortIcon field="price"></p-sortIcon>
+          </th> -->
+          <th pSortableColumn="startDate" style="width: 16%">
+            Start Date <p-sortIcon field="price"></p-sortIcon>
+          </th>
+          <th pSortableColumn="endDate" style="width: 16%">
+            End Date <p-sortIcon field="price"></p-sortIcon>
+          </th>
+          <th pSortableColumn="viewDetails" style="width: 8%">
+            View Details <p-sortIcon field="price"></p-sortIcon>
+          </th>
+        </tr>
+      </ng-template>
+      <th *ngFor="let obj of programs"></th>
+      <ng-template pTemplate="body" let-program>
+        <tr>
+          <td>
+            <p-tag
+              value="{{ program.status }} "
+              [severity]="getSeverity(program.status)"
+              [rounded]="true"
+            ></p-tag>
+          </td>
+          <td>{{ program.programTitle }}</td>
+          <td>{{ program.programLead }}</td>
+          <td>{{ program.place }}</td>
+          <td>{{ program.partner }}</td>
+
+          <td>{{ program.startDate }}</td>
+          <td>{{ program.endDate }}</td>
+          <td>
+            <button
+              class="btn"
+              label="View"
+              (click)="onView(program.id)"
+              [style]="{
+                'background-color': systemProfile.ThemeColor + ' !important'
+              }"
+            >
+              View
+            </button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  <br /><br /><br /><br /><br /><br />
+  <br /><br /><br /><br /><br /><br />
+  <br /><br /><br /><br /><br /><br />
+  <br />
+</body>
