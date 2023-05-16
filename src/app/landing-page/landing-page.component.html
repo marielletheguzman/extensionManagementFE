@@ -31,7 +31,7 @@
   integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
   crossorigin="anonymous"
 />
-
+<br /><br />
 <!-- content's starts here -->
 
 <!-- <div style="width: 100%; height: auto;background-color: {{hexToRgbA(hex, alpha)}}" >
@@ -45,38 +45,45 @@
 </div>
 </div> -->
 
-<div class="content-container" style="display: inline-block">
-  <div class="companyImage" style="z-index: -1000">
-    <img
-      src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
-        systemProfile.MainImg
-      }}"
-      alt=""
-      style="
-        max-width: 100%;
-        box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px,
-          rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px,
-          rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px,
-          rgba(0, 0, 0, 0.07) 0px 32px 64px;
-      "
-      class="companyImage"
-    />
-  </div>
-  <div class="companyContent">
-    <!-- change the url for this -->
-    <h1>
-      <b>{{ systemProfile.WebsiteName }}</b>
-    </h1>
-    <br />
-    <p>{{ systemProfile.Description }}</p>
-  </div>
+<!-- <div class="content-container" style="display: inline-block"> -->
+<br />
+<div
+  class="companyImage"
+  style="z-index: -1000; margin-left: 10%"
+  class="img-fluid"
+  alt="Responsive image"
+>
+  <img
+    src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
+      systemProfile.MainImg
+    }}"
+    alt=""
+    style="
+      max-width: 100%;
+      box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px,
+        rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px,
+        rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px,
+        rgba(0, 0, 0, 0.07) 0px 32px 64px;
+    "
+    class="companyImage companyContent"
+  />
 </div>
+<br />
+<div style="margin-top: 5%; margin-left: 10%; width: 70%; text-align: justify">
+  <!-- change the url for this -->
+  <h1>
+    <b>{{ systemProfile.WebsiteName }}</b>
+  </h1>
+  <br />
+  <p>{{ systemProfile.Description }}</p>
+</div>
+<!-- </div> --><br />
 <div
   style="width: 100%; background-color: {{
     hexToRgbA(systemProfile.ThemeColor, alpha)
   }}"
 >
-  <div style="width: 50%; margin: 0 auto">
+  <div style="width: 50%; margin: 0 auto; margin-top: 12%">
     <br /><br />
     <h4 style="margin: 0 auto; text-align: center">Extension Partners:</h4>
     <br /><br />
@@ -108,7 +115,68 @@
     <br />
   </div>
 </div>
+<br /><br />
+<br />
+<h1 style="text-align: center; font-weight: 600">Meet our Team</h1>
 
+<!-- <div
+  class="profile"
+  style="
+    flex-wrap: wrap;
+    background-color: rgb(255, 255, 255);
+    width: auto;
+    width: fit-content;
+    height: fit-content;
+  "
+>
+  <img src="../../assets/profiles/sample2.png" class="profilePictures" />
+  <h4 class="name">Marielle De Guzman</h4>
+  <p>Fullstack Developer | UX Designer</p>
+  <br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
+    src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+    alt=""
+    style="width: 30px"
+  />&nbsp;&nbsp;
+  <img
+    src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+    alt=""
+    style="width: 30px"
+  />&nbsp;&nbsp;
+  <img
+    src="https://workspace.google.com/static/img/products/png/gmail.png?cache=f50ecb6"
+    alt=""
+    style="width: 30px"
+  />
+</div> -->
+<!-- [numVisible]="3" [numScroll]="1" [responsiveOptions]="responsiveOptions"> -->
+<br /><br />
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-md-auto">
+      <a
+        target="_blank"
+        href="https://www.linkedin.com/in/michelle-ruth-mercado-50a8b9260/"
+        ><img src="../../assets/profiles/MichelleMercado1.png" class="profile"
+      /></a>
+      <br /><br />
+    </div>
+    <div class="col-md-auto">
+      <a target="_blank" href="https://www.linkedin.com/in/marielletheguzman">
+        <img src="../../assets/profiles/MarielleD.png" class="profile"
+      /></a>
+    </div>
+    <div class="col-md-auto">
+      <a
+        target="_blank"
+        href="https://www.linkedin.com/in/mark-joseph-yalong-748b70149/"
+      >
+        <img src="../../assets/profiles/editedYalong.JPG" class="profile"
+      /></a>
+    </div>
+  </div>
+</div>
+<br />
 <div
   id="footer"
   class="content-container footer"
@@ -119,20 +187,21 @@
   <p style="color: white; text-align: center">
     © 2023 Uglyz | All rights reserved
   </p>
+
+  <!-- Bootstrap -->
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"
+  ></script>
 </div>
-<!-- Bootstrap -->
-<script
-  src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-  crossorigin="anonymous"
-></script>
-<script
-  src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-  crossorigin="anonymous"
-></script>
-<script
-  src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-  crossorigin="anonymous"
-></script>

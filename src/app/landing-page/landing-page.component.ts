@@ -17,6 +17,34 @@ export class LandingPageComponent {
     Description: '',
     MainImg: '',
   };
+  images = [
+    {
+      src: '../../assets/profiles/mercado1.jpg',
+      alt: 'Image 1',
+      text: 'This is the first image',
+    },
+    {
+      src: '../../assets/profiles/mercado1.jpg',
+      alt: 'Image 2',
+      text: 'This is the second image',
+    },
+    {
+      src: '../../assets/profiles/mercado1.jpg',
+      alt: 'Image 3',
+      text: 'This is the third image',
+    },
+  ];
+  getVisibleItems(): number {
+    const screenWidth = window.innerWidth;
+    if (screenWidth <= 576) {
+      return 1; // Show 1 item on small screens (e.g., mobile)
+    } else if (screenWidth <= 992) {
+      return 2; // Show 2 items on medium screens (e.g., tablets)
+    } else {
+      return 3; // Show 3 items on larger screens (e.g., desktops)
+    }
+  }
+
   partners!: any[];
   isLoading = false;
   constructor(
@@ -27,13 +55,31 @@ export class LandingPageComponent {
 
   alpha = 0.04;
   hex = this.systemProfile.ThemeColor;
-
+  responsiveOptions: any[] | undefined;
   ngOnInit() {
     this.isLoading = true;
     this.landingService.getSystemProfile().subscribe((data: any) => {
       this.systemProfile = data;
       console.log(this.systemProfile);
     });
+
+    this.responsiveOptions = [
+      {
+        breakpoint: '1400px',
+        numVisible: 3,
+        numScroll: 3,
+      },
+      {
+        breakpoint: '1220px',
+        numVisible: 2,
+        numScroll: 2,
+      },
+      {
+        breakpoint: '1100px',
+        numVisible: 1,
+        numScroll: 1,
+      },
+    ];
     this.http
       .get(
         `http://localhost/extensionManagementRestAPI/controllers/admin/show_ongoing_for_landing.php`

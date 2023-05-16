@@ -131,7 +131,7 @@ export class AddProgramComponent {
             summary: 'Success',
             detail: 'Program Added',
           });
-          timer(200)
+          timer(700)
             .toPromise()
             .then((done) => {
               this.router.navigate(['/admin/list-member']);

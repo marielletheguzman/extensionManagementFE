@@ -9,64 +9,76 @@
     hexToRgbA(systemProfile.ThemeColor, alpha)
   }}; height:100%"
 >
-  <p-toast></p-toast>
-  <div class="container">
-    <div class="Midpart">
-      <br /><br /><br /><br />
-      <div class="loginpage">
-        <br /><br />
-        <img
-          src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
-            systemProfile.Logo
-          }}"
-          alt=""
-          class="companyLogo"
-          style="height: 100px; width: 100px"
-        />
-        <br />
-
-        <form [formGroup]="forgot" (click)="resetPass()">
-          <h1>Forgot Password</h1>
-          <hr />
-
-          <!-- <p class="desc">as User</p> -->
-          <br />
-          <input
-            type="text"
-            pInputText
-            formControlName="email"
-            placeholder="Email"
+  <div
+    [ngStyle]="{
+      backgroundImage:
+        'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(http://localhost/extensionManagementRestAPI/assets/adminProfile/' +
+        systemProfile.MainImg +
+        ')',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover'
+    }"
+    class="adjustWidth"
+  >
+    <p-toast></p-toast>
+    <div class="container">
+      <div class="Midpart">
+        <br /><br /><br /><br />
+        <div class="loginpage">
+          <br /><br />
+          <img
+            src="http://localhost/extensionManagementRestAPI/assets/adminProfile/{{
+              systemProfile.Logo
+            }}"
+            alt=""
+            class="companyLogo"
+            style="height: 100px; width: 100px"
           />
-
           <br />
 
-          <!-- <a href="#"><input type="submit" /></a> -->
-          <button
-            style="background-color: {{ systemProfile.ThemeColor }} "
-            [disabled]="loading"
-            [ngStyle]="{
-              'background-color': loading
-                ? hexToRgbA(systemProfile.ThemeColor, 0.3)
-                : systemProfile.ThemeColor,
-              cursor: loading ? 'default' : 'pointer'
-            }"
-          >
-            <p *ngIf="!loading">Submit</p>
-            <p-progressSpinner
-              styleClass="w-2rem h-2rem"
-              strokeWidth="5"
-              animationDuration=".8s"
-              [style]="{
-                'margin-left': '-10px',
-                height: '50px',
-                'margin-top': '4px'
+          <form [formGroup]="forgot" (click)="resetPass()">
+            <h1>Forgot Password</h1>
+            <hr />
+
+            <!-- <p class="desc">as User</p> -->
+            <br />
+            <input
+              type="text"
+              pInputText
+              formControlName="email"
+              placeholder="Email"
+            />
+
+            <br />
+
+            <!-- <a href="#"><input type="submit" /></a> -->
+            <button
+              style="background-color: {{ systemProfile.ThemeColor }} "
+              [disabled]="loading"
+              [ngStyle]="{
+                'background-color': loading
+                  ? hexToRgbA(systemProfile.ThemeColor, 0.3)
+                  : systemProfile.ThemeColor,
+                cursor: loading ? 'default' : 'pointer'
               }"
-              *ngIf="loading"
-            ></p-progressSpinner>
-          </button>
-          <br />
-        </form>
-        <br /><br />
+            >
+              <p *ngIf="!loading">Submit</p>
+              <p-progressSpinner
+                styleClass="w-2rem h-2rem"
+                strokeWidth="5"
+                animationDuration=".8s"
+                [style]="{
+                  'margin-left': '-10px',
+                  height: '50px',
+                  'margin-top': '4px'
+                }"
+                *ngIf="loading"
+              ></p-progressSpinner>
+            </button>
+            <br />
+          </form>
+          <br /><br />
+        </div>
       </div>
     </div>
   </div>

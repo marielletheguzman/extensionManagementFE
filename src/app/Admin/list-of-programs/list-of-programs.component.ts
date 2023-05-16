@@ -103,7 +103,7 @@ export class ListOfProgramsComponent {
     this.selectedAccountId = id;
     this.confirmationService.confirm({
       message: `Are you sure that you want to continue?`,
-      header: 'Approve Account',
+      header: 'Delete Program',
       accept: () => {
         // Make an HTTP request to the backend API
         this.http
@@ -115,8 +115,8 @@ export class ListOfProgramsComponent {
             (response) => {
               this.messageService.add({
                 severity: 'success',
-                summary: 'Successfully Declined',
-                detail: 'Account Successfully Declined',
+                summary: 'Successful',
+                detail: 'Successfully Deleted',
               });
               timer(750)
                 .toPromise()
@@ -127,8 +127,8 @@ export class ListOfProgramsComponent {
             (error) => {
               this.messageService.add({
                 severity: 'success',
-                summary: 'Successfully Declined',
-                detail: 'Account Successfully Declined',
+                summary: 'Successful',
+                detail: 'Successfully Deleted',
               });
               timer(500)
                 .toPromise()
@@ -144,14 +144,14 @@ export class ListOfProgramsComponent {
             this.messageService.add({
               severity: 'warn',
               summary: 'Cancelled',
-              detail: 'You have cancelled declining account',
+              detail: 'You have cancelled deleting account',
             });
             break;
           case ConfirmEventType.CANCEL:
             this.messageService.add({
               severity: 'warn',
               summary: 'Cancelled',
-              detail: 'You have cancelled declining account',
+              detail: 'You have cancelled deleting account',
             });
             break;
         }

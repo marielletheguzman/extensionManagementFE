@@ -107,3 +107,13 @@ hr {
 p :hover {
   text-decoration: underline;
 }
+.adjustWidth {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

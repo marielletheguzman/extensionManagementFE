@@ -122,10 +122,11 @@ a {
 }
 .companyContent {
   transition: 0.4s;
-  width: 500px;
-  float: right;
+  width: 40%;
+  float: left;
+  margin-left: 10%;
   display: inline-block;
-  margin-top: 100px;
+  margin-top: 10%;
 }
 .companyContent h2 {
   font-size: 30px;
@@ -149,4 +150,41 @@ a {
   width: 100%;
   padding-top: 50px;
   padding-bottom: 50px;
+}
+.profilePictures {
+  width: 300px;
+  margin-left: 200px;
+}
+
+.profile {
+  /* border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px; */
+  border-radius: 20px;
+  height: 20em;
+  cursor: pointer;
+}
+.name {
+  font-weight: bold;
+}
+.bottom-left {
+  position: absolute;
+  bottom: -50px;
+  left: 16px;
+}
+img {
+  transition: transform 0.2s ease-in-out;
+  transform-origin: center;
+}
+
+img:hover {
+  transform: rotate(3deg) scale(1.1);
+}
+
+.footer {
+  margin-top: 20px;
+  transition: margin-top 0.2s ease-in-out;
+}
+
+img:hover ~ .footer {
+  margin-top: 40px;
 }

@@ -68,12 +68,14 @@
               <tr>
                 <th>Program Members:</th>
                 <th>Position:</th>
+                <th>Involvement:</th>
               </tr>
             </ng-template>
             <ng-template pTemplate="body" let-member>
               <tr>
                 <td>{{ member.user }}</td>
                 <td>{{ member.position }}</td>
+                <td>{{ member.involvement }}</td>
               </tr>
             </ng-template>
           </p-table>
@@ -82,7 +84,7 @@
             <ng-template pTemplate="header">
               <tr>
                 <th>Participants:</th>
-                <th>entity:</th>
+                <th>Entity:</th>
               </tr>
             </ng-template>
             <ng-template pTemplate="body" let-member>
